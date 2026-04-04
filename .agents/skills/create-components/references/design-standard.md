@@ -131,13 +131,10 @@ Default surface model:
 
 - Light surfaces with restrained borders.
 - Soft elevation for interactive controls and floating layers.
-- Shadows should support depth, not dominate it.
 
 Apply these rules:
 
-- Use borders to define components before reaching for heavy shadows.
-- Use subtle shadows on buttons, dropdowns, popovers, dialogs, and elevated cards.
-- Keep shadows tighter and cleaner than marketing-style shadows.
+- Use borders to define components.
 - Prefer one clear elevation language across the library.
 
 ## Radius and shape
@@ -158,7 +155,7 @@ Motion should confirm interaction, not perform for attention.
 Apply these rules:
 
 - Keep transitions short and purposeful.
-- Prefer opacity, color, shadow, and slight transform changes over elaborate choreography.
+- Prefer opacity, color, and slight transform changes over elaborate choreography.
 - Use motion to clarify hover, focus, expand, collapse, entry, and dismissal.
 - Respect reduced-motion expectations where relevant.
 
