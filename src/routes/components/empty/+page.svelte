@@ -197,8 +197,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.docs-shell {
@@ -217,11 +217,11 @@
 	.doc-section {
 		scroll-margin-top: 7rem;
 		padding: clamp(1.5rem, 3vw, 2rem) 0;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.docs-main > :last-child {
-		border-bottom: 1px solid #e2e8f0;
+		border-bottom: 1px solid var(--sprix-app-border);
 	}
 
 	.hero-card,
@@ -253,7 +253,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	h2,
@@ -261,7 +261,7 @@
 		margin: 0;
 		font-weight: 600;
 		letter-spacing: -0.02em;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	h2 {
@@ -279,7 +279,7 @@
 	.doc-entry__meta p {
 		margin: 0;
 		max-width: 42rem;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 		line-height: 1.7;
 	}
 
@@ -287,7 +287,7 @@
 		margin: 0;
 		max-width: 34rem;
 		text-align: inherit;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.action-row {
@@ -306,7 +306,7 @@
 	.doc-entry {
 		align-content: start;
 		padding: 1.5rem;
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.5rem;
 		background: linear-gradient(180deg, rgba(248, 250, 252, 0.88) 0%, rgba(255, 255, 255, 1) 100%);
 	}
@@ -329,7 +329,7 @@
 	.visual-chip-a {
 		top: 0.4rem;
 		left: 0.4rem;
-		background: #cbd5e1;
+		background: var(--sprix-app-border-strong);
 	}
 
 	.visual-chip-b {
@@ -343,16 +343,16 @@
 		gap: 0.45rem;
 		width: 4.5rem;
 		padding: 0.8rem 0.75rem;
-		border: 1px solid #cbd5e1;
+		border: 1px solid var(--sprix-app-border-strong);
 		border-radius: 1.1rem;
-		background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+		background: linear-gradient(180deg, var(--sprix-app-surface) 0%, #eff6ff 100%);
 		box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
 	}
 
 	.visual-bar {
 		height: 0.4rem;
 		border-radius: 999px;
-		background: #cbd5e1;
+		background: var(--sprix-app-border-strong);
 	}
 
 	.visual-bar-sm {

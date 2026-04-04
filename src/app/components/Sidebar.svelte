@@ -43,7 +43,7 @@
 	.docs-sidebar__card {
 		position: sticky;
 		top: 8.5rem;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 		padding-top: 1rem;
 	}
 
@@ -53,7 +53,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.docs-sidebar__list {
@@ -68,18 +68,18 @@
 		display: grid;
 		gap: 0.2rem;
 		padding: 0.9rem 0;
-		border-bottom: 1px solid #e2e8f0;
-		color: #334155;
+		border-bottom: 1px solid var(--sprix-app-border);
+		color: var(--sprix-app-text-muted);
 		text-decoration: none;
 		transition: color 150ms ease-out;
 	}
 
 	.docs-sidebar__link:hover {
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	small {
 		font-size: 0.75rem;
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 	}
 </style>

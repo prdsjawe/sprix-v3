@@ -37,8 +37,8 @@
 		position: sticky;
 		top: 0;
 		z-index: 20;
-		border-bottom: 1px solid #e2e8f0;
-		background: rgba(255, 255, 255, 0.96);
+		border-bottom: 1px solid var(--sprix-app-border);
+		background: var(--sprix-app-surface-elevated);
 	}
 
 	.docs-header__inner {
@@ -55,7 +55,7 @@
 		align-items: center;
 		gap: 0.5rem;
 		font-size: 0.875rem;
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 	}
 
 	.docs-header__home,
@@ -66,7 +66,7 @@
 
 	.docs-header__home:hover,
 	.docs-header__path:hover {
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.docs-header__sep {
@@ -89,20 +89,20 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	h1 {
 		font-size: clamp(1.8rem, 4vw, 2.7rem);
 		line-height: 0.96;
 		letter-spacing: -0.05em;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.docs-header__description {
 		max-width: 46rem;
 		font-size: 0.97rem;
 		line-height: 1.6;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 </style>

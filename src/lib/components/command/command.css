@@ -1,12 +1,14 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	--shadow-command: 0 32px 96px -44px rgb(15 23 42 / 0.46);
 }
 
 @layer components {
 	.cmd {
-		@apply m-auto w-[calc(100%-2rem)] overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white p-0 text-left text-slate-950;
+		@apply m-auto w-[calc(100%-2rem)] overflow-hidden rounded-[1.25rem] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 p-0 text-left text-slate-950 dark:text-slate-50;
 		box-shadow: var(--shadow-command);
 
 		&::backdrop {
@@ -50,13 +52,13 @@
 		}
 
 		.cmd-description {
-			@apply text-sm leading-6 text-slate-600;
+			@apply text-sm leading-6 text-slate-600 dark:text-slate-400;
 		}
 
 		.cmd-close,
 		.cmd-search-clear {
-			@apply inline-flex shrink-0 cursor-pointer items-center justify-center rounded-md bg-transparent text-slate-500 outline-none transition-[background-color,color,box-shadow] duration-150;
-			@apply hover:bg-slate-100 hover:text-slate-700 focus-visible:ring-2 focus-visible:ring-blue-200;
+			@apply inline-flex shrink-0 cursor-pointer items-center justify-center rounded-md bg-transparent text-slate-500 dark:text-slate-400 outline-none transition-[background-color,color,box-shadow] duration-150;
+			@apply hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-700 dark:hover:text-slate-300 focus-visible:ring-2 focus-visible:ring-blue-200 dark:focus-visible:ring-blue-500/35;
 
 			svg {
 				@apply h-4 w-4 fill-transparent stroke-current;
@@ -72,15 +74,15 @@
 		}
 
 		.cmd-search-row.cmd-search-row-divided {
-			@apply border-t border-b border-slate-200/80;
+			@apply border-t border-b border-slate-200/80 dark:border-slate-700/80;
 		}
 
 		.cmd-search-row.cmd-search-row-standalone {
-			@apply border-b border-slate-200/80;
+			@apply border-b border-slate-200/80 dark:border-slate-700/80;
 		}
 
 		.cmd-search-icon {
-			@apply flex h-5 w-5 shrink-0 items-center justify-center text-slate-400;
+			@apply flex h-5 w-5 shrink-0 items-center justify-center text-slate-400 dark:text-slate-500;
 
 			svg {
 				@apply h-4.5 w-4.5 fill-transparent stroke-current;
@@ -88,8 +90,8 @@
 		}
 
 		.cmd-search {
-			@apply min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-slate-950 outline-none;
-			@apply placeholder:text-slate-400;
+			@apply min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-slate-950 dark:text-slate-50 outline-none;
+			@apply placeholder:text-slate-400 dark:placeholder:text-slate-500;
 		}
 
 		.cmd-search-clear {
@@ -109,7 +111,7 @@
 		}
 
 		.cmd-group-label {
-			@apply px-2 text-[0.68rem] font-semibold tracking-[0.14em] text-slate-500 uppercase;
+			@apply px-2 text-[0.68rem] font-semibold tracking-[0.14em] text-slate-500 dark:text-slate-400 uppercase;
 		}
 
 		.cmd-group-items {
@@ -117,16 +119,16 @@
 		}
 
 		.cmd-item {
-			@apply grid grid-cols-[auto,minmax(0,1fr),auto] items-center gap-3 rounded-xl border border-transparent bg-transparent px-2.5 py-2.5 text-left text-slate-950 outline-none transition-[background-color,border-color,color,box-shadow] duration-150;
-			@apply hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-blue-200;
+			@apply grid grid-cols-[auto,minmax(0,1fr),auto] items-center gap-3 rounded-xl border border-transparent bg-transparent px-2.5 py-2.5 text-left text-slate-950 dark:text-slate-50 outline-none transition-[background-color,border-color,color,box-shadow] duration-150;
+			@apply hover:bg-slate-50 dark:hover:bg-slate-900 focus-visible:ring-2 focus-visible:ring-blue-200 dark:focus-visible:ring-blue-500/35;
 		}
 
 		.cmd-item.cmd-item-active {
-			@apply border-blue-200 bg-blue-50/80;
+			@apply border-blue-200 dark:border-blue-800/80 bg-blue-50/80 dark:bg-blue-950/80;
 		}
 
 		.cmd-item.cmd-item-selected:not(.cmd-item-active) {
-			@apply border-slate-200 bg-slate-50;
+			@apply border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900;
 		}
 
 		.cmd-item:disabled {
@@ -134,7 +136,7 @@
 		}
 
 		.cmd-item-icon {
-			@apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600;
+			@apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400;
 
 			svg {
 				@apply h-4.5 w-4.5 fill-transparent stroke-current;
@@ -154,11 +156,11 @@
 		}
 
 		.cmd-item-badge {
-			@apply inline-flex rounded-full bg-slate-100 px-2 py-0.5 text-[0.64rem] font-semibold tracking-[0.12em] text-slate-600 uppercase;
+			@apply inline-flex rounded-full bg-slate-100 dark:bg-slate-900 px-2 py-0.5 text-[0.64rem] font-semibold tracking-[0.12em] text-slate-600 dark:text-slate-400 uppercase;
 		}
 
 		.cmd-item-description {
-			@apply text-sm leading-6 text-slate-600;
+			@apply text-sm leading-6 text-slate-600 dark:text-slate-400;
 		}
 
 		.cmd-shortcuts {
@@ -166,23 +168,23 @@
 		}
 
 		.cmd-shortcut {
-			@apply inline-flex min-h-6 min-w-6 items-center justify-center rounded-md border border-slate-200 bg-white px-1.5 py-1 text-[0.68rem] font-semibold tracking-[0.08em] text-slate-500 uppercase;
+			@apply inline-flex min-h-6 min-w-6 items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 px-1.5 py-1 text-[0.68rem] font-semibold tracking-[0.08em] text-slate-500 dark:text-slate-400 uppercase;
 		}
 
 		.cmd-empty {
-			@apply grid gap-1 rounded-xl border border-dashed border-slate-200 bg-slate-50/80 px-4 py-8 text-center;
+			@apply grid gap-1 rounded-xl border border-dashed border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/80 px-4 py-8 text-center;
 		}
 
 		.cmd-empty-title {
-			@apply text-sm font-semibold tracking-tight text-slate-900;
+			@apply text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100;
 		}
 
 		.cmd-empty-description {
-			@apply text-sm leading-6 text-slate-600;
+			@apply text-sm leading-6 text-slate-600 dark:text-slate-400;
 		}
 
 		.cmd-footer {
-			@apply flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/80 bg-slate-50/88 px-4 py-3 sm:px-5;
+			@apply flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/80 dark:border-slate-700/80 bg-slate-50/88 dark:bg-slate-900/88 px-4 py-3 sm:px-5;
 		}
 
 		&.cmd-sm {

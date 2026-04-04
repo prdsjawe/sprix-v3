@@ -1,15 +1,17 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.acc {
 		@apply grid w-full;
 	}
 
 	.acc.acc-default {
-		@apply border-b border-slate-200;
+		@apply border-b border-slate-200 dark:border-slate-700;
 
 		.acc-item {
-			@apply border-t border-slate-200;
+			@apply border-t border-slate-200 dark:border-slate-700;
 		}
 	}
 
@@ -17,7 +19,7 @@
 		@apply gap-3;
 
 		.acc-item {
-			@apply overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-950/5;
+			@apply overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 shadow-sm shadow-slate-950/5;
 		}
 	}
 
@@ -25,16 +27,16 @@
 		@apply transition-[border-color,background-color,box-shadow] duration-200 ease-out;
 
 		&.acc-open {
-			@apply bg-white;
+			@apply bg-white dark:bg-slate-950;
 		}
 
 		&.acc-disabled {
-			@apply bg-slate-50/80 text-slate-400;
+			@apply bg-slate-50/80 dark:bg-slate-900/80 text-slate-400 dark:text-slate-500;
 		}
 	}
 
 	.acc.acc-card .acc-item.acc-open {
-		@apply border-slate-300 shadow-sm shadow-slate-950/8;
+		@apply border-slate-300 dark:border-slate-600 shadow-sm shadow-slate-950/8;
 	}
 
 	.acc-heading {
@@ -42,9 +44,9 @@
 	}
 
 	.acc-trigger {
-		@apply flex w-full items-center justify-between gap-4 text-left font-medium text-slate-900 transition-[background-color,color] duration-150 ease-out;
-		@apply cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100;
-		@apply hover:bg-slate-50/80;
+		@apply flex w-full items-center justify-between gap-4 text-left font-medium text-slate-900 dark:text-slate-100 transition-[background-color,color] duration-150 ease-out;
+		@apply cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 dark:focus-visible:ring-blue-500/35;
+		@apply hover:bg-slate-50/80 dark:hover:bg-slate-900/80;
 	}
 
 	.acc-label {
@@ -52,7 +54,7 @@
 	}
 
 	.acc-indicator {
-		@apply inline-flex shrink-0 items-center justify-center text-slate-500 transition-[transform,color] duration-200 ease-out;
+		@apply inline-flex shrink-0 items-center justify-center text-slate-500 dark:text-slate-400 transition-[transform,color] duration-200 ease-out;
 
 		svg {
 			@apply h-4 w-4 fill-transparent stroke-current;
@@ -60,15 +62,15 @@
 	}
 
 	.acc-item.acc-open .acc-indicator {
-		@apply rotate-180 text-blue-600;
+		@apply rotate-180 text-blue-600 dark:text-blue-300;
 	}
 
 	.acc-item.acc-disabled .acc-trigger {
-		@apply cursor-not-allowed text-slate-400 hover:bg-transparent;
+		@apply cursor-not-allowed text-slate-400 dark:text-slate-500 hover:bg-transparent;
 	}
 
 	.acc-item.acc-disabled .acc-indicator {
-		@apply text-slate-300;
+		@apply text-slate-300 dark:text-slate-600;
 	}
 
 	.acc-content {
@@ -84,7 +86,7 @@
 	}
 
 	.acc-content-inner {
-		@apply text-slate-600;
+		@apply text-slate-600 dark:text-slate-400;
 	}
 
 	.acc.acc-sm {
@@ -123,7 +125,7 @@
 
 	.acc.acc-card {
 		.acc-trigger {
-			@apply bg-white;
+			@apply bg-white dark:bg-slate-950;
 		}
 	}
 }

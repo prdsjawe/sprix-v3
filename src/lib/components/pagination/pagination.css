@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.pgn {
 		@apply flex w-fit items-center;
@@ -19,7 +21,7 @@
 	}
 
 	.pgn-ellipsis {
-		@apply flex shrink-0 items-center justify-center font-medium text-slate-500 select-none;
+		@apply flex shrink-0 items-center justify-center font-medium text-slate-500 dark:text-slate-400 select-none;
 	}
 
 	.pgn-xs {

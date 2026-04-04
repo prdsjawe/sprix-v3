@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.sld {
 		@apply relative flex w-full touch-none items-center select-none;
@@ -12,7 +14,7 @@
 	}
 
 	.sld-track {
-		@apply relative h-1.5 w-full grow overflow-hidden rounded-full bg-slate-200;
+		@apply relative h-1.5 w-full grow overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800;
 		box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.8);
 	}
 
@@ -21,16 +23,16 @@
 	}
 
 	.sld-thumb {
-		@apply absolute top-1/2 z-10 block size-4 -translate-y-1/2 rounded-full border border-blue-600/70 bg-white outline-none;
+		@apply absolute top-1/2 z-10 block size-4 -translate-y-1/2 rounded-full border border-blue-600/70 dark:border-blue-500/70 bg-white dark:bg-slate-950 outline-none;
 		@apply transition-[transform,box-shadow,border-color] duration-150;
 		box-shadow: 0 1px 2px rgb(15 23 42 / 0.16);
 
 		&:hover:not(:disabled) {
-			@apply border-blue-700;
+			@apply border-blue-700 dark:border-blue-500;
 		}
 
 		&:focus-visible {
-			@apply ring-4 ring-blue-200/80;
+			@apply ring-4 ring-blue-200/80 dark:ring-blue-500/80;
 		}
 
 		&:active:not(:disabled),

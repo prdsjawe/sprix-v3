@@ -1,8 +1,10 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.cds {
-		@apply overflow-hidden rounded-2xl border border-slate-200 bg-linear-to-br from-white via-slate-50 to-slate-100 text-slate-900;
+		@apply overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 bg-linear-to-br from-white dark:from-slate-950 via-slate-50 dark:via-slate-950 to-slate-100 dark:to-slate-900 text-slate-900 dark:text-slate-100;
 
 		&.cds-wrap .cds-body {
 			@apply overflow-x-hidden;
@@ -14,15 +16,15 @@
 	}
 
 	.cds-header {
-		@apply flex items-center justify-between gap-3 border-b border-slate-200 bg-white/80 px-4 py-2.5;
+		@apply flex items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-950/80 px-4 py-2.5;
 	}
 
 	.cds-file {
-		@apply truncate text-xs font-semibold tracking-[0.16em] text-slate-600 uppercase;
+		@apply truncate text-xs font-semibold tracking-[0.16em] text-slate-600 dark:text-slate-400 uppercase;
 	}
 
 	.cds-language {
-		@apply inline-flex items-center rounded-full border border-slate-200 bg-slate-100 px-2 py-1 text-[0.6875rem] font-semibold tracking-[0.16em] text-slate-500 uppercase;
+		@apply inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 px-2 py-1 text-[0.6875rem] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase;
 	}
 
 	.cds-body {
@@ -46,13 +48,13 @@
 	}
 
 	.cds-line-number {
-		@apply border-r border-slate-200 px-3 py-0 text-right text-xs font-medium text-slate-400 select-none;
-		@apply bg-slate-50/90;
+		@apply border-r border-slate-200 dark:border-slate-700 px-3 py-0 text-right text-xs font-medium text-slate-400 dark:text-slate-500 select-none;
+		@apply bg-slate-50/90 dark:bg-slate-900/90;
 		min-inline-size: calc((var(--cds-line-digits, 2) * 0.7ch) + 1.75rem);
 	}
 
 	.cds-line-code {
-		@apply block min-w-max px-4 py-0 whitespace-pre text-slate-800;
+		@apply block min-w-max px-4 py-0 whitespace-pre text-slate-800 dark:text-slate-200;
 		tab-size: 2;
 	}
 }

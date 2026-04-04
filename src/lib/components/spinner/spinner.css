@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.spinner {
 		--spinner-size: 1rem;
@@ -85,27 +87,27 @@
 		}
 
 		&.spinner-primary {
-			@apply text-blue-600;
+			@apply text-blue-600 dark:text-blue-300;
 		}
 
 		&.spinner-secondary {
-			@apply text-slate-500;
+			@apply text-slate-500 dark:text-slate-400;
 		}
 
 		&.spinner-tertiary {
-			@apply text-gray-500;
+			@apply text-gray-500 dark:text-slate-400;
 		}
 
 		&.spinner-danger {
-			@apply text-red-500;
+			@apply text-red-500 dark:text-red-400;
 		}
 
 		&.spinner-success {
-			@apply text-green-500;
+			@apply text-green-500 dark:text-green-400;
 		}
 
 		&.spinner-warning {
-			@apply text-amber-500;
+			@apply text-amber-500 dark:text-amber-400;
 		}
 	}
 }

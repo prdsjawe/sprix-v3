@@ -1,16 +1,18 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.lnk {
 		@apply inline-flex items-center gap-1.5 align-baseline;
-		@apply text-blue-600 underline decoration-blue-600/35 underline-offset-3;
+		@apply text-blue-600 dark:text-blue-300 underline decoration-blue-600/35 underline-offset-3;
 		@apply transition-[color,text-decoration-color] duration-150;
-		@apply focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:ring-offset-2 focus-visible:outline-none;
+		@apply focus-visible:ring-2 focus-visible:ring-blue-200 dark:focus-visible:ring-blue-500/35 focus-visible:ring-offset-2 focus-visible:outline-none;
 		font: inherit;
 		line-height: inherit;
 
 		&:hover {
-			@apply text-blue-700 decoration-blue-700/60;
+			@apply text-blue-700 dark:text-blue-300 decoration-blue-700/60;
 		}
 
 		span.label {

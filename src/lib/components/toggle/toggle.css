@@ -1,12 +1,14 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.tgl-field {
 		@apply grid gap-2;
 	}
 
 	.tgl {
-		@apply relative flex w-full items-center justify-between gap-4 text-slate-900 transition-colors duration-150 ease-out;
+		@apply relative flex w-full items-center justify-between gap-4 text-slate-900 dark:text-slate-100 transition-colors duration-150 ease-out;
 	}
 
 	.tgl.tgl-inline {
@@ -18,11 +20,11 @@
 	}
 
 	.tgl-label-row {
-		@apply flex items-center gap-1 text-sm font-medium text-slate-800;
+		@apply flex items-center gap-1 text-sm font-medium text-slate-800 dark:text-slate-200;
 	}
 
 	.tgl-required {
-		@apply text-rose-500;
+		@apply text-rose-500 dark:text-rose-400;
 	}
 
 	.tgl-switch {
@@ -34,23 +36,23 @@
 	}
 
 	.tgl-control:focus-visible + .tgl-track {
-		@apply ring-4 ring-blue-100;
+		@apply ring-4 ring-blue-100 dark:ring-blue-500/35;
 	}
 
 	.tgl-track {
-		@apply inline-flex shrink-0 items-center rounded-full bg-slate-200 p-0.5 transition-colors duration-150 ease-out;
+		@apply inline-flex shrink-0 items-center rounded-full bg-slate-200 dark:bg-slate-800 p-0.5 transition-colors duration-150 ease-out;
 	}
 
 	.tgl-thumb {
-		@apply block rounded-full bg-white shadow-sm transition-transform duration-150 ease-out will-change-transform;
+		@apply block rounded-full bg-white dark:bg-slate-950 shadow-sm transition-transform duration-150 ease-out will-change-transform;
 	}
 
 	.tgl-message {
-		@apply text-sm leading-6 text-slate-500;
+		@apply text-sm leading-6 text-slate-500 dark:text-slate-400;
 	}
 
 	.tgl-message-error {
-		@apply text-rose-600;
+		@apply text-rose-600 dark:text-rose-300;
 	}
 
 	.tgl.tgl-sm {
@@ -127,20 +129,20 @@
 
 	.tgl.tgl-error {
 		.tgl-track {
-			@apply bg-rose-100;
+			@apply bg-rose-100 dark:bg-rose-950/55;
 		}
 
 		.tgl-control:focus-visible + .tgl-track {
-			@apply ring-rose-100;
+			@apply ring-rose-100 dark:ring-rose-500/35;
 		}
 	}
 
 	.tgl.tgl-disabled {
-		@apply cursor-not-allowed text-slate-400;
+		@apply cursor-not-allowed text-slate-400 dark:text-slate-500;
 
 		.tgl-label-row,
 		.tgl-message {
-			@apply text-slate-400;
+			@apply text-slate-400 dark:text-slate-500;
 		}
 
 		.tgl-switch {
@@ -148,7 +150,7 @@
 		}
 
 		.tgl-track {
-			@apply bg-slate-200;
+			@apply bg-slate-200 dark:bg-slate-800;
 		}
 	}
 }

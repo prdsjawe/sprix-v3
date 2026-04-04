@@ -165,8 +165,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.docs-shell {
@@ -185,11 +185,11 @@
 	.doc-section {
 		scroll-margin-top: 7rem;
 		padding: clamp(1.5rem, 3vw, 2rem) 0;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.docs-main > :last-child {
-		border-bottom: 1px solid #e2e8f0;
+		border-bottom: 1px solid var(--sprix-app-border);
 	}
 
 	.hero-card,
@@ -215,7 +215,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	h2,
@@ -238,13 +238,13 @@
 
 	p {
 		max-width: 68ch;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 		line-height: 1.7;
 	}
 
 	.lead {
 		font-size: 1rem;
-		color: #334155;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.doc-grid {
@@ -261,8 +261,8 @@
 		display: grid;
 		gap: 0.75rem;
 		padding: 1rem;
-		border: 1px solid #e2e8f0;
-		background: #f8fafc;
+		border: 1px solid var(--sprix-app-border);
+		background: var(--sprix-app-bg);
 	}
 
 	@media (min-width: 720px) {

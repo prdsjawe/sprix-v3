@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	--shadow-toast: 0 24px 54px -30px rgb(15 23 42 / 0.4);
 }
@@ -100,73 +102,73 @@
 	}
 
 	.tst-color {
-		@apply border-slate-200 bg-white/96 text-slate-950;
+		@apply border-slate-200 dark:border-slate-700 bg-white/96 dark:bg-slate-950/96 text-slate-950 dark:text-slate-50;
 
 		.tst-description {
-			@apply text-slate-600;
+			@apply text-slate-600 dark:text-slate-400;
 		}
 
 		.tst-icon {
-			@apply border-slate-200 bg-slate-50 text-slate-700;
+			@apply border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300;
 		}
 
 		.tst-action,
 		.tst-close {
-			@apply border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:text-slate-950 focus-visible:ring-slate-300;
+			@apply border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-950 dark:hover:text-slate-50 focus-visible:ring-slate-300 dark:focus-visible:ring-slate-600;
 		}
 	}
 
 	.tst-color.tst-default {
 		.tst-icon {
-			@apply text-slate-700;
+			@apply text-slate-700 dark:text-slate-300;
 		}
 	}
 
 	.tst-color.tst-info {
 		.tst-icon {
-			@apply text-sky-700;
+			@apply text-sky-700 dark:text-sky-300;
 		}
 	}
 
 	.tst-color.tst-warning {
 		.tst-icon {
-			@apply text-amber-700;
+			@apply text-amber-700 dark:text-amber-300;
 		}
 	}
 
 	.tst-color.tst-error {
 		.tst-icon {
-			@apply text-rose-700;
+			@apply text-rose-700 dark:text-rose-300;
 		}
 	}
 
 	.tst-color.tst-promise {
 		.tst-icon {
-			@apply text-blue-700;
+			@apply text-blue-700 dark:text-blue-300;
 		}
 	}
 
 	.tst-color.tst-success {
 		.tst-icon {
-			@apply text-emerald-700;
+			@apply text-emerald-700 dark:text-emerald-300;
 		}
 	}
 
 	.tst-mono {
-		@apply border-slate-950 bg-slate-950 text-white;
+		@apply border-slate-950 dark:border-slate-800 bg-slate-950 text-white;
 		box-shadow: 0 20px 48px -28px rgb(15 23 42 / 0.82);
 
 		.tst-description {
-			@apply text-slate-300;
+			@apply text-slate-300 dark:text-slate-600;
 		}
 
 		.tst-icon {
-			@apply border-white/10 bg-white/8 text-white;
+			@apply border-white/10 bg-white/8 dark:bg-slate-950/8 text-white;
 		}
 
 		.tst-action,
 		.tst-close {
-			@apply border-white/10 bg-white/6 text-white hover:bg-white/12 focus-visible:ring-white/25;
+			@apply border-white/10 bg-white/6 dark:bg-slate-950/6 text-white hover:bg-white/12 dark:hover:bg-slate-950/12 focus-visible:ring-white/25;
 		}
 	}
 

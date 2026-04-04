@@ -3,6 +3,24 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			(() => {
+				const storageKey = 'sprix-theme';
+				const root = document.documentElement;
+
+				try {
+					const storedTheme = window.localStorage.getItem(storageKey);
+					const theme = storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : 'light';
+					root.dataset.theme = theme;
+					root.classList.toggle('dark', theme === 'dark');
+					root.style.colorScheme = theme;
+				} catch {
+					root.dataset.theme = 'light';
+					root.classList.remove('dark');
+					root.style.colorScheme = 'light';
+				}
+			})();
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

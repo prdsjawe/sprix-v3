@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.fld {
 		@apply grid gap-2.5;
@@ -14,20 +16,20 @@
 	}
 
 	.fld-label {
-		@apply flex items-center gap-1 text-sm font-medium text-slate-800;
+		@apply flex items-center gap-1 text-sm font-medium text-slate-800 dark:text-slate-200;
 	}
 
 	.fld-required {
-		@apply text-rose-500;
+		@apply text-rose-500 dark:text-rose-400;
 	}
 
 	.fld-description,
 	.fld-message {
-		@apply text-sm leading-6 text-slate-500;
+		@apply text-sm leading-6 text-slate-500 dark:text-slate-400;
 	}
 
 	.fld-message.fld-message-error {
-		@apply text-rose-600;
+		@apply text-rose-600 dark:text-rose-300;
 	}
 
 	.fld-control {

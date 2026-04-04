@@ -205,8 +205,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.sidebar-docs {
@@ -231,7 +231,7 @@
 	.sidebar-docs__rail :global(.sdb) {
 		height: 100svh;
 		border: 0;
-		border-right: 1px solid #e2e8f0;
+		border-right: 1px solid var(--sprix-app-border);
 		border-radius: 0;
 		background: transparent;
 		box-shadow: none;
@@ -239,11 +239,11 @@
 
 	.sidebar-docs__rail :global(.sdb-rail) {
 		min-height: 100svh;
-		border-right-color: #e2e8f0;
+		border-right-color: var(--sprix-app-border);
 	}
 
 	.sidebar-docs__rail :global(.sdb-panel) {
-		border-left-color: #e2e8f0;
+		border-left-color: var(--sprix-app-border);
 	}
 
 	.sidebar-docs__rail :global(.sdb-body) {
@@ -253,7 +253,7 @@
 	.sidebar-docs__content {
 		flex: 1 1 auto;
 		min-width: 0;
-		background: #f8fafc;
+		background: var(--sprix-app-bg);
 		border-left: 1px solid rgba(148, 163, 184, 0.16);
 	}
 
@@ -286,9 +286,9 @@
 	.section-links a {
 		padding: 0.55rem 0.85rem;
 		border-radius: 999px;
-		border: 1px solid #cbd5e1;
+		border: 1px solid var(--sprix-app-border-strong);
 		background: rgba(255, 255, 255, 0.82);
-		color: #334155;
+		color: var(--sprix-app-text-muted);
 		text-decoration: none;
 		font-size: 0.875rem;
 		font-weight: 600;
@@ -296,13 +296,13 @@
 
 	.section-links a:hover {
 		border-color: #94a3b8;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.doc-section {
 		scroll-margin-top: 7rem;
 		padding: 1.75rem 0;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.doc-section-hero {
@@ -316,7 +316,7 @@
 		font-weight: 700;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 	}
 
 	.section-heading h2,
@@ -340,7 +340,7 @@
 	.section-heading p,
 	.doc-card p {
 		line-height: 1.75;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.doc-grid {
@@ -353,7 +353,7 @@
 	.doc-card {
 		padding: 1.1rem;
 		border-radius: 1.35rem;
-		border: 1px solid #dbe4f0;
+		border: 1px solid var(--sprix-app-border);
 		background: rgba(255, 255, 255, 0.88);
 	}
 
@@ -393,9 +393,9 @@
 	.sidebar-account__avatar {
 		width: 2.35rem;
 		height: 2.35rem;
-		background: #ffffff;
-		border: 1px solid #e2e8f0;
-		color: #334155;
+		background: var(--sprix-app-surface);
+		border: 1px solid var(--sprix-app-border);
+		color: var(--sprix-app-text-muted);
 		font-size: 0.85rem;
 		font-weight: 700;
 	}
@@ -409,12 +409,12 @@
 	.sidebar-account__copy p {
 		font-size: 0.9rem;
 		font-weight: 600;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	@media (max-width: 1100px) {
 		:global(body) {
-			background: #ffffff;
+			background: var(--sprix-app-surface);
 		}
 
 		.sidebar-docs {

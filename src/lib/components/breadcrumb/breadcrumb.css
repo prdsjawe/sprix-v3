@@ -1,8 +1,10 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.brd {
-		@apply inline-flex max-w-full px-0 py-0 text-sm text-gray-500;
+		@apply inline-flex max-w-full px-0 py-0 text-sm text-gray-500 dark:text-slate-400;
 
 		.brd-list {
 			@apply m-0 flex list-none flex-wrap items-center gap-1.5 p-0;
@@ -13,7 +15,7 @@
 		}
 
 		.brd-separator {
-			@apply flex items-center text-gray-400 transition-colors;
+			@apply flex items-center text-gray-400 dark:text-slate-500 transition-colors;
 
 			svg {
 				@apply size-3.5 fill-transparent stroke-current;
@@ -21,20 +23,20 @@
 		}
 
 		.brd-link {
-			@apply inline-flex min-w-0 items-center gap-1.5 truncate rounded-sm text-gray-500 no-underline transition-colors hover:text-gray-900;
-			@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 focus-visible:ring-offset-2;
+			@apply inline-flex min-w-0 items-center gap-1.5 truncate rounded-sm text-gray-500 dark:text-slate-400 no-underline transition-colors hover:text-gray-900 dark:hover:text-slate-100;
+			@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-slate-600 focus-visible:ring-offset-2;
 		}
 
 		.brd-label {
-			@apply inline-flex min-w-0 items-center gap-1.5 truncate text-gray-500;
+			@apply inline-flex min-w-0 items-center gap-1.5 truncate text-gray-500 dark:text-slate-400;
 		}
 
 		.brd-label-current {
-			@apply font-medium text-gray-600;
+			@apply font-medium text-gray-600 dark:text-slate-400;
 		}
 
 		.brd-icon {
-			@apply shrink-0 text-gray-400 transition-colors;
+			@apply shrink-0 text-gray-400 dark:text-slate-500 transition-colors;
 
 			svg {
 				@apply size-4 fill-transparent stroke-current;
@@ -42,7 +44,7 @@
 		}
 
 		.brd-link:hover .brd-icon {
-			@apply text-gray-700;
+			@apply text-gray-700 dark:text-slate-300;
 		}
 	}
 }

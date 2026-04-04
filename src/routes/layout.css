@@ -2,6 +2,52 @@
 @import 'tippy.js/dist/tippy.css';
 @import 'tippy.js/animations/shift-away.css';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+	--sprix-app-bg: #f8fafc;
+	--sprix-app-bg-muted: #eef2ff;
+	--sprix-app-surface: #ffffff;
+	--sprix-app-surface-muted: rgba(255, 255, 255, 0.88);
+	--sprix-app-surface-elevated: rgba(255, 255, 255, 0.96);
+	--sprix-app-border: #e2e8f0;
+	--sprix-app-border-strong: #cbd5e1;
+	--sprix-app-text: #0f172a;
+	--sprix-app-text-muted: #475569;
+	--sprix-app-text-subtle: #64748b;
+	--sprix-app-overlay: rgba(15, 23, 42, 0.48);
+}
+
+html.dark,
+html[data-theme='dark'] {
+	--sprix-app-bg: #020617;
+	--sprix-app-bg-muted: #0f172a;
+	--sprix-app-surface: #0f172a;
+	--sprix-app-surface-muted: rgba(15, 23, 42, 0.88);
+	--sprix-app-surface-elevated: rgba(15, 23, 42, 0.96);
+	--sprix-app-border: #1e293b;
+	--sprix-app-border-strong: #334155;
+	--sprix-app-text: #f8fafc;
+	--sprix-app-text-muted: #cbd5e1;
+	--sprix-app-text-subtle: #94a3b8;
+	--sprix-app-overlay: rgba(2, 6, 23, 0.72);
+}
+
+@layer base {
+	html,
+	body {
+		min-height: 100%;
+		background: var(--sprix-app-bg);
+		color: var(--sprix-app-text);
+	}
+
+	body {
+		transition:
+			background-color 180ms ease-out,
+			color 180ms ease-out;
+	}
+}
+
 @layer components {
 	.tippy-box[data-theme^='sprix-'],
 	.tippy-box[data-theme*=' sprix-'] {

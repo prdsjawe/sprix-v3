@@ -226,8 +226,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.docs-shell {
@@ -250,9 +250,9 @@
 
 	.hero-card,
 	.doc-card {
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.5rem;
-		background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+		background: linear-gradient(180deg, var(--sprix-app-surface) 0%, var(--sprix-app-bg) 100%);
 	}
 
 	.hero-card {
@@ -281,14 +281,14 @@
 		font-size: clamp(1.5rem, 3vw, 2rem);
 		line-height: 1.05;
 		letter-spacing: -0.03em;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.lead,
 	.section-heading p,
 	.fit-card__heading p {
 		margin: 0;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 		line-height: 1.65;
 	}
 
@@ -299,7 +299,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.fit-grid {
@@ -309,7 +309,7 @@
 
 	.fit-card {
 		padding: 1.2rem;
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.2rem;
 		background: rgba(255, 255, 255, 0.92);
 	}
@@ -329,7 +329,7 @@
 		gap: 0.75rem;
 		height: 100%;
 		padding: 1.15rem;
-		border: 1px solid color-mix(in srgb, var(--slide-accent) 20%, #cbd5e1);
+		border: 1px solid color-mix(in srgb, var(--slide-accent) 20%, var(--sprix-app-border-strong));
 		border-radius: 1.1rem;
 		background:
 			linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
@@ -356,7 +356,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: color-mix(in srgb, var(--slide-accent) 72%, #334155);
+		color: color-mix(in srgb, var(--slide-accent) 72%, var(--sprix-app-text-muted));
 	}
 
 	.showcase-slide h3 {
@@ -364,21 +364,21 @@
 		font-size: 1rem;
 		line-height: 1.15;
 		letter-spacing: -0.03em;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.showcase-slide__body {
 		margin: 0;
 		font-size: 0.95rem;
 		line-height: 1.65;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.showcase-slide__meta {
 		margin-top: auto;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: #334155;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.showcase-slide__footer {

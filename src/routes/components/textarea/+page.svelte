@@ -265,8 +265,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.docs-shell {
@@ -285,11 +285,11 @@
 	.doc-section {
 		scroll-margin-top: 7rem;
 		padding: clamp(1.5rem, 3vw, 2rem) 0;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.docs-main > :last-child {
-		border-bottom: 1px solid #e2e8f0;
+		border-bottom: 1px solid var(--sprix-app-border);
 	}
 
 	.hero-card,
@@ -309,7 +309,7 @@
 
 	.hero-card__stack {
 		padding-top: 1rem;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.section-kicker,
@@ -319,7 +319,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	h2,
@@ -340,7 +340,7 @@
 	}
 
 	p {
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.lead {
@@ -358,7 +358,7 @@
 	.doc-entry,
 	.state-card {
 		padding-top: 1rem;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.doc-entry__meta,

@@ -1,8 +1,10 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.avatar {
-		@apply relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-slate-100 text-slate-700 align-middle select-none;
+		@apply relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 align-middle select-none;
 		@apply transition-[border-color,background-color,color] duration-150;
 
 		img.avatar-image {
@@ -19,7 +21,7 @@
 		}
 
 		span.avatar-icon {
-			@apply text-slate-400;
+			@apply text-slate-400 dark:text-slate-500;
 
 			svg {
 				@apply fill-transparent stroke-current;

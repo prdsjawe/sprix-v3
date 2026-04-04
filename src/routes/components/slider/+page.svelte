@@ -153,8 +153,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.docs-shell {
@@ -177,9 +177,9 @@
 
 	.hero-card,
 	.doc-card {
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.5rem;
-		background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+		background: linear-gradient(180deg, var(--sprix-app-surface) 0%, var(--sprix-app-bg) 100%);
 	}
 
 	.hero-card {
@@ -199,7 +199,7 @@
 	.section-heading h2 {
 		margin: 0;
 		letter-spacing: -0.03em;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.hero-card__copy h2,
@@ -211,7 +211,7 @@
 	.lead,
 	.section-heading p {
 		margin: 0;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 		line-height: 1.65;
 	}
 
@@ -234,7 +234,7 @@
 	.state-card {
 		align-content: start;
 		padding: 1.25rem;
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.1rem;
 		background: rgba(255, 255, 255, 0.92);
 	}
@@ -246,7 +246,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.slider-stack {
@@ -264,7 +264,7 @@
 	.value-label {
 		font-size: 0.9rem;
 		font-weight: 600;
-		color: #334155;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.value-pill {

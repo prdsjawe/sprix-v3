@@ -1,8 +1,10 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.sep {
-		@apply block shrink-0 bg-slate-200;
+		@apply block shrink-0 bg-slate-200 dark:bg-slate-800;
 
 		&.sep-horizontal {
 			@apply h-px w-full;

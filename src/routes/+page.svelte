@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 	import {
 		Accordion as UIAccordion,
 		AccordionContent as UIAccordionContent,
@@ -57,6 +58,7 @@
 		Tooltip as UITooltip,
 		toast
 	} from '$lib/components';
+	import { readTheme, setTheme } from '$lib/theme';
 
 	const HOME_TOAST_GROUP = 'home-preview';
 
@@ -83,6 +85,8 @@
 	let sidebarEntryValue = $state('roadmap');
 	let sliderValue = $state([72]);
 	let tabsValue = $state('overview');
+	let themeReady = $state(false);
+	let themeIsDark = $state(false);
 	let toggleChecked = $state(true);
 	let toggleGroupValue = $state<ToggleGroup.Value>('week');
 
@@ -232,6 +236,19 @@
 
 	const getCarouselTint = (item: Carousel.Item) => String(item.tint ?? '#0f172a');
 
+	onMount(() => {
+		themeIsDark = readTheme() === 'dark';
+		themeReady = true;
+	});
+
+	$effect(() => {
+		if (!themeReady) {
+			return;
+		}
+
+		setTheme(themeIsDark ? 'dark' : 'light');
+	});
+
 	const showToastPreview = () => {
 		toast.success('Saved to queue', {
 			group: HOME_TOAST_GROUP,
@@ -251,25 +268,45 @@
 <UIToast group={HOME_TOAST_GROUP} />
 
 <main
-	class="min-h-svh bg-linear-to-b from-slate-50 via-indigo-50 to-slate-50 px-4 py-8 text-slate-900 sm:px-6 lg:px-8"
+	class="min-h-svh bg-linear-to-b from-slate-50 dark:from-slate-950 via-indigo-50 dark:via-indigo-950/40 to-slate-50 dark:to-slate-950 px-4 py-8 text-slate-900 dark:text-slate-100 sm:px-6 lg:px-8"
 >
 	<div class="mx-auto grid w-full max-w-344 gap-6">
-		<section class="grid max-w-176 gap-2.5">
-			<p class="m-0 text-xs font-bold tracking-widest text-slate-600 uppercase">Documentation</p>
-			<h1 class="m-0 text-4xl leading-none tracking-tight sm:text-5xl">Components</h1>
-			<p class="m-0 leading-7 text-slate-600">
-				A compact index of the current Sprix primitives. Each card includes a quick description, one
-				live instance, and a direct path into the full docs route.
-			</p>
+		<section class="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+			<div class="grid max-w-176 gap-2.5">
+				<p class="m-0 text-xs font-bold tracking-widest text-slate-600 dark:text-slate-400 uppercase">Documentation</p>
+				<h1 class="m-0 text-4xl leading-none tracking-tight sm:text-5xl">Components</h1>
+				<p class="m-0 leading-7 text-slate-600 dark:text-slate-400">
+					A compact index of the current Sprix primitives. Each card includes a quick description, one
+					live instance, and a direct path into the full docs route.
+				</p>
+			</div>
+
+			<div
+				class="flex items-center justify-between gap-3 rounded-full border border-slate-300/60 dark:border-slate-700/70 bg-white/80 dark:bg-slate-900/80 px-4 py-3 backdrop-blur-md"
+			>
+				<div class="grid gap-0.5">
+					<span class="text-xs font-bold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
+						Theme
+					</span>
+					<p class="m-0 text-sm text-slate-600 dark:text-slate-400">
+						{themeIsDark ? 'Dark mode' : 'Light mode'}
+					</p>
+				</div>
+				<UIToggle
+					size="sm"
+					bind:checked={themeIsDark}
+					ariaLabel="Toggle dark mode"
+				/>
+			</div>
 		</section>
 
 		<section class="grid gap-0 sm:grid-cols-2 lg:grid-cols-3" aria-label="Component library">
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Accordion</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Structured disclosure for FAQs, settings, and dense reference pages.
 					</p>
 				</div>
@@ -279,7 +316,7 @@
 						<UIAccordionItem value="access">
 							<UIAccordionTrigger>Workspace access</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p class="m-0 leading-6 text-slate-600">
+								<p class="m-0 leading-6 text-slate-600 dark:text-slate-400">
 									Keep teams scoped by role and environment.
 								</p>
 							</UIAccordionContent>
@@ -299,11 +336,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Popover</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Click-driven floating card for forms, compact actions, and interactive inline workflows.
 					</p>
 				</div>
@@ -316,13 +353,13 @@
 							<div class="grid gap-3">
 								<div class="flex items-start justify-between gap-4">
 									<div class="grid gap-1">
-										<small class="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">
+										<small class="text-[11px] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
 											Quick action
 										</small>
-										<h3 class="m-0 text-sm font-semibold text-slate-950">Share release note</h3>
+										<h3 class="m-0 text-sm font-semibold text-slate-950 dark:text-slate-50">Share release note</h3>
 									</div>
 									<span
-										class="inline-flex rounded-full bg-blue-50 px-2 py-1 text-[11px] font-semibold text-blue-700"
+										class="inline-flex rounded-full bg-blue-50 dark:bg-blue-950/40 px-2 py-1 text-[11px] font-semibold text-blue-700 dark:text-blue-300"
 									>
 										Editor
 									</span>
@@ -350,11 +387,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Hover Card</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Richer hover surface for custom HTML content that should read like a compact card.
 					</p>
 				</div>
@@ -363,16 +400,16 @@
 					<UIHoverCard placement="top" contentClass="w-[18rem]" maxWidth="none">
 						<button
 							type="button"
-							class="inline-flex items-center gap-3 rounded-full border border-slate-300 bg-white px-3 py-2 text-left text-sm shadow-sm"
+							class="inline-flex items-center gap-3 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-950 px-3 py-2 text-left text-sm shadow-sm"
 						>
 							<span
-								class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-blue-100 to-slate-200 text-xs font-bold text-blue-900"
+								class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-blue-100 dark:from-blue-950/55 to-slate-200 dark:to-slate-800 text-xs font-bold text-blue-900 dark:text-blue-100"
 							>
 								AD
 							</span>
 							<span class="grid">
-								<strong class="text-sm text-slate-950">Ana Dela Cruz</strong>
-								<span class="text-sm text-slate-500">Design lead</span>
+								<strong class="text-sm text-slate-950 dark:text-slate-50">Ana Dela Cruz</strong>
+								<span class="text-sm text-slate-500 dark:text-slate-400">Design lead</span>
 							</span>
 						</button>
 
@@ -380,18 +417,18 @@
 							<div class="grid gap-3">
 								<div class="flex items-start justify-between gap-4">
 									<div class="grid gap-1">
-										<small class="text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase">
+										<small class="text-[11px] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
 											Team profile
 										</small>
-										<h3 class="m-0 text-sm font-semibold text-slate-950">Ana Dela Cruz</h3>
+										<h3 class="m-0 text-sm font-semibold text-slate-950 dark:text-slate-50">Ana Dela Cruz</h3>
 									</div>
 									<span
-										class="inline-flex rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-700"
+										class="inline-flex rounded-full bg-emerald-50 dark:bg-emerald-950/40 px-2 py-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300"
 									>
 										Online
 									</span>
 								</div>
-								<p class="m-0 text-sm leading-6 text-slate-600">
+								<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 									Owns the shared component library and current documentation polish pass.
 								</p>
 							</div>
@@ -411,11 +448,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Alert Dialog</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Blocking confirmation for risky actions, with prompt gating and async-safe confirm
 						flows.
 					</p>
@@ -444,18 +481,18 @@
 					confirmLabel="Continue"
 					cancelLabel="Stay here"
 				>
-					<p class="m-0 leading-6 text-slate-600">
+					<p class="m-0 leading-6 text-slate-600 dark:text-slate-400">
 						Use it when the next step should interrupt the flow and require an explicit choice.
 					</p>
 				</UIAlertDialog>
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Avatar</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Identity primitive for assignee rows, team clusters, and larger profile surfaces.
 					</p>
 				</div>
@@ -481,11 +518,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Button</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Action primitive with semantic roles, clear surface variants, and grouped controls.
 					</p>
 				</div>
@@ -510,11 +547,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Card</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Quiet bordered container for grouped content, supporting built-in header copy and footer
 						actions.
 					</p>
@@ -544,11 +581,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Carousel</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Viewport-first content slider that groups cards into full-width pages so the visible set
 						stays clean inside the frame.
 					</p>
@@ -566,20 +603,20 @@
 					>
 						{#snippet slide(item)}
 							<article
-								class="grid gap-2 rounded-2xl border border-slate-200 bg-white/92 p-3"
-								style={`border-color: color-mix(in srgb, ${getCarouselTint(item)} 18%, #cbd5e1);`}
+								class="grid gap-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/92 dark:bg-slate-950/92 p-3"
+								style={`border-color: color-mix(in srgb, ${getCarouselTint(item)} 18%, var(--sprix-app-border-strong));`}
 							>
 								<span
 									class="h-1.5 w-10 rounded-full"
 									style={`background: ${getCarouselTint(item)};`}
 								></span>
 								<div class="grid gap-1">
-									<h3 class="m-0 text-sm font-semibold tracking-tight text-slate-900">
+									<h3 class="m-0 text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100">
 										{item.title}
 									</h3>
-									<p class="m-0 text-sm leading-6 text-slate-600">{item.description}</p>
+									<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">{item.description}</p>
 								</div>
-								<span class="text-xs font-medium text-slate-500">{item.meta}</span>
+								<span class="text-xs font-medium text-slate-500 dark:text-slate-400">{item.meta}</span>
 							</article>
 						{/snippet}
 					</UICarousel>
@@ -597,11 +634,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Dialog</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						General-purpose modal shell for forms, supporting context, and non-destructive secondary
 						flows.
 					</p>
@@ -648,11 +685,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Sheet</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Edge-aligned overlay for utility panels, contextual editing, and flows that should keep
 						the page frame visible.
 					</p>
@@ -680,7 +717,7 @@
 					description="This preview uses the same sheet primitive as the dedicated docs route."
 				>
 					<div class="grid gap-3">
-						<p class="m-0 text-sm leading-6 text-slate-600">
+						<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 							Keep the main page in view while staging notes, ownership, and next actions in a side
 							panel.
 						</p>
@@ -706,11 +743,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Badge</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Compact status and metadata label with soft, filled, and modern treatments.
 					</p>
 				</div>
@@ -735,11 +772,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Spinner</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Shared loading primitive for standalone status blocks and embedded control states.
 					</p>
 				</div>
@@ -765,11 +802,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Checkbox</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Binary choice control for consent, batch actions, and lightweight settings.
 					</p>
 				</div>
@@ -790,11 +827,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">ComboBox</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Searchable text input with a floating option panel for selection-heavy flows.
 					</p>
 				</div>
@@ -824,11 +861,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Command</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Search-first command palette for keyboard-driven navigation and quick workspace actions.
 					</p>
 				</div>
@@ -837,7 +874,7 @@
 					<UIButton size="sm" role="primary" onclick={() => (commandOpen = true)}>
 						Open command palette
 					</UIButton>
-					<p class="m-0 text-sm leading-6 text-slate-600">Current highlight: {previewCommandLabel}</p>
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">Current highlight: {previewCommandLabel}</p>
 				</div>
 
 				<UIButton
@@ -859,28 +896,28 @@
 					items={previewCommandItems}
 				>
 					{#snippet footer()}
-						<p class="m-0 text-sm leading-6 text-slate-600">Use Up / Down and Enter for the fastest flow.</p>
+						<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">Use Up / Down and Enter for the fastest flow.</p>
 					{/snippet}
 				</UICommand>
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Kbd</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Small semantic keycap for shortcuts, inline references, and trailing command hints.
 					</p>
 				</div>
 
 				<div class="grid min-h-28 content-start gap-3 pt-px">
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Press <UIKbd>Ctrl</UIKbd> + <UIKbd>K</UIKbd> to search the workspace, then hit
 						<UIKbd>Enter</UIKbd> to open the highlighted result.
 					</p>
 
-					<div class="flex flex-wrap items-center gap-2 text-sm text-slate-600">
+					<div class="flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
 						<span>Quick publish</span>
 						<UIKbd>Ctrl</UIKbd>
 						<span>+</span>
@@ -889,7 +926,7 @@
 						<UIKbd>P</UIKbd>
 					</div>
 
-					<div class="flex flex-wrap items-center gap-2 text-sm text-slate-600">
+					<div class="flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
 						<span>Mac search</span>
 						<UIKbd>⌘</UIKbd>
 						<span>+</span>
@@ -909,11 +946,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Input</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Text field shell with icons, validation states, and aligned spacing rules.
 					</p>
 				</div>
@@ -939,11 +976,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">OTP</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Prominent verification input with large single-character cells and paste-friendly behavior.
 					</p>
 				</div>
@@ -964,17 +1001,17 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Link</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Inline anchor primitive for text flows, metadata rows, and small navigational cues.
 					</p>
 				</div>
 
 				<div class="grid min-h-28 content-start gap-3 pt-px">
-					<p class="m-0 max-w-72 text-sm leading-6 text-slate-600">
+					<p class="m-0 max-w-72 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Read the
 						<UILink href="/components/input" class="mx-1">field guidance</UILink>
 						before wiring longer forms, or jump to
@@ -1002,23 +1039,23 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md sm:col-span-2 lg:col-span-2"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md sm:col-span-2 lg:col-span-2"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Nav Menu</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Top-level navigation shell with separate trigger buttons, hover flyouts, and right-side
 						actions.
 					</p>
 				</div>
 
 				<div class="grid min-h-28 items-start pt-px">
-					<div class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+					<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950">
 						<UINavMenu class="min-h-0 gap-3 border-b-0 px-3 py-2.5">
 							{#snippet logo()}
 								<div class="flex items-center gap-2">
 									<div
-										class="flex size-8 items-center justify-center rounded-xl border border-blue-200 bg-blue-50 text-sm font-extrabold text-blue-600"
+										class="flex size-8 items-center justify-center rounded-xl border border-blue-200 dark:border-blue-800/80 bg-blue-50 dark:bg-blue-950/40 text-sm font-extrabold text-blue-600 dark:text-blue-300"
 									>
 										S
 									</div>
@@ -1035,15 +1072,15 @@
 								<UINavMenuTrigger class="h-9 px-3">Platform</UINavMenuTrigger>
 								<UINavMenuContents class="min-w-72">
 									<div class="grid gap-2.5">
-										<p class="m-0 text-xs font-bold tracking-[0.16em] text-slate-500 uppercase">
+										<p class="m-0 text-xs font-bold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
 											Platform
 										</p>
 										<a
 											href="/components/nav-menu#overview"
-											class="grid gap-1 rounded-xl px-2.5 py-2 text-slate-900 no-underline transition-colors hover:bg-slate-50"
+											class="grid gap-1 rounded-xl px-2.5 py-2 text-slate-900 dark:text-slate-100 no-underline transition-colors hover:bg-slate-50 dark:hover:bg-slate-900"
 										>
 											<span class="text-sm font-semibold tracking-tight">Release desk</span>
-											<span class="text-sm leading-6 text-slate-600">
+											<span class="text-sm leading-6 text-slate-600 dark:text-slate-400">
 												Launch windows, sign-off, and final checks in one flyout card.
 											</span>
 										</a>
@@ -1057,19 +1094,19 @@
 									<div class="grid gap-2">
 										<a
 											href="/components/nav-menu"
-											class="grid gap-1 rounded-xl px-2.5 py-2 text-sm text-slate-900 no-underline transition-colors hover:bg-slate-50"
+											class="grid gap-1 rounded-xl px-2.5 py-2 text-sm text-slate-900 dark:text-slate-100 no-underline transition-colors hover:bg-slate-50 dark:hover:bg-slate-900"
 										>
 											<span class="font-semibold tracking-tight">Implementation guide</span>
-											<span class="leading-6 text-slate-600">
+											<span class="leading-6 text-slate-600 dark:text-slate-400">
 												Trigger behavior, layout anatomy, and flyout composition notes.
 											</span>
 										</a>
 										<a
 											href="/components/sidebar"
-											class="grid gap-1 rounded-xl px-2.5 py-2 text-sm text-slate-900 no-underline transition-colors hover:bg-slate-50"
+											class="grid gap-1 rounded-xl px-2.5 py-2 text-sm text-slate-900 dark:text-slate-100 no-underline transition-colors hover:bg-slate-50 dark:hover:bg-slate-900"
 										>
 											<span class="font-semibold tracking-tight">Related sidebar</span>
-											<span class="leading-6 text-slate-600">
+											<span class="leading-6 text-slate-600 dark:text-slate-400">
 												Use the sidebar when the tree gets too deep for top-level flyouts.
 											</span>
 										</a>
@@ -1100,11 +1137,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">DatePicker</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Calendar field with a Tippy-driven panel and a consistent array return shape.
 					</p>
 				</div>
@@ -1125,11 +1162,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Select</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Single-choice field with a custom floating listbox and grouped option data.
 					</p>
 				</div>
@@ -1159,11 +1196,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Field</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Form wrapper and field chrome for labels, descriptions, helper copy, and error
 						messaging.
 					</p>
@@ -1193,11 +1230,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Separator</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Lightweight dividing rule for stacked sections, inline metadata, and compact toolbars.
 					</p>
 				</div>
@@ -1205,15 +1242,15 @@
 				<div class="grid min-h-28 items-start pt-px">
 					<div class="grid gap-3">
 						<div class="grid gap-1">
-							<p class="m-0 text-sm font-medium text-slate-900">Overview</p>
-							<p class="m-0 text-sm leading-6 text-slate-600">
+							<p class="m-0 text-sm font-medium text-slate-900 dark:text-slate-100">Overview</p>
+							<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 								Split related content without adding one-off borders.
 							</p>
 						</div>
 
 						<UISeparator />
 
-						<div class="flex items-center gap-3 text-sm text-slate-600">
+						<div class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
 							<span>Published</span>
 							<UISeparator orientation="vertical" />
 							<span>Internal</span>
@@ -1233,11 +1270,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Breadcrumb</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Compact location trail for nested screens, docs, and deeper content hierarchies.
 					</p>
 				</div>
@@ -1258,11 +1295,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Table</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Simple data display primitive with only bottom borders and semantic table sections.
 					</p>
 				</div>
@@ -1306,11 +1343,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Pagination</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Compact page navigation primitive built from ghost buttons with a promoted current page.
 					</p>
 				</div>
@@ -1335,17 +1372,17 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Sidebar</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Collapsible app rail with per-item dropdowns and adjacent multipanel navigation.
 					</p>
 				</div>
 
 				<div class="grid min-h-28 items-start pt-px">
-					<div class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+					<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950">
 						<UISidebar
 							items={previewSidebarItems}
 							bind:value={sidebarValue}
@@ -1369,11 +1406,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Slider</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Array-based range control with a compact track, circular thumb, and optional multi-thumb
 						selection.
 					</p>
@@ -1387,7 +1424,7 @@
 						class="max-w-52"
 						ariaLabel="Confidence"
 					/>
-					<p class="m-0 text-sm leading-6 text-slate-600">{sliderValue[0]}%</p>
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">{sliderValue[0]}%</p>
 				</div>
 
 				<UIButton
@@ -1402,11 +1439,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Empty</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Structured zero-state primitive for empty lists, no-results screens, and first-run setup.
 					</p>
 				</div>
@@ -1437,11 +1474,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Progress</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Determinate progressbar with the same rounded-full track language as Slider and a simple
 						value/max contract.
 					</p>
@@ -1449,7 +1486,7 @@
 
 				<div class="grid min-h-28 content-start gap-3 pt-px">
 					<UIProgress value={68} class="max-w-52" ariaLabel="Release progress" />
-					<p class="m-0 text-sm leading-6 text-slate-600">68% shipped</p>
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">68% shipped</p>
 				</div>
 
 				<UIButton
@@ -1464,11 +1501,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Toast</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Mounted notification viewport with layered stacking and compact async feedback.
 					</p>
 				</div>
@@ -1491,11 +1528,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Tooltip</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Small tippy-backed overlay for concise hints and lightweight contextual guidance.
 					</p>
 				</div>
@@ -1518,11 +1555,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Textarea</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Multi-line input for notes, drafts, and longer form responses.
 					</p>
 				</div>
@@ -1548,11 +1585,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Radio</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Single-select choice pattern for pricing, delivery, and mode selection.
 					</p>
 				</div>
@@ -1582,11 +1619,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Toggle</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Switch control for preferences, availability, and persistent account settings.
 					</p>
 				</div>
@@ -1607,11 +1644,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Toggle Group</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Button-like single or multi-select control for filters, view switches, and compact
 						toolbars.
 					</p>
@@ -1639,11 +1676,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Tabs</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Horizontal section navigation with a sliding active treatment for both button and
 						underline styles.
 					</p>
@@ -1651,7 +1688,7 @@
 
 				<div class="grid min-h-28 content-start gap-3 pt-px">
 					<UITabs bind:value={tabsValue} items={previewTabs} ariaLabel="Component preview tabs" />
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						{tabsValue === 'overview'
 							? 'Use the button variant when the selected tab should feel lifted from the track.'
 							: tabsValue === 'activity'
@@ -1672,11 +1709,11 @@
 			</article>
 
 			<article
-				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 bg-linear-to-b from-white/90 to-slate-50/85 p-4 backdrop-blur-md"
+				class="flex min-h-71 flex-col gap-4 border border-slate-300/40 dark:border-slate-600/40 bg-linear-to-b from-white/90 dark:from-slate-950/90 to-slate-50/85 dark:to-slate-950/85 p-4 backdrop-blur-md"
 			>
 				<div class="grid gap-2">
 					<h2 class="m-0 text-base leading-tight tracking-tight">Code Snippet</h2>
-					<p class="m-0 text-sm leading-6 text-slate-600">
+					<p class="m-0 text-sm leading-6 text-slate-600 dark:text-slate-400">
 						Preformatted code preview with an optional header and a line-number gutter for docs and
 						reference cards.
 					</p>

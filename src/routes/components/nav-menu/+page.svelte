@@ -314,8 +314,8 @@
 
 <style>
 	:global(body) {
-		background: #f8fafc;
-		color: #0f172a;
+		background: var(--sprix-app-bg);
+		color: var(--sprix-app-text);
 	}
 
 	.nav-menu-docs {
@@ -323,7 +323,7 @@
 		min-height: 100svh;
 		background:
 			radial-gradient(circle at top left, rgba(191, 219, 254, 0.45), transparent 28rem),
-			linear-gradient(180deg, #ffffff 0%, #f8fafc 20%, #f8fafc 100%);
+			linear-gradient(180deg, var(--sprix-app-surface) 0%, var(--sprix-app-bg) 20%, var(--sprix-app-bg) 100%);
 	}
 
 	.nav-menu-docs__showcase {
@@ -387,9 +387,9 @@
 	.section-links a {
 		padding: 0.55rem 0.85rem;
 		border-radius: 999px;
-		border: 1px solid #cbd5e1;
+		border: 1px solid var(--sprix-app-border-strong);
 		background: rgba(255, 255, 255, 0.82);
-		color: #334155;
+		color: var(--sprix-app-text-muted);
 		text-decoration: none;
 		font-size: 0.875rem;
 		font-weight: 600;
@@ -397,13 +397,13 @@
 
 	.section-links a:hover {
 		border-color: #94a3b8;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.doc-section {
 		scroll-margin-top: 9rem;
 		padding: 1.75rem 0;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.doc-section-hero {
@@ -418,7 +418,7 @@
 		font-weight: 700;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 	}
 
 	.section-heading h2,
@@ -449,7 +449,7 @@
 	.doc-card p,
 	.flyout-copy p {
 		line-height: 1.75;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.doc-grid {
@@ -462,7 +462,7 @@
 	.doc-card {
 		padding: 1.1rem;
 		border-radius: 1.35rem;
-		border: 1px solid #dbe4f0;
+		border: 1px solid var(--sprix-app-border);
 		background: rgba(255, 255, 255, 0.88);
 	}
 
@@ -476,7 +476,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.85rem;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 		text-decoration: none;
 	}
 
@@ -510,7 +510,7 @@
 	}
 
 	.nav-menu-brand__copy small {
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 		font-size: 0.78rem;
 	}
 
@@ -536,7 +536,7 @@
 
 	.flyout-feature:hover,
 	.flyout-row:hover {
-		background: #f8fafc;
+		background: var(--sprix-app-bg);
 	}
 
 	.flyout-feature {
@@ -557,13 +557,13 @@
 		font-size: 0.92rem;
 		font-weight: 700;
 		letter-spacing: -0.02em;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.flyout-feature span,
 	.flyout-row small {
 		line-height: 1.55;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.flyout-icon,
@@ -576,7 +576,7 @@
 		height: 2.15rem;
 		border-radius: 0.9rem;
 		background: #f1f5f9;
-		color: #334155;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.flyout-icon :global(svg),
@@ -595,7 +595,7 @@
 		padding: 0.2rem 0.55rem;
 		border-radius: 999px;
 		background: #f1f5f9;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 		font-size: 0.68rem;
 		font-weight: 700;
 		letter-spacing: 0.08em;
@@ -606,7 +606,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.45rem;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 		font-size: 0.84rem;
 		font-weight: 600;
 		letter-spacing: -0.01em;
@@ -650,7 +650,7 @@
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 	}
 
 	.flyout-row__trail :global(svg) {

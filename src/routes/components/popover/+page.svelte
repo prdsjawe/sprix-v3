@@ -321,8 +321,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.docs-shell {
@@ -345,9 +345,9 @@
 
 	.hero-card,
 	.doc-card {
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.5rem;
-		background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+		background: linear-gradient(180deg, var(--sprix-app-surface) 0%, var(--sprix-app-bg) 100%);
 	}
 
 	.hero-card {
@@ -370,7 +370,7 @@
 		font-size: clamp(1.5rem, 3vw, 2rem);
 		line-height: 1.05;
 		letter-spacing: -0.03em;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.lead,
@@ -378,7 +378,7 @@
 	.doc-entry__meta p,
 	.state-card p {
 		margin: 0;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 		line-height: 1.65;
 	}
 
@@ -389,7 +389,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 	}
 
 	.hero-actions {
@@ -414,9 +414,9 @@
 
 	.doc-entry,
 	.state-card {
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.25rem;
-		background: #ffffff;
+		background: var(--sprix-app-surface);
 		padding: 1rem;
 	}
 
@@ -433,7 +433,7 @@
 	.doc-entry__meta h3 {
 		margin: 0;
 		font-size: 1rem;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.doc-entry__demo {
@@ -465,7 +465,7 @@
 	.popover-label {
 		font-size: 0.8125rem;
 		font-weight: 700;
-		color: #334155;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.popover-panel__footer,
@@ -480,18 +480,18 @@
 		display: grid;
 		gap: 0.2rem;
 		padding: 0.85rem 0.95rem;
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1rem;
-		background: #f8fafc;
+		background: var(--sprix-app-bg);
 	}
 
 	.metric-trigger,
 	.panel-trigger {
 		display: grid;
 		gap: 0.35rem;
-		border: 1px solid #cbd5e1;
+		border: 1px solid var(--sprix-app-border-strong);
 		border-radius: 1rem;
-		background: #ffffff;
+		background: var(--sprix-app-surface);
 		padding: 1rem 1.1rem;
 		box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
 	}
@@ -499,13 +499,13 @@
 	.metric-trigger strong,
 	.panel-trigger strong {
 		font-size: 0.95rem;
-		color: #0f172a;
+		color: var(--sprix-app-text);
 	}
 
 	.metric-trigger > span,
 	.panel-trigger p {
 		font-size: 0.875rem;
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 	}
 
 	.panel-trigger {

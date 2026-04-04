@@ -423,8 +423,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.docs-shell {
@@ -443,11 +443,11 @@
 	.doc-section {
 		scroll-margin-top: 7rem;
 		padding: clamp(1.5rem, 3vw, 2rem) 0;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.docs-main > :last-child {
-		border-bottom: 1px solid #e2e8f0;
+		border-bottom: 1px solid var(--sprix-app-border);
 	}
 
 	.hero-card,
@@ -482,25 +482,25 @@
 
 	.preview-card {
 		padding: 1.35rem;
-		border: 1px solid #dbe4f1;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.35rem;
 		background:
 			linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.92)),
-			#ffffff;
+			var(--sprix-app-surface);
 	}
 
 	.principles {
 		padding: 1rem 1.1rem;
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.25rem;
-		background: #f8fafc;
+		background: var(--sprix-app-bg);
 	}
 
 	.principle {
 		grid-template-columns: auto 1fr;
 		align-items: start;
 		padding-top: 0.9rem;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.principles > :first-child {
@@ -515,11 +515,11 @@
 		width: 2rem;
 		height: 2rem;
 		border-radius: 999px;
-		background: #e2e8f0;
+		background: var(--sprix-app-border);
 		font-size: 0.75rem;
 		font-weight: 700;
 		letter-spacing: 0.08em;
-		color: #334155;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.section-kicker,
@@ -530,7 +530,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	h2,
@@ -552,7 +552,7 @@
 	}
 
 	p {
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.lead,
@@ -569,11 +569,11 @@
 	.doc-entry,
 	.state-card {
 		padding: 1.1rem;
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.25rem;
 		background:
 			linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.88)),
-			#ffffff;
+			var(--sprix-app-surface);
 	}
 
 	.doc-entry__meta {
@@ -584,7 +584,7 @@
 	.detail-list,
 	.dialog-list {
 		padding-left: 1rem;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 		display: grid;
 		gap: 0.5rem;
 	}

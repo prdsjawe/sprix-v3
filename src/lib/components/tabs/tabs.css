@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.tabs {
 		@apply relative isolate inline-flex max-w-full items-center overflow-y-hidden;
@@ -13,9 +15,9 @@
 	}
 
 	.tabs-trigger {
-		@apply relative z-10 inline-flex min-h-10 shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-transparent px-3.5 text-sm font-medium text-slate-500 transition-[color,background-color,border-color,box-shadow] duration-150 ease-out;
-		@apply hover:text-slate-700 focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:ring-offset-2 focus-visible:outline-none;
-		@apply disabled:cursor-not-allowed disabled:text-slate-300;
+		@apply relative z-10 inline-flex min-h-10 shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-transparent px-3.5 text-sm font-medium text-slate-500 dark:text-slate-400 transition-[color,background-color,border-color,box-shadow] duration-150 ease-out;
+		@apply hover:text-slate-700 dark:hover:text-slate-300 focus-visible:ring-2 focus-visible:ring-blue-200 dark:focus-visible:ring-blue-500/35 focus-visible:ring-offset-2 focus-visible:outline-none;
+		@apply disabled:cursor-not-allowed disabled:text-slate-300 dark:disabled:text-slate-600;
 	}
 
 	.tabs-label {
@@ -23,34 +25,34 @@
 	}
 
 	.tabs.tabs-button {
-		@apply gap-1 overflow-x-auto rounded-xl border border-slate-200 bg-slate-100 p-1;
+		@apply gap-1 overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 p-1;
 
 		.tabs-indicator {
-			@apply inset-y-1 rounded-lg border border-slate-200 bg-white shadow-sm shadow-slate-900/10;
+			@apply inset-y-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 shadow-sm shadow-slate-900/10;
 		}
 
 		.tabs-trigger {
-			@apply min-h-8 px-3 text-slate-600 hover:text-slate-900;
+			@apply min-h-8 px-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100;
 		}
 
 		.tabs-trigger[data-state='active'] {
-			@apply text-slate-900;
+			@apply text-slate-900 dark:text-slate-100;
 		}
 	}
 
 	.tabs.tabs-underline {
-		@apply gap-1 overflow-x-auto border-b border-slate-200 bg-transparent;
+		@apply gap-1 overflow-x-auto border-b border-slate-200 dark:border-slate-700 bg-transparent;
 
 		.tabs-indicator {
 			@apply bottom-[-1px] h-1 rounded-full bg-blue-500;
 		}
 
 		.tabs-trigger {
-			@apply min-h-11 rounded-none px-4 text-slate-500 hover:text-slate-800;
+			@apply min-h-11 rounded-none px-4 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200;
 		}
 
 		.tabs-trigger[data-state='active'] {
-			@apply text-slate-900;
+			@apply text-slate-900 dark:text-slate-100;
 		}
 	}
 }

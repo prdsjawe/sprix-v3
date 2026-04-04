@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.ttp {
 		@apply outline-none;
@@ -10,14 +12,14 @@
 	}
 
 	.ttp-content {
-		@apply max-w-[17.5rem] rounded-lg bg-slate-950 px-2.5 py-1.5 text-[12px] leading-[1.35] font-medium text-slate-50 shadow-lg shadow-slate-950/18;
+		@apply max-w-[17.5rem] rounded-lg bg-slate-950 px-2.5 py-1.5 text-[12px] leading-[1.35] font-medium text-slate-50 dark:text-slate-100 shadow-lg shadow-slate-950/18;
 
 		&[data-interactive='true'] {
 			@apply min-w-[15rem] max-w-[18rem] px-3 py-2 text-[12px] leading-[1.45];
 		}
 
 		:where(p) {
-			@apply m-0 text-[12px] leading-[1.45] text-slate-100;
+			@apply m-0 text-[12px] leading-[1.45] text-slate-100 dark:text-slate-200;
 		}
 
 		:where(strong) {

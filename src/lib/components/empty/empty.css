@@ -1,15 +1,17 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
 	.empty {
-		@apply grid justify-items-start gap-4 text-left text-slate-950;
+		@apply grid justify-items-start gap-4 text-left text-slate-950 dark:text-slate-50;
 
 		.empty-media {
 			@apply flex items-center justify-center;
 		}
 
 		.empty-icon-shell {
-			@apply flex items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-500;
+			@apply flex items-center justify-center rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400;
 			box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.8);
 
 			svg {
@@ -22,16 +24,16 @@
 		}
 
 		.empty-eyebrow {
-			@apply m-0 text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase;
+			@apply m-0 text-[11px] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase;
 		}
 
 		.empty-title {
-			@apply m-0 text-lg font-semibold tracking-tight text-slate-950;
+			@apply m-0 text-lg font-semibold tracking-tight text-slate-950 dark:text-slate-50;
 		}
 
 		.empty-description,
 		.empty-body {
-			@apply m-0 max-w-[44ch] text-sm leading-6 text-slate-600;
+			@apply m-0 max-w-[44ch] text-sm leading-6 text-slate-600 dark:text-slate-400;
 		}
 
 		.empty-body {
@@ -43,7 +45,7 @@
 		}
 
 		&.empty-panel {
-			@apply rounded-3xl border border-dashed border-slate-300 bg-linear-to-b from-slate-50 to-white;
+			@apply rounded-3xl border border-dashed border-slate-300 dark:border-slate-600 bg-linear-to-b from-slate-50 dark:from-slate-950 to-white dark:to-slate-950;
 		}
 
 		&.empty-plain {

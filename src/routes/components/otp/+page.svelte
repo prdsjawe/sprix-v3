@@ -191,8 +191,8 @@
 
 <style>
 	:global(body) {
-		background: #ffffff;
-		color: #0f172a;
+		background: var(--sprix-app-surface);
+		color: var(--sprix-app-text);
 	}
 
 	.docs-shell {
@@ -211,11 +211,11 @@
 	.doc-section {
 		scroll-margin-top: 7rem;
 		padding: clamp(1.5rem, 3vw, 2rem) 0;
-		border-top: 1px solid #e2e8f0;
+		border-top: 1px solid var(--sprix-app-border);
 	}
 
 	.docs-main > :last-child {
-		border-bottom: 1px solid #e2e8f0;
+		border-bottom: 1px solid var(--sprix-app-border);
 	}
 
 	.hero-card,
@@ -240,7 +240,7 @@
 		font-weight: 700;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	h2,
@@ -271,7 +271,7 @@
 	.demo-copy {
 		font-size: 0.98rem;
 		line-height: 1.75;
-		color: #475569;
+		color: var(--sprix-app-text-muted);
 	}
 
 	.doc-grid,
@@ -283,9 +283,9 @@
 	.doc-entry,
 	.state-card {
 		padding: 1.25rem;
-		border: 1px solid #e2e8f0;
+		border: 1px solid var(--sprix-app-border);
 		border-radius: 1.25rem;
-		background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+		background: linear-gradient(180deg, var(--sprix-app-surface) 0%, var(--sprix-app-bg) 100%);
 	}
 
 	.doc-entry__demo,
@@ -298,7 +298,7 @@
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #64748b;
+		color: var(--sprix-app-text-subtle);
 	}
 
 	@media (min-width: 768px) {
