@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+@layer components {
+	.sep {
+		@apply block shrink-0 bg-slate-200;
+
+		&.sep-horizontal {
+			@apply h-px w-full;
+		}
+
+		&.sep-vertical {
+			@apply h-full min-h-4 w-px self-stretch;
+		}
+	}
+}

@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+@layer components {
+	.pgn {
+		@apply flex w-fit items-center;
+	}
+
+	.pgn-list {
+		@apply m-0 flex list-none items-center gap-1 p-0;
+	}
+
+	.pgn-page,
+	.pgn-control {
+		@apply shrink-0 justify-center px-0;
+	}
+
+	.pgn-page-current {
+		@apply font-semibold;
+	}
+
+	.pgn-ellipsis {
+		@apply flex shrink-0 items-center justify-center font-medium text-slate-500 select-none;
+	}
+
+	.pgn-xs {
+		.pgn-page,
+		.pgn-control,
+		.pgn-ellipsis {
+			@apply h-8 min-w-8;
+		}
+	}
+
+	.pgn-sm {
+		.pgn-page,
+		.pgn-control,
+		.pgn-ellipsis {
+			@apply h-9 min-w-9;
+		}
+	}
+
+	.pgn-md {
+		.pgn-page,
+		.pgn-control,
+		.pgn-ellipsis {
+			@apply h-10 min-w-10;
+		}
+	}
+}

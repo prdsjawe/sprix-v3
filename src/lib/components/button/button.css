@@ -1,0 +1,408 @@
+@import 'tailwindcss';
+
+@theme {
+	--shadow-btn: inset 0px 1px 1.4px;
+}
+
+@layer components {
+	.btn {
+		@apply relative flex items-center justify-center;
+		@apply cursor-pointer transition-[background-color,border-color,color,opacity] duration-150 focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:ring-offset-2 focus-visible:outline-none;
+
+		span.label {
+			@apply flex-1;
+		}
+
+		&.btn-xs {
+			@apply gap-1 rounded-md px-2 py-1;
+			@apply text-xs font-medium;
+
+			&.btn-icon {
+				@apply p-1;
+
+				svg {
+					@apply relative size-4 fill-transparent stroke-current;
+				}
+			}
+
+			&:has(span.left-icon) {
+				@apply pl-1.5;
+			}
+
+			&:has(span.right-icon) {
+				@apply pr-1.5;
+			}
+
+			span.left-icon,
+			span.right-icon {
+				@apply relative size-3.5 fill-transparent stroke-current;
+
+				svg {
+					@apply relative size-3.5 fill-transparent stroke-current;
+				}
+			}
+		}
+
+		&.btn-sm {
+			@apply gap-1 rounded-lg px-2.75 py-1.5;
+			@apply text-sm font-medium;
+
+			&.btn-icon {
+				@apply p-1;
+
+				svg {
+					@apply relative size-5 fill-transparent stroke-current;
+				}
+			}
+
+			&:has(span.left-icon) {
+				@apply pl-2;
+			}
+
+			&:has(span.right-icon) {
+				@apply pr-2;
+			}
+
+			span.left-icon,
+			span.right-icon {
+				@apply relative size-4 fill-transparent stroke-current;
+
+				svg {
+					@apply relative size-4 fill-transparent stroke-current;
+				}
+			}
+		}
+
+		&.btn-md {
+			@apply gap-1.5 rounded-lg px-3 py-2.25;
+			@apply text-sm font-medium;
+
+			&.btn-icon {
+				@apply p-2;
+
+				svg {
+					@apply relative size-5 fill-transparent stroke-current;
+				}
+			}
+
+			&:has(span.left-icon) {
+				@apply pl-2.5;
+			}
+
+			&:has(span.right-icon) {
+				@apply pr-2.5;
+			}
+
+			span.left-icon,
+			span.right-icon {
+				@apply relative size-5 fill-transparent stroke-current;
+
+				svg {
+					@apply relative size-5 fill-transparent stroke-current;
+				}
+			}
+		}
+
+		&.btn-lg {
+			@apply gap-1.5 rounded-lg px-3.5 py-2.5;
+			@apply text-base font-medium;
+
+			&.btn-icon {
+				@apply p-1;
+
+				svg {
+					@apply relative size-7 fill-transparent stroke-current;
+				}
+			}
+
+			&:has(span.left-icon) {
+				@apply pl-2.5;
+			}
+
+			&:has(span.right-icon) {
+				@apply pr-2.5;
+			}
+
+			span.left-icon,
+			span.right-icon {
+				@apply relative h-5 w-5 fill-transparent stroke-current;
+
+				svg {
+					@apply relative h-5 w-5 fill-transparent stroke-current;
+				}
+			}
+		}
+
+		&.btn-xl {
+			@apply gap-1.5 rounded-xl px-4 py-3;
+			@apply text-base font-medium;
+
+			&.btn-icon {
+				@apply p-3.5;
+
+				svg {
+					@apply relative size-5 fill-transparent stroke-current;
+				}
+			}
+
+			&:has(span.left-icon) {
+				@apply pl-3;
+			}
+
+			&:has(span.right-icon) {
+				@apply pr-3;
+			}
+
+			span.left-icon,
+			span.right-icon {
+				@apply relative h-5 w-5 fill-transparent stroke-current;
+
+				svg {
+					@apply relative h-5 w-5 fill-transparent stroke-current;
+				}
+			}
+		}
+
+		&.btn-disabled,
+		&.btn-loading {
+			@apply disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-300;
+			@apply disabled:hover:border-gray-300 disabled:hover:bg-gray-100 disabled:hover:text-gray-400;
+		}
+
+		&.btn-primary {
+			@apply border border-blue-600 bg-blue-500 text-white;
+			@apply hover:bg-blue-600;
+
+			&:not(.btn-flat):not(.btn-outline):not(.btn-quiet):not(.btn-soft):not(.btn-disabled) {
+				@apply shadow-btn shadow-white/30;
+			}
+
+			&.btn-flat {
+				@apply shadow-none;
+			}
+
+			&.btn-outline {
+				@apply border-blue-300 bg-white text-blue-600;
+				@apply hover:bg-blue-50 hover:text-blue-700;
+			}
+
+			&.btn-quiet {
+				@apply border-transparent bg-transparent drop-shadow-none hover:bg-gray-100;
+				@apply text-blue-600 hover:text-blue-700;
+			}
+
+			&.btn-soft {
+				@apply border-blue-200 bg-blue-100 text-blue-600;
+				@apply hover:bg-blue-200 hover:text-blue-700;
+			}
+		}
+
+		&.btn-secondary {
+			@apply border border-gray-300 bg-white text-gray-900;
+			@apply hover:bg-gray-100;
+
+			&:not(.btn-flat):not(.btn-outline):not(.btn-quiet):not(.btn-soft):not(.btn-disabled) {
+				@apply shadow-btn shadow-white/30;
+			}
+
+			&.btn-flat {
+				@apply shadow-none;
+			}
+
+			&.btn-outline {
+				@apply border-gray-200 bg-white text-gray-900;
+				@apply hover:bg-gray-50;
+			}
+
+			&.btn-soft {
+				@apply border-gray-200 bg-gray-100 text-gray-900;
+				@apply hover:border-gray-300 hover:bg-gray-200 hover:text-gray-900;
+			}
+
+			&.btn-quiet {
+				@apply border-transparent bg-transparent drop-shadow-none hover:bg-gray-100;
+				@apply text-gray-900 hover:text-gray-950;
+			}
+		}
+
+		&.btn-tertiary {
+			@apply border border-gray-100 bg-gray-50 text-gray-700;
+			@apply hover:bg-gray-100 hover:text-gray-900;
+
+			&:not(.btn-flat):not(.btn-outline):not(.btn-quiet):not(.btn-soft):not(.btn-disabled) {
+				@apply shadow-btn shadow-white/30;
+			}
+
+			&.btn-flat {
+				@apply shadow-none;
+			}
+
+			&.btn-outline {
+				@apply border-gray-200 bg-white text-gray-700;
+				@apply hover:bg-gray-50 hover:text-gray-900;
+			}
+
+			&.btn-soft {
+				@apply border-gray-100 bg-gray-100 text-gray-700;
+				@apply hover:bg-gray-200 hover:text-gray-900;
+			}
+
+			&.btn-quiet {
+				@apply border-transparent bg-transparent drop-shadow-none hover:bg-gray-100;
+				@apply text-gray-600 hover:text-gray-900;
+			}
+		}
+
+		&.btn-danger {
+			@apply border border-red-600 bg-red-500 text-white;
+			@apply hover:bg-red-600;
+
+			&:not(.btn-flat):not(.btn-outline):not(.btn-quiet):not(.btn-soft):not(.btn-disabled) {
+				@apply shadow-btn shadow-white/30;
+			}
+
+			&.btn-flat {
+				@apply shadow-none;
+			}
+
+			&.btn-outline {
+				@apply border-red-300 bg-white text-red-600;
+				@apply hover:bg-red-50 hover:text-red-700;
+			}
+
+			&.btn-soft {
+				@apply border-red-200 bg-red-100 text-red-600;
+				@apply hover:border-red-300 hover:bg-red-200 hover:text-red-700;
+			}
+
+			&.btn-quiet {
+				@apply border-transparent bg-transparent drop-shadow-none hover:bg-gray-100;
+				@apply text-red-600 hover:text-red-700;
+			}
+		}
+
+		&.btn-success {
+			@apply border border-green-600 bg-green-500 text-white;
+			@apply hover:bg-green-600;
+
+			&:not(.btn-flat):not(.btn-outline):not(.btn-quiet):not(.btn-soft):not(.btn-disabled) {
+				@apply shadow-btn shadow-white/30;
+			}
+
+			&.btn-flat {
+				@apply shadow-none;
+			}
+
+			&.btn-outline {
+				@apply border-green-300 bg-white text-green-600;
+				@apply hover:bg-green-50 hover:text-green-700;
+			}
+
+			&.btn-soft {
+				@apply border-green-200 bg-green-100 text-green-600;
+				@apply hover:bg-green-200 hover:text-green-700;
+			}
+
+			&.btn-quiet {
+				@apply border-transparent bg-transparent drop-shadow-none hover:bg-gray-100;
+				@apply text-green-600 hover:text-green-700;
+			}
+		}
+
+		&.btn-warning {
+			@apply border border-amber-600 bg-amber-500 text-white;
+			@apply hover:bg-amber-600;
+
+			&:not(.btn-flat):not(.btn-outline):not(.btn-quiet):not(.btn-soft):not(.btn-disabled) {
+				@apply shadow-btn shadow-white/30;
+			}
+
+			&.btn-flat {
+				@apply shadow-none;
+			}
+
+			&.btn-outline {
+				@apply border-amber-300 bg-white text-amber-600;
+				@apply hover:bg-amber-50 hover:text-amber-700;
+			}
+
+			&.btn-soft {
+				@apply border-amber-200 bg-amber-100 text-amber-600;
+				@apply hover:bg-amber-100 hover:text-amber-700;
+			}
+
+			&.btn-quiet {
+				@apply border-transparent bg-transparent drop-shadow-none hover:bg-gray-100;
+				@apply text-amber-600 hover:text-amber-700;
+			}
+		}
+	}
+
+	.label,
+	.left-icon,
+	.right-icon {
+		@apply transition-opacity duration-150;
+	}
+
+	.btn-content-hidden {
+		@apply opacity-0;
+	}
+
+	.left-icon,
+	.right-icon {
+		@apply inline-flex shrink-0 items-center justify-center;
+	}
+
+	.btn-loader {
+		@apply pointer-events-none absolute inset-0 inline-flex items-center justify-center;
+	}
+
+	.btn-spinner {
+		@apply pointer-events-none;
+	}
+
+	.btn-group {
+		@apply inline-flex items-stretch isolate;
+
+		> :where(.btn) {
+			@apply shrink-0;
+		}
+
+		> :where(.btn:hover),
+		> :where(.btn:focus-visible) {
+			@apply z-10;
+		}
+
+		&.btn-group-horizontal {
+			@apply flex-row;
+
+			> :where(.btn + .btn) {
+				@apply -ml-px;
+			}
+
+			> :where(.btn:not(:first-child)) {
+				@apply rounded-l-none;
+			}
+
+			> :where(.btn:not(:last-child)) {
+				@apply rounded-r-none;
+			}
+		}
+
+		&.btn-group-vertical {
+			@apply flex-col;
+
+			> :where(.btn + .btn) {
+				@apply -mt-px;
+			}
+
+			> :where(.btn:not(:first-child)) {
+				@apply rounded-t-none;
+			}
+
+			> :where(.btn:not(:last-child)) {
+				@apply rounded-b-none;
+			}
+		}
+	}
+}

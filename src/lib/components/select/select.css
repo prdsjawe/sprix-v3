@@ -1,0 +1,229 @@
+@import 'tailwindcss';
+
+@layer components {
+	.slt-field {
+		@apply grid gap-2;
+	}
+
+	.slt {
+		@apply relative rounded-xl border border-slate-300 bg-white text-slate-900 transition-[border-color,box-shadow,background-color,color] duration-150 ease-out;
+		@apply focus-within:border-blue-400 focus-within:ring-4 focus-within:ring-blue-100;
+
+		&.slt-sm {
+			.slt-trigger {
+				@apply min-h-10 gap-2 px-3 text-sm;
+			}
+
+			.slt-icon {
+				@apply h-7 w-7;
+
+				svg {
+					@apply h-4.5 w-4.5;
+				}
+			}
+		}
+
+		&.slt-md {
+			.slt-trigger {
+				@apply min-h-11 gap-2.5 px-3.5 text-sm;
+			}
+
+			.slt-icon {
+				@apply h-8 w-8;
+
+				svg {
+					@apply h-5 w-5;
+				}
+			}
+		}
+
+		&.slt-lg {
+			.slt-trigger {
+				@apply min-h-12 gap-3 px-4 text-base;
+			}
+
+			.slt-icon {
+				@apply h-9 w-9;
+
+				svg {
+					@apply h-5.5 w-5.5;
+				}
+			}
+		}
+
+		&.slt-open {
+			@apply border-blue-400 ring-4 ring-blue-100;
+		}
+
+		&.slt-disabled {
+			@apply border-slate-200 bg-slate-50 text-slate-400;
+
+			.slt-trigger {
+				@apply cursor-not-allowed text-slate-400;
+			}
+
+			.slt-icon {
+				@apply text-slate-300;
+			}
+		}
+
+		&.slt-error {
+			@apply border-rose-300 bg-rose-50/40;
+			@apply focus-within:border-rose-400 focus-within:ring-rose-100;
+		}
+	}
+
+	.slt-trigger {
+		@apply flex w-full items-center bg-transparent text-left text-slate-900 outline-none;
+		@apply rounded-[inherit];
+	}
+
+	.slt-value {
+		@apply min-w-0 flex-1 truncate font-medium;
+	}
+
+	.slt-value.slt-placeholder {
+		@apply font-normal text-slate-400;
+	}
+
+	.slt-icon {
+		@apply inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-transparent text-slate-400 transition-colors duration-150;
+
+		svg {
+			@apply fill-transparent stroke-current;
+		}
+	}
+
+	.slt-panel-host {
+		@apply hidden;
+	}
+
+	.slt-panel {
+		@apply max-h-72 overflow-auto rounded-xl border border-slate-200 bg-white p-1 shadow-lg shadow-slate-950/8;
+	}
+
+	.slt-group + .slt-group {
+		@apply mt-1 border-t border-slate-100 pt-1;
+	}
+
+	.slt-group-label {
+		@apply px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500;
+	}
+
+	.slt-options {
+		@apply grid gap-1;
+	}
+
+	.slt-option {
+		@apply flex w-full items-start justify-between rounded-lg border border-transparent bg-transparent text-left text-slate-900 transition-[background-color,color,border-color] duration-150 ease-out;
+		@apply hover:bg-slate-50 focus-visible:border-blue-200 focus-visible:bg-blue-50/70 focus-visible:outline-none;
+
+		&.slt-option-sm {
+			@apply gap-2 px-2.5 py-2;
+
+			.slt-option-label {
+				@apply text-sm;
+			}
+
+			.slt-option-description {
+				@apply text-xs;
+			}
+
+			.slt-check {
+				@apply h-6 w-6;
+
+				svg {
+					@apply h-4 w-4;
+				}
+			}
+		}
+
+		&.slt-option-md {
+			@apply gap-3 px-3 py-2.5;
+
+			.slt-option-label {
+				@apply text-sm;
+			}
+
+			.slt-option-description {
+				@apply text-xs;
+			}
+
+			.slt-check {
+				@apply h-7 w-7;
+
+				svg {
+					@apply h-4.5 w-4.5;
+				}
+			}
+		}
+
+		&.slt-option-lg {
+			@apply gap-3 px-3.5 py-3;
+
+			.slt-option-label {
+				@apply text-base;
+			}
+
+			.slt-option-description {
+				@apply text-sm;
+			}
+
+			.slt-check {
+				@apply h-8 w-8;
+
+				svg {
+					@apply h-5 w-5;
+				}
+			}
+		}
+
+		&.slt-option-active {
+			@apply bg-slate-100;
+		}
+
+		&.slt-option-selected {
+			@apply bg-blue-50 text-slate-950;
+		}
+
+		&.slt-option-disabled {
+			@apply cursor-not-allowed text-slate-300 hover:bg-transparent;
+		}
+	}
+
+	.slt-option-copy {
+		@apply grid min-w-0 gap-0.5;
+	}
+
+	.slt-option-label {
+		@apply truncate font-medium;
+	}
+
+	.slt-option-description {
+		@apply leading-5 text-slate-500;
+	}
+
+	.slt-check {
+		@apply inline-flex shrink-0 items-center justify-center text-blue-600;
+
+		svg {
+			@apply fill-transparent stroke-current;
+		}
+	}
+
+	.slt-message {
+		@apply text-sm leading-6 text-slate-500;
+	}
+
+	.slt-message-error {
+		@apply text-rose-600;
+	}
+
+	.tippy-box[data-theme~='sprix-select'] {
+		@apply rounded-none border-0 bg-transparent shadow-none;
+	}
+
+	.tippy-box[data-theme~='sprix-select'] > .tippy-content {
+		@apply p-0;
+	}
+}

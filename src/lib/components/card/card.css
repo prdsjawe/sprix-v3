@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+
+@layer components {
+	.card {
+		@apply rounded-2xl border border-slate-200 bg-white text-slate-950;
+	}
+
+	.card-header {
+		@apply flex flex-wrap items-start gap-3 px-6 pt-6;
+	}
+
+	.card-copy {
+		@apply grid min-w-0 flex-1 gap-1;
+	}
+
+	.card-title {
+		@apply m-0 text-lg font-semibold leading-tight tracking-tight text-slate-950;
+	}
+
+	.card-description {
+		@apply m-0 text-sm leading-6 text-slate-500;
+	}
+
+	.card-action {
+		@apply ml-auto flex shrink-0 items-center;
+	}
+
+	.card-content {
+		@apply grid gap-6 px-6 pt-6 pb-6;
+	}
+
+	.card-content.card-content-with-footer {
+		@apply pb-0;
+	}
+
+	.card-footer {
+		@apply grid gap-2 px-6 pb-6;
+	}
+}

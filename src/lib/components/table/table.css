@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+
+@layer components {
+	.tbl {
+		@apply w-full border-collapse text-left text-sm text-slate-700;
+	}
+
+	.tbl-header,
+	.tbl-footer {
+		.tbl-row {
+			@apply bg-slate-50/70;
+		}
+	}
+
+	.tbl-row {
+		@apply border-b border-slate-200 transition-colors duration-150 ease-out;
+	}
+
+	.tbl-body .tbl-row {
+		@apply hover:bg-slate-50/70;
+	}
+
+	.tbl-column {
+		@apply px-4 py-3 align-middle;
+	}
+
+	.tbl-column.tbl-column-head {
+		@apply text-sm font-semibold text-slate-700;
+	}
+
+	.tbl-body .tbl-column {
+		@apply text-sm text-slate-600;
+	}
+
+	.tbl-footer .tbl-column {
+		@apply text-sm font-semibold text-slate-800;
+	}
+}

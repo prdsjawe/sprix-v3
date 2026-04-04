@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+
+@layer components {
+	.tglg {
+		@apply inline-flex flex-wrap items-center gap-2;
+	}
+
+	.tglg-btn {
+		@apply inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2;
+		@apply text-sm leading-none font-medium text-slate-700;
+		@apply transition-[background-color,border-color,color,opacity] duration-150;
+		@apply focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:ring-offset-2 focus-visible:outline-none;
+	}
+
+	.tglg-label {
+		@apply whitespace-nowrap;
+	}
+
+	.tglg-indicator {
+		@apply inline-flex h-4.5 w-4.5 shrink-0 items-center justify-center border border-slate-300 bg-white;
+		@apply transition-[background-color,border-color,transform] duration-150;
+	}
+
+	.tglg-mark {
+		@apply block scale-75 opacity-0 transition-[opacity,transform,background-color,border-color] duration-150;
+	}
+
+	.tglg-btn.tglg-check .tglg-indicator {
+		@apply rounded-md;
+	}
+
+	.tglg-btn.tglg-check .tglg-mark {
+		@apply mb-0.5 h-2 w-1 rotate-45 border-r-2 border-b-2 border-white;
+	}
+
+	.tglg-btn.tglg-radio .tglg-indicator {
+		@apply rounded-full;
+	}
+
+	.tglg-btn.tglg-radio .tglg-mark {
+		@apply h-2 w-2 rounded-full bg-blue-500;
+	}
+
+	.tglg-btn.tglg-bordered {
+		@apply border-slate-300 bg-white;
+		@apply hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900;
+	}
+
+	.tglg-btn.tglg-ghost {
+		@apply border-transparent bg-transparent;
+		@apply hover:bg-slate-100 hover:text-slate-900;
+	}
+
+	.tglg-btn.tglg-btn-selected {
+		@apply text-blue-700;
+	}
+
+	.tglg-btn.tglg-btn-selected .tglg-mark {
+		@apply scale-100 opacity-100;
+	}
+
+	.tglg-btn.tglg-btn-selected.tglg-bordered {
+		@apply border-blue-500 bg-blue-50;
+		@apply hover:border-blue-600 hover:bg-blue-100 hover:text-blue-800;
+	}
+
+	.tglg-btn.tglg-btn-selected.tglg-ghost {
+		@apply bg-blue-50;
+		@apply hover:bg-blue-100 hover:text-blue-800;
+	}
+
+	.tglg-btn.tglg-btn-selected.tglg-check .tglg-indicator {
+		@apply border-blue-500 bg-blue-500;
+	}
+
+	.tglg-btn.tglg-btn-selected.tglg-radio .tglg-indicator {
+		@apply border-blue-500 bg-white;
+	}
+
+	.tglg-btn.tglg-btn-disabled {
+		@apply cursor-not-allowed opacity-60;
+	}
+
+	.tglg-btn.tglg-btn-disabled.tglg-bordered {
+		@apply border-slate-200 bg-slate-50 text-slate-400;
+		@apply hover:border-slate-200 hover:bg-slate-50 hover:text-slate-400;
+	}
+
+	.tglg-btn.tglg-btn-disabled.tglg-ghost {
+		@apply text-slate-400;
+		@apply hover:bg-transparent hover:text-slate-400;
+	}
+
+	.tglg-btn.tglg-btn-disabled .tglg-indicator {
+		@apply border-slate-200 bg-slate-100;
+	}
+
+	.tglg-btn.tglg-btn-disabled.tglg-btn-selected.tglg-check .tglg-indicator {
+		@apply border-blue-300 bg-blue-300;
+	}
+
+	.tglg-btn.tglg-btn-disabled.tglg-btn-selected.tglg-radio .tglg-mark {
+		@apply bg-blue-300;
+	}
+}

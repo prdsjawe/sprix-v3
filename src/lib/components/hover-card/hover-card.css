@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+@layer components {
+	.hcd {
+		@apply outline-none;
+	}
+
+	.hcd-host {
+		@apply hidden;
+	}
+
+	.hcd-content {
+		@apply max-w-88 min-w-[18rem] rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm leading-6 text-slate-700 shadow shadow-slate-950/12;
+
+		:where(h1, h2, h3, h4, strong) {
+			@apply m-0 leading-tight font-semibold text-slate-950;
+		}
+
+		:where(p) {
+			@apply m-0 text-sm leading-6 text-slate-600;
+		}
+
+		:where(small) {
+			@apply text-[11px] font-semibold tracking-[0.16em] text-slate-500 uppercase;
+		}
+
+		:where(a, button) {
+			@apply text-inherit underline decoration-slate-300/80 decoration-1 underline-offset-2;
+		}
+	}
+
+	.tippy-box[data-theme~='sprix-hover-card'] {
+		background-color: transparent !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		color: inherit !important;
+	}
+
+	.tippy-box[data-theme~='sprix-hover-card'] > .tippy-content {
+		padding: 0 !important;
+	}
+}

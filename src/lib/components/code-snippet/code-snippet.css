@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@layer components {
+	.cds {
+		@apply overflow-hidden rounded-2xl border border-slate-200 bg-linear-to-br from-white via-slate-50 to-slate-100 text-slate-900;
+
+		&.cds-wrap .cds-body {
+			@apply overflow-x-hidden;
+		}
+
+		&.cds-wrap .cds-line-code {
+			@apply min-w-0 break-words whitespace-pre-wrap;
+		}
+	}
+
+	.cds-header {
+		@apply flex items-center justify-between gap-3 border-b border-slate-200 bg-white/80 px-4 py-2.5;
+	}
+
+	.cds-file {
+		@apply truncate text-xs font-semibold tracking-[0.16em] text-slate-600 uppercase;
+	}
+
+	.cds-language {
+		@apply inline-flex items-center rounded-full border border-slate-200 bg-slate-100 px-2 py-1 text-[0.6875rem] font-semibold tracking-[0.16em] text-slate-500 uppercase;
+	}
+
+	.cds-body {
+		@apply overflow-x-auto;
+	}
+
+	.cds-pre {
+		@apply m-0 p-0;
+	}
+
+	.cds-code {
+		@apply grid min-w-full font-mono text-[0.8125rem] leading-6;
+	}
+
+	.cds-line {
+		@apply grid min-w-full grid-cols-[auto_minmax(0,1fr)] items-start;
+	}
+
+	.cds.cds-no-lines .cds-line {
+		@apply grid-cols-[minmax(0,1fr)];
+	}
+
+	.cds-line-number {
+		@apply border-r border-slate-200 px-3 py-0 text-right text-xs font-medium text-slate-400 select-none;
+		@apply bg-slate-50/90;
+		min-inline-size: calc((var(--cds-line-digits, 2) * 0.7ch) + 1.75rem);
+	}
+
+	.cds-line-code {
+		@apply block min-w-max px-4 py-0 whitespace-pre text-slate-800;
+		tab-size: 2;
+	}
+}

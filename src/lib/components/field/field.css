@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+
+@layer components {
+	.fld {
+		@apply grid gap-2.5;
+	}
+
+	.fld.fld-horizontal {
+		@apply gap-3;
+	}
+
+	.fld-head {
+		@apply grid gap-1;
+	}
+
+	.fld-label {
+		@apply flex items-center gap-1 text-sm font-medium text-slate-800;
+	}
+
+	.fld-required {
+		@apply text-rose-500;
+	}
+
+	.fld-description,
+	.fld-message {
+		@apply text-sm leading-6 text-slate-500;
+	}
+
+	.fld-message.fld-message-error {
+		@apply text-rose-600;
+	}
+
+	.fld-control {
+		@apply grid gap-3;
+	}
+
+	.fld-control.fld-control-horizontal {
+		@apply flex flex-wrap items-center gap-3;
+	}
+
+	.fld-control.fld-control-horizontal .fld-label {
+		@apply min-w-0 flex-1;
+	}
+}

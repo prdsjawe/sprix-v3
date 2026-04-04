@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+@layer components {
+	.spinner {
+		--spinner-size: 1rem;
+		--spinner-stroke: 2.25;
+
+		@apply inline-flex shrink-0 items-center justify-center gap-2 align-middle text-current select-none;
+
+		svg.spinner-indicator {
+			@apply shrink-0 animate-spin;
+
+			width: var(--spinner-size);
+			height: var(--spinner-size);
+		}
+
+		circle.spinner-track,
+		path.spinner-head {
+			fill: none;
+			stroke: currentColor;
+			stroke-width: var(--spinner-stroke);
+			vector-effect: non-scaling-stroke;
+		}
+
+		circle.spinner-track {
+			stroke-opacity: 0.24;
+		}
+
+		path.spinner-head {
+			stroke-linecap: round;
+			stroke-linejoin: round;
+		}
+
+		span.label {
+			@apply inline-flex items-center font-medium leading-none;
+		}
+
+		&.spinner-xs {
+			--spinner-size: 0.75rem;
+			--spinner-stroke: 2.75;
+
+			@apply gap-1 text-[11px];
+		}
+
+		&.spinner-sm {
+			--spinner-size: 0.875rem;
+			--spinner-stroke: 2.5;
+
+			@apply gap-1.5 text-xs;
+		}
+
+		&.spinner-md {
+			--spinner-size: 1rem;
+			--spinner-stroke: 2.25;
+
+			@apply gap-1.5 text-sm;
+		}
+
+		&.spinner-lg {
+			--spinner-size: 1.25rem;
+			--spinner-stroke: 2.15;
+
+			@apply gap-2 text-sm;
+		}
+
+		&.spinner-xl {
+			--spinner-size: 1.5rem;
+			--spinner-stroke: 2;
+
+			@apply gap-2 text-base;
+		}
+
+		&.spinner-2xl {
+			--spinner-size: 2rem;
+			--spinner-stroke: 1.85;
+
+			@apply gap-2.5 text-base;
+		}
+
+		&.spinner-3xl {
+			--spinner-size: 2.5rem;
+			--spinner-stroke: 1.75;
+
+			@apply gap-3 text-lg;
+		}
+
+		&.spinner-primary {
+			@apply text-blue-600;
+		}
+
+		&.spinner-secondary {
+			@apply text-slate-500;
+		}
+
+		&.spinner-tertiary {
+			@apply text-gray-500;
+		}
+
+		&.spinner-danger {
+			@apply text-red-500;
+		}
+
+		&.spinner-success {
+			@apply text-green-500;
+		}
+
+		&.spinner-warning {
+			@apply text-amber-500;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+@layer components {
+	.prg {
+		@apply relative block h-1.5 w-full overflow-hidden rounded-full bg-slate-200;
+		box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.8);
+	}
+
+	.prg-indicator {
+		@apply h-full rounded-full bg-blue-600 transition-[width,background-color] duration-200 ease-out;
+	}
+}

@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@import 'tippy.js/dist/tippy.css';
+@import 'tippy.js/animations/shift-away.css';
+
+@layer components {
+	.tippy-box[data-theme^='sprix-'],
+	.tippy-box[data-theme*=' sprix-'] {
+		background-color: transparent !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		color: inherit !important;
+	}
+
+	.tippy-box[data-theme^='sprix-'] > .tippy-content,
+	.tippy-box[data-theme*=' sprix-'] > .tippy-content {
+		padding: 0 !important;
+	}
+
+	.tippy-box[data-theme~='sprix-nav-menu'] > .tippy-arrow,
+	.tippy-box[data-theme~='sprix-popover'] > .tippy-arrow,
+	.tippy-box[data-theme~='sprix-hover-card'] > .tippy-arrow,
+	.tippy-box[data-theme~='sprix-sidebar'] > .tippy-arrow,
+	.tippy-box[data-theme~='sprix-date-picker'] > .tippy-arrow,
+	.tippy-box[data-theme~='sprix-select'] > .tippy-arrow,
+	.tippy-box[data-theme~='sprix-combobox'] > .tippy-arrow,
+	.tippy-box[data-theme~='sprix-dropdown-menu'] > .tippy-arrow {
+		display: none !important;
+	}
+}

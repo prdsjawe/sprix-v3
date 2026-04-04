@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+
+@layer components {
+	.avatar {
+		@apply relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-slate-100 text-slate-700 align-middle select-none;
+		@apply transition-[border-color,background-color,color] duration-150;
+
+		img.avatar-image {
+			@apply size-full object-cover;
+		}
+
+		span.avatar-fallback,
+		span.avatar-icon {
+			@apply inline-flex size-full items-center justify-center;
+		}
+
+		span.avatar-fallback {
+			@apply font-semibold leading-none tracking-[0.08em] uppercase;
+		}
+
+		span.avatar-icon {
+			@apply text-slate-400;
+
+			svg {
+				@apply fill-transparent stroke-current;
+			}
+		}
+
+		&.avatar-xs {
+			@apply size-5;
+
+			span.avatar-fallback {
+				@apply text-[9px];
+			}
+
+			span.avatar-icon svg {
+				@apply size-2.75;
+			}
+		}
+
+		&.avatar-sm {
+			@apply size-6;
+
+			span.avatar-fallback {
+				@apply text-[10px];
+			}
+
+			span.avatar-icon svg {
+				@apply size-3;
+			}
+		}
+
+		&.avatar-md {
+			@apply size-8;
+
+			span.avatar-fallback {
+				@apply text-xs;
+			}
+
+			span.avatar-icon svg {
+				@apply size-4;
+			}
+		}
+
+		&.avatar-lg {
+			@apply size-10;
+
+			span.avatar-fallback {
+				@apply text-sm;
+			}
+
+			span.avatar-icon svg {
+				@apply size-5;
+			}
+		}
+
+		&.avatar-xl {
+			@apply size-12;
+
+			span.avatar-fallback {
+				@apply text-base;
+			}
+
+			span.avatar-icon svg {
+				@apply size-6;
+			}
+		}
+
+		&.avatar-2xl {
+			@apply size-16;
+
+			span.avatar-fallback {
+				@apply text-xl;
+			}
+
+			span.avatar-icon svg {
+				@apply size-8;
+			}
+		}
+
+		&.avatar-3xl {
+			@apply size-24;
+
+			span.avatar-fallback {
+				@apply text-3xl;
+			}
+
+			span.avatar-icon svg {
+				@apply size-12;
+			}
+		}
+	}
+}

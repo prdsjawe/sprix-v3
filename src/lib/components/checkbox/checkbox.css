@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+@layer components {
+	.chk-field {
+		@apply grid gap-2;
+	}
+
+	.chk {
+		@apply relative flex items-center gap-3 rounded-xl text-slate-900 transition-[color,background-color] duration-150 ease-out;
+	}
+
+	.chk-copy {
+		@apply min-w-0 flex-1 grid gap-1;
+	}
+
+	.chk-label-row {
+		@apply flex items-center gap-1 font-medium text-slate-800;
+	}
+
+	.chk-required {
+		@apply text-rose-500;
+	}
+
+	.chk-shell {
+		@apply relative inline-flex shrink-0 items-center justify-center;
+	}
+
+	.chk-control {
+		@apply sr-only;
+	}
+
+	.chk-box {
+		@apply inline-flex items-center justify-center rounded-md border border-slate-300 bg-white shadow-xs transition-[border-color,background-color,box-shadow] duration-150 ease-out;
+	}
+
+	.chk-control:focus-visible + .chk-box {
+		@apply ring-4 ring-blue-100 ring-offset-0;
+	}
+
+	.chk-mark {
+		@apply block rotate-45 border-r-2 border-b-2 border-white opacity-0 transition-[opacity,transform] duration-150 ease-out;
+		@apply scale-75;
+	}
+
+	.chk-message {
+		@apply pl-8 text-sm leading-6 text-slate-500;
+	}
+
+	.chk-message-error {
+		@apply text-rose-600;
+	}
+
+	.chk:hover .chk-box {
+		@apply border-slate-400;
+	}
+
+	.chk.chk-sm {
+		@apply gap-2.5;
+
+		.chk-label-row {
+			@apply text-sm;
+		}
+
+		.chk-box {
+			@apply h-4 w-4 rounded;
+		}
+
+		.chk-mark {
+			@apply mb-0.5 h-2 w-1;
+		}
+
+		.chk-message {
+			@apply pl-6;
+		}
+	}
+
+	.chk.chk-md {
+		@apply gap-3;
+
+		.chk-label-row {
+			@apply text-sm;
+		}
+
+		.chk-box {
+			@apply h-5 w-5 rounded-md;
+		}
+
+		.chk-mark {
+			@apply mb-0.5 h-2.5 w-1.5;
+		}
+
+		.chk-message {
+			@apply pl-8;
+		}
+	}
+
+	.chk.chk-lg {
+		@apply gap-3.5;
+
+		.chk-label-row {
+			@apply text-base;
+		}
+
+		.chk-box {
+			@apply h-6 w-6 rounded-lg;
+		}
+
+		.chk-mark {
+			@apply mb-0.5 h-3 w-1.5;
+		}
+
+		.chk-message {
+			@apply pl-9.5;
+		}
+	}
+
+	.chk.chk-checked .chk-box {
+		@apply border-blue-500 bg-blue-500 shadow-none;
+	}
+
+	.chk.chk-checked .chk-mark {
+		@apply scale-100 opacity-100;
+	}
+
+	.chk.chk-error .chk-box {
+		@apply border-rose-300 bg-rose-50;
+	}
+
+	.chk.chk-error .chk-control:focus-visible + .chk-box {
+		@apply ring-rose-100;
+	}
+
+	.chk.chk-error.chk-checked .chk-box {
+		@apply border-rose-500 bg-rose-500;
+	}
+
+	.chk.chk-disabled {
+		@apply cursor-not-allowed text-slate-400;
+	}
+
+	.chk.chk-disabled .chk-label-row,
+	.chk.chk-disabled + .chk-message {
+		@apply text-slate-400;
+	}
+
+	.chk.chk-disabled .chk-box {
+		@apply border-slate-200 bg-slate-100;
+	}
+
+	.chk.chk-disabled.chk-checked .chk-box {
+		@apply border-blue-300 bg-blue-300;
+	}
+
+	.chk.chk-disabled:hover .chk-box {
+		@apply border-slate-200;
+	}
+}

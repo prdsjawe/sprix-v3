@@ -1,0 +1,110 @@
+Pending first:
+
+Phase 1, foundation primitives:
+
+Label - NO NEED
+Skeleton
+Kbd - DONE
+Typography
+Aspect Ratio
+
+Phase 2, overlay and positioning base:
+
+Popover - DONE
+Tooltip - DONE
+Hover Card - DONE
+Scroll Area - NO NEED
+Collapsible - NO NEED
+Resizable - NO NEED
+
+Phase 3, input system:
+
+Phase 4, menu family:
+
+Dropdown Menu
+Context Menu
+
+Phase 5, data and structure:
+
+Chart
+
+Phase 6, bigger composites:
+
+Carousel - DONE
+Drawer only if you still want it separate from Sheet
+Item only if you define exactly what family it belongs to
+Direction only if you mean an RTL/LTR provider utility
+
+Already done:
+
+Phase 1, foundation primitives:
+
+Separator - DONE
+Card - DONE
+Progress - DONE
+Avatar - DONE
+Spinner - DONE
+Empty - DONE
+Kbd - DONE
+
+Phase 3, input system:
+
+Field - DONE
+Input Group - DONE
+Native Select - DONE
+Select - DONE
+Switch or keep Toggle as the house name - DONE
+Radio Group - DONE
+Slider - DONE
+Calendar - DONE
+Date Picker - DONE
+Input OTP - DONE
+
+Phase 4, menu family:
+
+Menubar - NO NEED
+Navigation Menu - DONE
+Command - DONE
+
+Phase 5, data and structure:
+
+Tabs - DONE
+Table - DONE
+Breadcrumb - DONE
+Pagination - DONE
+Code Snippet - DONE
+
+Phase 6, bigger composites:
+
+Button Group - DONE
+Toggle Group - DONE
+Alert - DONE
+Sidebar - DONE
+Carousel - DONE
+
+My recommended next 10:
+
+Label
+Skeleton
+Popover
+Tooltip
+Scroll Area
+Kbd - DONE
+Typography
+Aspect Ratio
+
+Already done from that recommendation list:
+
+Separator - DONE
+Card - DONE
+Field - DONE
+Select - DONE
+Tabs - DONE
+Empty - DONE
+
+Also, I’d normalize these names now to avoid duplicate work:
+
+Drawer -> use Sheet - DONE
+Switch -> use Toggle or rename later - DONE
+Sonner -> use Toast - DONE
+Radio Group -> add a real group wrapper around existing Radio

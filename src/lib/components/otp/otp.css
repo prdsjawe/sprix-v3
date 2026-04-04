@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@layer components {
+	.otp-field {
+		@apply grid;
+	}
+
+	.otp {
+		@apply flex w-fit max-w-full items-center gap-2.5 sm:gap-3;
+	}
+
+	.otp-cell {
+		@apply h-14 w-11 rounded-lg border border-slate-300 bg-white px-0 text-center text-[1.625rem] font-semibold leading-none text-slate-900 caret-transparent outline-none transition-[border-color,background-color,color,box-shadow] duration-150 ease-out;
+		@apply placeholder:text-slate-300 hover:border-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100;
+		@apply sm:h-16 sm:w-13 sm:text-[1.875rem];
+		font-variant-numeric: tabular-nums;
+	}
+
+	.otp.otp-invalid .otp-cell {
+		@apply border-rose-300 bg-rose-50/40 text-rose-700;
+		@apply hover:border-rose-400 focus:border-rose-400 focus:ring-rose-100;
+	}
+
+	.otp.otp-disabled .otp-cell {
+		@apply cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400;
+		@apply placeholder:text-slate-300 hover:border-slate-200;
+	}
+
+	.otp.otp-readonly .otp-cell {
+		@apply cursor-default;
+	}
+}

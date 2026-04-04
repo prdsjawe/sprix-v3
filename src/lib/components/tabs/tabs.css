@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+@layer components {
+	.tabs {
+		@apply relative isolate inline-flex max-w-full items-center overflow-y-hidden;
+	}
+
+	.tabs-indicator {
+		@apply pointer-events-none absolute left-0 transition-[transform,width,opacity] duration-250 ease-out;
+		width: var(--tabs-indicator-width, 0px);
+		transform: translate3d(var(--tabs-indicator-x, 0px), 0, 0);
+		opacity: var(--tabs-indicator-opacity, 0);
+	}
+
+	.tabs-trigger {
+		@apply relative z-10 inline-flex min-h-10 shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-transparent px-3.5 text-sm font-medium text-slate-500 transition-[color,background-color,border-color,box-shadow] duration-150 ease-out;
+		@apply hover:text-slate-700 focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:ring-offset-2 focus-visible:outline-none;
+		@apply disabled:cursor-not-allowed disabled:text-slate-300;
+	}
+
+	.tabs-label {
+		@apply block truncate;
+	}
+
+	.tabs.tabs-button {
+		@apply gap-1 overflow-x-auto rounded-xl border border-slate-200 bg-slate-100 p-1;
+
+		.tabs-indicator {
+			@apply inset-y-1 rounded-lg border border-slate-200 bg-white shadow-sm shadow-slate-900/10;
+		}
+
+		.tabs-trigger {
+			@apply min-h-8 px-3 text-slate-600 hover:text-slate-900;
+		}
+
+		.tabs-trigger[data-state='active'] {
+			@apply text-slate-900;
+		}
+	}
+
+	.tabs.tabs-underline {
+		@apply gap-1 overflow-x-auto border-b border-slate-200 bg-transparent;
+
+		.tabs-indicator {
+			@apply bottom-[-1px] h-1 rounded-full bg-blue-500;
+		}
+
+		.tabs-trigger {
+			@apply min-h-11 rounded-none px-4 text-slate-500 hover:text-slate-800;
+		}
+
+		.tabs-trigger[data-state='active'] {
+			@apply text-slate-900;
+		}
+	}
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Create Component'
+  short_description: 'Build reusable Svelte 5 UI components'
+  default_prompt: 'Use $create-components to build or refactor a reusable Svelte 5 component with local Tailwind CSS v4 styles and typed exports.'

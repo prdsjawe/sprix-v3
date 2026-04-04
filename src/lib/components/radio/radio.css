@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+@layer components {
+	.rad-field {
+		@apply grid gap-2;
+	}
+
+	.rad {
+		@apply relative flex items-center gap-3 rounded-xl text-slate-900 transition-[color,background-color] duration-150 ease-out;
+	}
+
+	.rad-copy {
+		@apply min-w-0 flex-1 grid gap-1;
+	}
+
+	.rad-label-row {
+		@apply flex items-center gap-1 font-medium text-slate-800;
+	}
+
+	.rad-required {
+		@apply text-rose-500;
+	}
+
+	.rad-shell {
+		@apply relative inline-flex shrink-0 items-center justify-center;
+	}
+
+	.rad-control {
+		@apply sr-only;
+	}
+
+	.rad-circle {
+		@apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white shadow-xs transition-[border-color,background-color,box-shadow] duration-150 ease-out;
+	}
+
+	.rad-control:focus-visible + .rad-circle {
+		@apply ring-4 ring-blue-100 ring-offset-0;
+	}
+
+	.rad-dot {
+		@apply rounded-full bg-blue-500 opacity-0 transition-[opacity,transform,background-color] duration-150 ease-out;
+		@apply scale-75;
+	}
+
+	.rad-message {
+		@apply pl-8 text-sm leading-6 text-slate-500;
+	}
+
+	.rad-message-error {
+		@apply text-rose-600;
+	}
+
+	.rad:hover .rad-circle {
+		@apply border-slate-400;
+	}
+
+	.rad.rad-sm {
+		@apply gap-2.5;
+
+		.rad-label-row {
+			@apply text-sm;
+		}
+
+		.rad-circle {
+			@apply h-4 w-4;
+		}
+
+		.rad-dot {
+			@apply h-2 w-2;
+		}
+
+		.rad-message {
+			@apply pl-6;
+		}
+	}
+
+	.rad.rad-md {
+		@apply gap-3;
+
+		.rad-label-row {
+			@apply text-sm;
+		}
+
+		.rad-circle {
+			@apply h-5 w-5;
+		}
+
+		.rad-dot {
+			@apply h-2.5 w-2.5;
+		}
+
+		.rad-message {
+			@apply pl-8;
+		}
+	}
+
+	.rad.rad-lg {
+		@apply gap-3.5;
+
+		.rad-label-row {
+			@apply text-base;
+		}
+
+		.rad-circle {
+			@apply h-6 w-6;
+		}
+
+		.rad-dot {
+			@apply h-3 w-3;
+		}
+
+		.rad-message {
+			@apply pl-9.5;
+		}
+	}
+
+	.rad.rad-checked .rad-circle {
+		@apply border-blue-500 bg-white;
+	}
+
+	.rad.rad-checked .rad-dot {
+		@apply scale-100 opacity-100;
+	}
+
+	.rad.rad-error .rad-circle {
+		@apply border-rose-300 bg-rose-50;
+	}
+
+	.rad.rad-error .rad-control:focus-visible + .rad-circle {
+		@apply ring-rose-100;
+	}
+
+	.rad.rad-error.rad-checked .rad-dot {
+		@apply bg-rose-500;
+	}
+
+	.rad.rad-disabled {
+		@apply cursor-not-allowed text-slate-400;
+	}
+
+	.rad.rad-disabled .rad-label-row,
+	.rad.rad-disabled + .rad-message {
+		@apply text-slate-400;
+	}
+
+	.rad.rad-disabled .rad-circle {
+		@apply border-slate-200 bg-slate-100;
+	}
+
+	.rad.rad-disabled.rad-checked .rad-dot {
+		@apply bg-blue-300;
+	}
+
+	.rad.rad-disabled:hover .rad-circle {
+		@apply border-slate-200;
+	}
+}

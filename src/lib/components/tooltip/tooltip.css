@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@layer components {
+	.ttp {
+		@apply outline-none;
+	}
+
+	.ttp-host {
+		@apply hidden;
+	}
+
+	.ttp-content {
+		@apply max-w-[17.5rem] rounded-lg bg-slate-950 px-2.5 py-1.5 text-[12px] leading-[1.35] font-medium text-slate-50 shadow-lg shadow-slate-950/18;
+
+		&[data-interactive='true'] {
+			@apply min-w-[15rem] max-w-[18rem] px-3 py-2 text-[12px] leading-[1.45];
+		}
+
+		:where(p) {
+			@apply m-0 text-[12px] leading-[1.45] text-slate-100;
+		}
+
+		:where(strong) {
+			@apply font-semibold text-white;
+		}
+
+		:where(a, button) {
+			@apply text-inherit underline decoration-slate-300/70 decoration-1 underline-offset-2;
+		}
+	}
+
+	.tippy-box[data-theme~='sprix-tooltip'] {
+		background-color: transparent !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		color: inherit !important;
+	}
+
+	.tippy-box[data-theme~='sprix-tooltip'] > .tippy-content {
+		padding: 0 !important;
+	}
+
+	.tippy-box[data-theme~='sprix-tooltip'] > .tippy-arrow {
+		color: rgb(2 6 23) !important;
+	}
+
+	.tippy-box[data-theme~='sprix-tooltip'][data-placement^='top'] > .tippy-arrow::before {
+		border-top-color: currentcolor !important;
+	}
+
+	.tippy-box[data-theme~='sprix-tooltip'][data-placement^='bottom'] > .tippy-arrow::before {
+		border-bottom-color: currentcolor !important;
+	}
+
+	.tippy-box[data-theme~='sprix-tooltip'][data-placement^='left'] > .tippy-arrow::before {
+		border-left-color: currentcolor !important;
+	}
+
+	.tippy-box[data-theme~='sprix-tooltip'][data-placement^='right'] > .tippy-arrow::before {
+		border-right-color: currentcolor !important;
+	}
+}
