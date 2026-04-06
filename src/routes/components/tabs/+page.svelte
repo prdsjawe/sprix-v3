@@ -43,7 +43,8 @@
 		},
 		weekly: {
 			title: 'Weekly cadence',
-			description: 'Underline mode keeps the layout lighter while the active bar slides between triggers.'
+			description:
+				'Underline mode keeps the layout lighter while the active bar slides between triggers.'
 		},
 		monthly: {
 			title: 'Monthly cadence',
@@ -51,7 +52,8 @@
 		},
 		quarterly: {
 			title: 'Quarterly cadence',
-			description: 'Reserve the heavier button treatment for places where the tabs need more containment.'
+			description:
+				'Reserve the heavier button treatment for places where the tabs need more containment.'
 		},
 		activity: {
 			title: 'Recent activity',
@@ -59,11 +61,13 @@
 		},
 		timeline: {
 			title: 'Delivery timeline',
-			description: 'Selection remains bindable, so the parent can swap content without extra component state.'
+			description:
+				'Selection remains bindable, so the parent can swap content without extra component state.'
 		},
 		notes: {
 			title: 'Internal notes',
-			description: 'Use disabled tabs sparingly and keep them visually subordinate to available actions.'
+			description:
+				'Use disabled tabs sparingly and keep them visually subordinate to available actions.'
 		}
 	} as const;
 
@@ -109,13 +113,18 @@
 				<h2>One state model, two visual weights.</h2>
 				<p class="lead">
 					Use `button` when the tabs need to read like a contained control group. Use `underline`
-					when the surrounding layout already provides enough structure and the navigation should stay lighter.
+					when the surrounding layout already provides enough structure and the navigation should
+					stay lighter.
 				</p>
 			</div>
 
 			<div class="hero-card__stack">
 				<div class="preview-card">
-					<UITabs items={workspaceTabs} bind:value={workspaceValue} ariaLabel="Workspace sections" />
+					<UITabs
+						items={workspaceTabs}
+						bind:value={workspaceValue}
+						ariaLabel="Workspace sections"
+					/>
 					<div class="preview-card__body">
 						<p class="preview-card__eyebrow">{workspaceContent.title}</p>
 						<p>{workspaceContent.description}</p>
@@ -143,7 +152,10 @@
 					<p class="section-kicker">Variants</p>
 					<h2>Choose weight based on the surrounding surface.</h2>
 				</div>
-				<p>Both variants share the same selection model and keyboard behavior. Only the presentation changes.</p>
+				<p>
+					Both variants share the same selection model and keyboard behavior. Only the presentation
+					changes.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -156,7 +168,11 @@
 						</p>
 					</div>
 					<div class="doc-entry__demo">
-						<UITabs items={workspaceTabs} bind:value={workspaceValue} ariaLabel="Button tabs demo" />
+						<UITabs
+							items={workspaceTabs}
+							bind:value={workspaceValue}
+							ariaLabel="Button tabs demo"
+						/>
 					</div>
 				</article>
 
@@ -187,8 +203,8 @@
 					<h2>State stays bindable and keyboard safe.</h2>
 				</div>
 				<p>
-					The component keeps the selected value normalized to the first enabled item, skips disabled tabs,
-					and supports Arrow keys plus Home and End.
+					The component keeps the selected value normalized to the first enabled item, skips
+					disabled tabs, and supports Arrow keys plus Home and End.
 				</p>
 			</div>
 
@@ -213,7 +229,8 @@
 					<h2>Use tabs to switch dense content without changing page frame.</h2>
 				</div>
 				<p>
-					This pattern works well inside settings surfaces, analytics headers, and compact content modules.
+					This pattern works well inside settings surfaces, analytics headers, and compact content
+					modules.
 				</p>
 			</div>
 
@@ -236,7 +253,10 @@
 					{#if exampleValue === 'details'}
 						<p>Keep critical release notes, rollout owners, and guardrails in one compact panel.</p>
 					{:else if exampleValue === 'history'}
-						<p>Switch to audit history without introducing a modal or pushing the user into a new route.</p>
+						<p>
+							Switch to audit history without introducing a modal or pushing the user into a new
+							route.
+						</p>
 					{:else}
 						<p>Use the same tab state to reveal attachments, screenshots, or linked QA evidence.</p>
 					{/if}

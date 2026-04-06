@@ -28,7 +28,8 @@
 	const isItemSelected = (item: ToggleGroup.Item) =>
 		type === 'radio' ? value === item.value : selectedValues.has(item.value);
 
-	const getButtonId = (_item: ToggleGroup.Item, index: number) => `${id || 'toggle-group'}-item-${index}`;
+	const getButtonId = (_item: ToggleGroup.Item, index: number) =>
+		`${id || 'toggle-group'}-item-${index}`;
 
 	const getButtonClass = (item: ToggleGroup.Item) =>
 		classnames(
@@ -95,7 +96,9 @@
 			nextValues.add(item.value);
 		}
 
-		values = items.filter((candidate) => nextValues.has(candidate.value)).map((candidate) => candidate.value);
+		values = items
+			.filter((candidate) => nextValues.has(candidate.value))
+			.map((candidate) => candidate.value);
 	};
 
 	const handleKeydown = (event: Utils.KeyboardEvent<HTMLButtonElement>, index: number) => {

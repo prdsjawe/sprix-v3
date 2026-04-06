@@ -42,7 +42,12 @@
 	aria-live={item.type === 'warning' || item.type === 'error' ? 'assertive' : 'polite'}
 >
 	{#if closeButton && item.dismissible}
-		<button type="button" class="tst-close" aria-label="Dismiss notification" onclick={handleDismiss}>
+		<button
+			type="button"
+			class="tst-close"
+			aria-label="Dismiss notification"
+			onclick={handleDismiss}
+		>
 			<Icon name="x-mark" class="" />
 		</button>
 	{/if}

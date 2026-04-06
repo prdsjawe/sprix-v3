@@ -2,10 +2,7 @@
 	import './nav-menu.css';
 	import classnames from '$utils/classnames';
 
-	let {
-		class: className = '',
-		children
-	}: Partial<NavMenuRight.Props> = $props();
+	let { class: className = '', children }: Partial<NavMenuRight.Props> = $props();
 
 	let rightClass = $derived(classnames('nvm-right', className));
 </script>

@@ -58,8 +58,8 @@
 					<h2>Optional adornments, still inline.</h2>
 				</div>
 				<p>
-					Use icons when they clarify direction or category. The component keeps them optically tight
-					so the link still reads like text rather than a chip.
+					Use icons when they clarify direction or category. The component keeps them optically
+					tight so the link still reads like text rather than a chip.
 				</p>
 			</div>
 
@@ -80,7 +80,9 @@
 						<p>Good for forward movement, external destinations, or small “view more” moments.</p>
 					</div>
 					<div class="demo-frame">
-						<UILink href="/components/sidebar" rightIcon="arrow-up-right">Open sidebar patterns</UILink>
+						<UILink href="/components/sidebar" rightIcon="arrow-up-right"
+							>Open sidebar patterns</UILink
+						>
 					</div>
 				</article>
 			</div>
@@ -92,7 +94,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Text flows, metadata rows, and current-page states.</h2>
 				</div>
-				<p>Keep it quiet and readable. If a link needs container chrome, it probably wants to be a button instead.</p>
+				<p>
+					Keep it quiet and readable. If a link needs container chrome, it probably wants to be a
+					button instead.
+				</p>
 			</div>
 
 			<div class="state-grid">

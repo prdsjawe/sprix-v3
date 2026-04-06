@@ -36,7 +36,7 @@
 {#snippet content()}
 	{#if loading}
 		<span class={classnames('left-icon', isModern && 'badge-accent')} aria-hidden="true">
-			<Spinner size={size} />
+			<Spinner {size} />
 		</span>
 	{:else if leftIcon}
 		<span class={classnames('left-icon', isModern && 'badge-accent')} aria-hidden="true">
@@ -66,7 +66,7 @@
 		{id}
 		href={link}
 		class={badgeClass}
-		target={target}
+		{target}
 		rel={resolvedRel}
 		aria-busy={loading || undefined}
 		aria-label={ariaLabel || undefined}

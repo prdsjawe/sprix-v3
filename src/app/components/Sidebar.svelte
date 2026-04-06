@@ -1,17 +1,5 @@
 <script lang="ts">
-	type Section = {
-		id: string;
-		label: string;
-		meta?: string;
-	};
-
-	let {
-		title = 'On this page',
-		sections = []
-	}: {
-		title?: string;
-		sections?: readonly Section[];
-	} = $props();
+	let { title = 'On this page', sections = [] }: App.Components.DocsSidebarProps = $props();
 </script>
 
 <aside class="docs-sidebar">

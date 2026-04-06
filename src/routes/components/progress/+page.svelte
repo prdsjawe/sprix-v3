@@ -41,8 +41,8 @@
 				<h2>One determinate bar, no extra ceremony.</h2>
 				<p class="lead">
 					The base contract stays intentionally small: pass `value`, optionally change `max`, and
-					override track or indicator classes when you need a different tone. The default posture keeps
-					the same rounded track language as `Slider`.
+					override track or indicator classes when you need a different tone. The default posture
+					keeps the same rounded track language as `Slider`.
 				</p>
 			</div>
 
@@ -52,7 +52,11 @@
 						<span class="value-label">Release progress</span>
 						<span class="value-pill">{deployment}%</span>
 					</div>
-					<UIProgress value={deployment} ariaLabel="Release progress" class="mx-auto w-full max-w-md" />
+					<UIProgress
+						value={deployment}
+						ariaLabel="Release progress"
+						class="mx-auto w-full max-w-md"
+					/>
 					<div class="preset-row">
 						{#each deploymentPresets as preset}
 							<UIButton
@@ -129,7 +133,8 @@
 					<h2>Keep overrides light and utility-driven.</h2>
 				</div>
 				<p>
-					Use `class` for track size or layout, and `indicatorClass` when a status color needs to shift.
+					Use `class` for track size or layout, and `indicatorClass` when a status color needs to
+					shift.
 				</p>
 			</div>
 
@@ -152,11 +157,7 @@
 							<span class="value-label">Sync status</span>
 							<span class="value-pill">{formatPercent(88)}</span>
 						</div>
-						<UIProgress
-							value={88}
-							indicatorClass="bg-emerald-600"
-							ariaLabel="Sync status"
-						/>
+						<UIProgress value={88} indicatorClass="bg-emerald-600" ariaLabel="Sync status" />
 					</div>
 				</article>
 			</div>

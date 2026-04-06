@@ -35,9 +35,9 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Use it to establish rhythm between related blocks, not as decoration-by-default.</h2>
 				<p class="lead">
-					`Separator` is a small structural primitive. Horizontal rules split stacked content. Vertical rules
-					split inline controls, metadata, and compact toolbars. The default is decorative so it stays quiet
-					unless you explicitly need assistive semantics.
+					`Separator` is a small structural primitive. Horizontal rules split stacked content.
+					Vertical rules split inline controls, metadata, and compact toolbars. The default is
+					decorative so it stays quiet unless you explicitly need assistive semantics.
 				</p>
 			</div>
 
@@ -65,8 +65,8 @@
 					<h2>Match the axis of the layout you are dividing.</h2>
 				</div>
 				<p>
-					Use the default horizontal rule for stacked sections. Switch to `orientation="vertical"` inside
-					inline groups, filters, and compact command rows.
+					Use the default horizontal rule for stacked sections. Switch to `orientation="vertical"`
+					inside inline groups, filters, and compact command rows.
 				</p>
 			</div>
 
@@ -113,11 +113,15 @@
 			<div class="section-heading">
 				<div>
 					<p class="section-kicker">Semantics</p>
-					<h2>Default to decorative. Opt into separator semantics only when the rule carries structure.</h2>
+					<h2>
+						Default to decorative. Opt into separator semantics only when the rule carries
+						structure.
+					</h2>
 				</div>
 				<p>
-					The component defaults to `decorative={true}` so visual dividers do not add noise to screen reader
-					output. Set `decorative={false}` when the separator represents a meaningful section boundary.
+					The component defaults to `decorative={true}` so visual dividers do not add noise to
+					screen reader output. Set `decorative={false}` when the separator represents a meaningful
+					section boundary.
 				</p>
 			</div>
 
@@ -147,8 +151,8 @@
 					<h2>Keep grouped content readable without inventing one-off border wrappers.</h2>
 				</div>
 				<p>
-					Separators work best when the parent already owns layout and spacing. The rule only defines the
-					break, not the container system around it.
+					Separators work best when the parent already owns layout and spacing. The rule only
+					defines the break, not the container system around it.
 				</p>
 			</div>
 

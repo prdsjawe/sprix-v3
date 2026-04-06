@@ -58,8 +58,8 @@
 				<h2>Wrap the trigger, keep the message small.</h2>
 				<p class="lead">
 					`Tooltip` is a wrapper primitive, so the trigger can be a button, badge, inline label, or
-					any other element you render inside it. Use the `text` prop for short hints, or a `content`
-					snippet when the overlay needs a little more structure.
+					any other element you render inside it. Use the `text` prop for short hints, or a
+					`content` snippet when the overlay needs a little more structure.
 				</p>
 			</div>
 
@@ -86,7 +86,10 @@
 					<p class="section-kicker">Placements</p>
 					<h2>Choose position based on the trigger’s surrounding density.</h2>
 				</div>
-				<p>The component passes placement through to tippy, so the common directional positions stay available.</p>
+				<p>
+					The component passes placement through to tippy, so the common directional positions stay
+					available.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -113,8 +116,8 @@
 					<h2>Start with text, escalate to a snippet only when needed.</h2>
 				</div>
 				<p>
-					Rich content stays available for denser contextual help. Set `interactive` when the tooltip
-					itself needs hoverable content.
+					Rich content stays available for denser contextual help. Set `interactive` when the
+					tooltip itself needs hoverable content.
 				</p>
 			</div>
 

@@ -42,9 +42,9 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Verification input that reads clearly at a glance.</h2>
 				<p class="lead">
-					`Otp` is a form primitive for one-time codes, PINs, and checkpoint verification. It keeps each
-					character in its own large cell, supports overwrite, backspace navigation, and multi-character
-					paste, and works cleanly with `Field` for labels, helper text, and errors.
+					`Otp` is a form primitive for one-time codes, PINs, and checkpoint verification. It keeps
+					each character in its own large cell, supports overwrite, backspace navigation, and
+					multi-character paste, and works cleanly with `Field` for labels, helper text, and errors.
 				</p>
 			</div>
 
@@ -57,7 +57,11 @@
 					<UIOtp bind:value={heroCode} />
 				</UIField>
 
-				<UIField label="Backup PIN" name="hero-pin" helper="The same primitive can shorten to four cells.">
+				<UIField
+					label="Backup PIN"
+					name="hero-pin"
+					helper="The same primitive can shorten to four cells."
+				>
 					<UIOtp bind:value={compactCode} length={4} />
 				</UIField>
 			</div>
@@ -70,8 +74,8 @@
 					<h2>One component, different verification footprints.</h2>
 				</div>
 				<p>
-					Use the numeric `length` prop to match the code format without changing styling or interaction
-					behavior.
+					Use the numeric `length` prop to match the code format without changing styling or
+					interaction behavior.
 				</p>
 			</div>
 
@@ -121,29 +125,41 @@
 					<h2>Field messaging outside, verification cells inside.</h2>
 				</div>
 				<p>
-					`Field` owns helper and error copy, while `Otp` owns the visible cell treatment, focus, disabled,
-					and invalid border behavior.
+					`Field` owns helper and error copy, while `Otp` owns the visible cell treatment, focus,
+					disabled, and invalid border behavior.
 				</p>
 			</div>
 
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Helper</span>
-					<UIField label="SMS code" name="state-helper" helper="The component advances as you type or paste.">
+					<UIField
+						label="SMS code"
+						name="state-helper"
+						helper="The component advances as you type or paste."
+					>
 						<UIOtp bind:value={helperCode} />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Error</span>
-					<UIField label="Verification code" name="state-error" error="Enter the full six-digit code to continue.">
+					<UIField
+						label="Verification code"
+						name="state-error"
+						error="Enter the full six-digit code to continue."
+					>
 						<UIOtp bind:value={errorCode} />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Disabled</span>
-					<UIField label="Recovery code" name="state-disabled" helper="Disabled cells keep the same layout footprint.">
+					<UIField
+						label="Recovery code"
+						name="state-disabled"
+						helper="Disabled cells keep the same layout footprint."
+					>
 						<UIOtp bind:value={disabledCode} disabled />
 					</UIField>
 				</article>
@@ -157,8 +173,8 @@
 					<h2>Short PINs, standard OTPs, and longer checkpoints.</h2>
 				</div>
 				<p>
-					Keep it inside `Field` when the form needs visible label and copy, or use it standalone for compact
-					verification panels.
+					Keep it inside `Field` when the form needs visible label and copy, or use it standalone
+					for compact verification panels.
 				</p>
 			</div>
 
@@ -173,14 +189,22 @@
 
 				<article class="state-card">
 					<span class="state-label">Four-digit PIN</span>
-					<UIField label="Door PIN" name="example-pin" helper="Set the length prop to 4 for shorter entry flows.">
+					<UIField
+						label="Door PIN"
+						name="example-pin"
+						helper="Set the length prop to 4 for shorter entry flows."
+					>
 						<UIOtp bind:value={compactCode} length={4} />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Eight-digit checkpoint</span>
-					<UIField label="Recovery checkpoint" name="example-long" helper="Longer codes keep the same visual language.">
+					<UIField
+						label="Recovery checkpoint"
+						name="example-long"
+						helper="Longer codes keep the same visual language."
+					>
 						<UIOtp bind:value={longCode} length={8} />
 					</UIField>
 				</article>

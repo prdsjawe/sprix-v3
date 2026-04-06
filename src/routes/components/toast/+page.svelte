@@ -76,11 +76,12 @@
 		{
 			type: 'default',
 			title: 'Follow-up scheduled',
-			description: 'Support will reopen the case automatically if the customer stays quiet for 48 hours.'
+			description:
+				'Support will reopen the case automatically if the customer stays quiet for 48 hours.'
 		}
 	] as const;
 
-	const resolveAfter = <T>(value: T, delay = 1800) =>
+	const resolveAfter = <T,>(value: T, delay = 1800) =>
 		new Promise<T>((resolve) => {
 			setTimeout(() => resolve(value), delay);
 		});
@@ -174,7 +175,7 @@
 
 <UIToast group={DOCS_GROUP} {prompt} />
 
-	<Header
+<Header
 	eyebrow="Documentation"
 	title="Toast"
 	description="Mounted notification viewport with a Sonner-inspired stack. Use the `toast` helper for semantic states, promise lifecycles, and compact feedback that stays out of the way."
@@ -197,11 +198,21 @@
 			</div>
 
 			<div class="hero-card__actions">
-				<UIButton role="primary" onclick={() => fireToast('default', 'Update queued', 'Cache refresh will finish after the current batch completes.')}>
+				<UIButton
+					role="primary"
+					onclick={() =>
+						fireToast(
+							'default',
+							'Update queued',
+							'Cache refresh will finish after the current batch completes.'
+						)}
+				>
 					Show default
 				</UIButton>
 				<UIButton role="secondary" variant="outline" onclick={fireStack}>Show stack</UIButton>
-				<UIButton role="tertiary" variant="quiet" onclick={() => toast.dismiss()}>Clear all</UIButton>
+				<UIButton role="tertiary" variant="quiet" onclick={() => toast.dismiss()}
+					>Clear all</UIButton
+				>
 			</div>
 		</section>
 
@@ -284,7 +295,7 @@
 									? 'Mono keeps the entire stack black, including warning and error states.'
 									: 'Color lets every toast type carry its own visual tone.'
 							)}
-						>
+					>
 						Preview current prompt
 					</UIButton>
 				</article>
@@ -350,7 +361,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Typical product feedback flows.</h2>
 				</div>
-				<p>Keep titles short, use one clear line of outcome copy, and only add actions when the next step is obvious.</p>
+				<p>
+					Keep titles short, use one clear line of outcome copy, and only add actions when the next
+					step is obvious.
+				</p>
 			</div>
 
 			<div class="state-grid">

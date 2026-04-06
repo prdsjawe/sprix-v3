@@ -33,7 +33,9 @@
 
 	let settingsName = $state('Pedro Duarte');
 	let settingsRole = $state('Design Engineer');
-	let launchSummary = $state('Ship the beta to 12 enterprise accounts before the public changelog goes live.');
+	let launchSummary = $state(
+		'Ship the beta to 12 enterprise accounts before the public changelog goes live.'
+	);
 	let launchNotes = $state(
 		'Confirm support coverage, publish rollback owners, and attach the final QA sign-off before enabling the rollout.'
 	);
@@ -108,9 +110,9 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Use it when the work belongs to an edge panel, not a centered modal.</h2>
 				<p class="lead">
-					`Sheet` uses the same controlled overlay posture as `Dialog`, but aligns the surface to a chosen
-					side and keeps a `p-1.5` viewport inset so the panel never hard-touches the screen edge. The header
-					is optional. The main content lives in `children`.
+					`Sheet` uses the same controlled overlay posture as `Dialog`, but aligns the surface to a
+					chosen side and keeps a `p-1.5` viewport inset so the panel never hard-touches the screen
+					edge. The header is optional. The main content lives in `children`.
 				</p>
 			</div>
 
@@ -119,8 +121,8 @@
 					<p class="surface-kicker">Live preview</p>
 					<h3>Right panel or bottom tray</h3>
 					<p>
-						Open a side-oriented handoff panel or a short bottom tray. Both rely on the same primitive and
-						keep the layout structure inside `children`.
+						Open a side-oriented handoff panel or a short bottom tray. Both rely on the same
+						primitive and keep the layout structure inside `children`.
 					</p>
 
 					<div class="hero-card__actions">
@@ -143,7 +145,10 @@
 						<span class="principle__index">01</span>
 						<div>
 							<h3>Keep the page frame visible</h3>
-							<p>Sheets are useful when the user still benefits from seeing the underlying screen context.</p>
+							<p>
+								Sheets are useful when the user still benefits from seeing the underlying screen
+								context.
+							</p>
 						</div>
 					</article>
 
@@ -151,7 +156,10 @@
 						<span class="principle__index">02</span>
 						<div>
 							<h3>Inset the surface from the viewport</h3>
-							<p>The panel lives inside a padded viewport shell, so it never slams into the device edge.</p>
+							<p>
+								The panel lives inside a padded viewport shell, so it never slams into the device
+								edge.
+							</p>
 						</div>
 					</article>
 
@@ -159,7 +167,10 @@
 						<span class="principle__index">03</span>
 						<div>
 							<h3>Let children own the body</h3>
-							<p>Use regular layout, form, and action primitives inside the sheet instead of inventing extra slots.</p>
+							<p>
+								Use regular layout, form, and action primitives inside the sheet instead of
+								inventing extra slots.
+							</p>
 						</div>
 					</article>
 				</div>
@@ -170,11 +181,14 @@
 			<div class="section-heading">
 				<div>
 					<p class="section-kicker">Sides</p>
-					<h2>Choose the edge that matches the task and the amount of context the user should retain.</h2>
+					<h2>
+						Choose the edge that matches the task and the amount of context the user should retain.
+					</h2>
 				</div>
 				<p>
-					`side` controls alignment. Right is the default. Left works well for utility rails, while top and
-					bottom turn the primitive into a tray that can host short summaries or mobile-friendly workflows.
+					`side` controls alignment. Right is the default. Left works well for utility rails, while
+					top and bottom turn the primitive into a tray that can host short summaries or
+					mobile-friendly workflows.
 				</p>
 			</div>
 
@@ -182,7 +196,10 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Right and left</h3>
-						<p>Use vertical sheets for settings, properties, activity, or tools that should feel adjacent to the page.</p>
+						<p>
+							Use vertical sheets for settings, properties, activity, or tools that should feel
+							adjacent to the page.
+						</p>
 					</div>
 
 					<div class="doc-entry__demo">
@@ -196,16 +213,17 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Top and bottom</h3>
-						<p>Use horizontal trays for alerts, queue state, or quick command surfaces that should span the viewport.</p>
+						<p>
+							Use horizontal trays for alerts, queue state, or quick command surfaces that should
+							span the viewport.
+						</p>
 					</div>
 
 					<div class="doc-entry__demo">
 						<UIButton role="secondary" variant="outline" onclick={() => (topNoticeOpen = true)}>
 							Open top
 						</UIButton>
-						<UIButton role="warning" onclick={() => (bottomQueueOpen = true)}>
-							Open bottom
-						</UIButton>
+						<UIButton role="warning" onclick={() => (bottomQueueOpen = true)}>Open bottom</UIButton>
 					</div>
 				</article>
 			</div>
@@ -218,8 +236,9 @@
 					<h2>Size follows the axis: width for side panels, height for top and bottom trays.</h2>
 				</div>
 				<p>
-					`sm`, `md`, and `lg` change max width for left and right sheets, and max height for top and bottom
-					sheets. That keeps the API simple while respecting the geometry of the chosen side.
+					`sm`, `md`, and `lg` change max width for left and right sheets, and max height for top
+					and bottom sheets. That keeps the API simple while respecting the geometry of the chosen
+					side.
 				</p>
 			</div>
 
@@ -237,7 +256,8 @@
 				<article class="state-card">
 					<span class="state-label">Large</span>
 					<p class="state-copy">
-						Use the larger shell for richer editing flows, long notes, or structured preparation work.
+						Use the larger shell for richer editing flows, long notes, or structured preparation
+						work.
 					</p>
 					<UIButton role="primary" onclick={() => (largeOpen = true)}>Open large sheet</UIButton>
 				</article>
@@ -248,11 +268,15 @@
 			<div class="section-heading">
 				<div>
 					<p class="section-kicker">Dismissal</p>
-					<h2>Default to dismissible behavior, then lock the panel only when a deliberate action is required.</h2>
+					<h2>
+						Default to dismissible behavior, then lock the panel only when a deliberate action is
+						required.
+					</h2>
 				</div>
 				<p>
-					`dismissible` defaults to `true`, which keeps backdrop click, Escape, and the close button available.
-					Turn it off only when the user must explicitly choose an in-panel action before leaving.
+					`dismissible` defaults to `true`, which keeps backdrop click, Escape, and the close button
+					available. Turn it off only when the user must explicitly choose an in-panel action before
+					leaving.
 				</p>
 			</div>
 
@@ -270,7 +294,8 @@
 				<article class="state-card">
 					<span class="state-label">Locked</span>
 					<p class="state-copy">
-						Disable backdrop and Escape dismissal when the staged work needs an explicit keep-or-discard choice.
+						Disable backdrop and Escape dismissal when the staged work needs an explicit
+						keep-or-discard choice.
 					</p>
 					<UIButton role="warning" onclick={() => (lockedOpen = true)}>Open locked sheet</UIButton>
 				</article>
@@ -284,8 +309,8 @@
 					<h2>Compose the body with the existing form primitives and regular actions.</h2>
 				</div>
 				<p>
-					These examples keep layout and submit logic in the parent route. The sheet provides the shell,
-					the rest of the structure stays in `children`.
+					These examples keep layout and submit logic in the parent route. The sheet provides the
+					shell, the rest of the structure stays in `children`.
 				</p>
 			</div>
 
@@ -293,15 +318,19 @@
 				<article class="state-card">
 					<span class="state-label">Profile settings</span>
 					<p class="state-copy">
-						A medium right sheet works well for adjacent editing without fully pulling the user out of the page.
+						A medium right sheet works well for adjacent editing without fully pulling the user out
+						of the page.
 					</p>
-					<UIButton role="primary" onclick={() => (settingsOpen = true)}>Open settings form</UIButton>
+					<UIButton role="primary" onclick={() => (settingsOpen = true)}
+						>Open settings form</UIButton
+					>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Launch plan</span>
 					<p class="state-copy">
-						A larger sheet can carry multi-field editing, notes, and supporting status context in one pass.
+						A larger sheet can carry multi-field editing, notes, and supporting status context in
+						one pass.
 					</p>
 					<UIButton role="secondary" variant="outline" onclick={() => (largeOpen = true)}>
 						Open launch planner
@@ -320,7 +349,8 @@
 >
 	<div class="sheet-stack">
 		<p class="sheet-copy">
-			Design has signed off on the final QA pass. Product still needs a rollout owner and the customer support note.
+			Design has signed off on the final QA pass. Product still needs a rollout owner and the
+			customer support note.
 		</p>
 
 		<div class="chip-row">
@@ -398,7 +428,12 @@
 			API writes pause for 20 minutes tonight at 23:00 UTC while the storage cluster is rebalanced.
 		</p>
 		<div class="sheet-actions">
-			<UIButton size="sm" role="secondary" variant="outline" onclick={() => (topNoticeOpen = false)}>
+			<UIButton
+				size="sm"
+				role="secondary"
+				variant="outline"
+				onclick={() => (topNoticeOpen = false)}
+			>
 				Dismiss
 			</UIButton>
 			<UIButton size="sm" onclick={() => (topNoticeOpen = false)}>View checklist</UIButton>
@@ -478,7 +513,8 @@
 >
 	<div class="sheet-stack">
 		<p class="sheet-copy">
-			Three staged updates are waiting on a decision. Keep editing or save the current draft before leaving.
+			Three staged updates are waiting on a decision. Keep editing or save the current draft before
+			leaving.
 		</p>
 
 		<ul class="detail-list">

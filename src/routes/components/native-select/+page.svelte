@@ -46,14 +46,18 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Use the browser-native control, then style the shell around it.</h2>
 				<p class="lead">
-					`NativeSelect` renders a real native select element and accepts plain child markup. That keeps
-					keyboard and form behavior native, while the component still aligns with Sprix field spacing,
-					focus treatment, and error states.
+					`NativeSelect` renders a real native select element and accepts plain child markup. That
+					keeps keyboard and form behavior native, while the component still aligns with Sprix field
+					spacing, focus treatment, and error states.
 				</p>
 			</div>
 
 			<div class="hero-card__stack">
-				<UIField label="Target environment" name="hero-environment" helper="Choose the environment you want to deploy to.">
+				<UIField
+					label="Target environment"
+					name="hero-environment"
+					helper="Choose the environment you want to deploy to."
+				>
 					<UINativeSelect bind:value={environment} size="lg">
 						<option value="production">Production</option>
 						<option value="staging">Staging</option>
@@ -61,7 +65,11 @@
 					</UINativeSelect>
 				</UIField>
 
-				<UIField label="Owner" name="hero-owner" helper="Use native placeholder text and optgroups when the list needs more structure.">
+				<UIField
+					label="Owner"
+					name="hero-owner"
+					helper="Use native placeholder text and optgroups when the list needs more structure."
+				>
 					<UINativeSelect bind:value={owner} size="lg" placeholder="Choose an owner">
 						<optgroup label="Design">
 							<option value="mia-santos">Mia Santos</option>
@@ -83,7 +91,10 @@
 					<p class="section-kicker">Sizes</p>
 					<h2>Three densities, same native control.</h2>
 				</div>
-				<p>Use `sm`, `md`, and `lg` to align the native select with adjacent buttons, inputs, and textareas.</p>
+				<p>
+					Use `sm`, `md`, and `lg` to align the native select with adjacent buttons, inputs, and
+					textareas.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -113,13 +124,20 @@
 					<p class="section-kicker">States</p>
 					<h2>Field messaging outside, control state inside.</h2>
 				</div>
-				<p>`Field` handles helper and error copy, while the native select shell owns focus, invalid, and disabled styling.</p>
+				<p>
+					`Field` handles helper and error copy, while the native select shell owns focus, invalid,
+					and disabled styling.
+				</p>
 			</div>
 
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Helper</span>
-					<UIField label="Visibility" name="state-helper" helper="Plain option tags are enough for common single-choice flows.">
+					<UIField
+						label="Visibility"
+						name="state-helper"
+						helper="Plain option tags are enough for common single-choice flows."
+					>
 						<UINativeSelect bind:value={visibility} placeholder="Choose visibility">
 							<option value="team">Team only</option>
 							<option value="customers">Customers</option>
@@ -130,7 +148,11 @@
 
 				<article class="state-card">
 					<span class="state-label">Error</span>
-					<UIField label="Owner" name="state-error" error="Choose an owner before moving this request forward.">
+					<UIField
+						label="Owner"
+						name="state-error"
+						error="Choose an owner before moving this request forward."
+					>
 						<UINativeSelect placeholder="Select an owner">
 							<option value="mia-santos">Mia Santos</option>
 							<option value="lara-ong">Lara Ong</option>
@@ -141,7 +163,11 @@
 
 				<article class="state-card">
 					<span class="state-label">Disabled</span>
-					<UIField label="Workspace tier" name="state-disabled" helper="Disabled controls still preserve the current selected value.">
+					<UIField
+						label="Workspace tier"
+						name="state-disabled"
+						helper="Disabled controls still preserve the current selected value."
+					>
 						<UINativeSelect bind:value={disabledValue} disabled>
 							<option value="starter">Starter</option>
 							<option value="growth">Growth</option>
@@ -159,15 +185,19 @@
 					<h2>Compose plain option markup inside a reusable shell.</h2>
 				</div>
 				<p>
-					Keep the control API small: pass native `option` tags for simple lists, then reach for `optgroup`
-					when the choices need structure.
+					Keep the control API small: pass native `option` tags for simple lists, then reach for
+					`optgroup` when the choices need structure.
 				</p>
 			</div>
 
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Native options</span>
-					<UIField label="Deployment target" name="example-native" helper="Use direct child markup instead of a custom data adapter.">
+					<UIField
+						label="Deployment target"
+						name="example-native"
+						helper="Use direct child markup instead of a custom data adapter."
+					>
 						<UINativeSelect bind:value={environment}>
 							<option value="production">Production</option>
 							<option value="staging">Staging</option>
@@ -178,7 +208,11 @@
 
 				<article class="state-card">
 					<span class="state-label">Optgroups</span>
-					<UIField label="Review owner" name="example-optgroup" helper="Optgroups stay native and require no sibling item component.">
+					<UIField
+						label="Review owner"
+						name="example-optgroup"
+						helper="Optgroups stay native and require no sibling item component."
+					>
 						<UINativeSelect bind:value={owner} placeholder="Assign a reviewer">
 							<optgroup label="Design">
 								<option value="mia-santos">Mia Santos</option>
@@ -195,7 +229,12 @@
 
 				<article class="state-card">
 					<span class="state-label">Required field</span>
-					<UIField label="Audience" name="example-required" required helper="When `placeholder` is present, the empty option stays disabled on required fields.">
+					<UIField
+						label="Audience"
+						name="example-required"
+						required
+						helper="When `placeholder` is present, the empty option stays disabled on required fields."
+					>
 						<UINativeSelect placeholder="Choose an audience">
 							<option value="team">Team only</option>
 							<option value="customers">Customers</option>

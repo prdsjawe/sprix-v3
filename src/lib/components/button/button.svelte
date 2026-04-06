@@ -21,29 +21,32 @@
 		ariaControls,
 		ariaExpanded,
 		ariaHaspopup,
+		icon,
 		children,
-		leftIcon = '',
-		rightIcon = '',
+		leftIcon,
+		rightIcon,
 		leftSlot,
 		rightSlot,
 		onclick,
 		onfocus,
 		onblur,
 		onkeydown
-	}: Partial<Button.Props> = $props();
+	}: Button.Props = $props();
 
-	let hasLabel = $derived(Boolean(children));
-	let hasLeftAdornment = $derived(Boolean(leftSlot || leftIcon));
-	let hasRightAdornment = $derived(Boolean(rightSlot || rightIcon));
-	let isIconOnly = $derived(!hasLabel && (hasLeftAdornment || hasRightAdornment));
-	let isDisabled = $derived(disabled || loading || variant === 'disabled');
+	let hasStandaloneIcon = $derived(Boolean(icon));
+	let hasLabel = $derived(!hasStandaloneIcon && Boolean(children));
+	let hasLeftAdornment = $derived(!hasStandaloneIcon && Boolean(leftSlot || leftIcon));
+	let hasRightAdornment = $derived(!hasStandaloneIcon && Boolean(rightSlot || rightIcon));
+	let isLegacyIconOnly = $derived(!hasLabel && (hasLeftAdornment || hasRightAdornment));
+	let isIconOnly = $derived(hasStandaloneIcon || isLegacyIconOnly);
+	let isDisabled = $derived(Boolean(disabled || loading || variant === 'disabled'));
 	let buttonClass = $derived.by(() =>
 		classnames(
 			'btn',
 			BSC[size],
 			BRC[role],
 			BVC[variant],
-			isIconOnly && 'btn-icon',
+			isIconOnly && 'btn-icon-only',
 			loading && 'btn-loading',
 			className
 		)
@@ -71,11 +74,13 @@
 >
 	{#if loading}
 		<span class="btn-loader" aria-hidden="true">
-			<Spinner size={size} class="btn-spinner" />
+			<Spinner {size} class="btn-spinner" />
 		</span>
 	{/if}
 
-	{#if leftSlot || leftIcon}
+	{#if hasStandaloneIcon && icon}
+		<Icon name={icon} class={classnames('btn-icon', contentClass)} />
+	{:else if hasLeftAdornment}
 		<span class={classnames('left-icon', contentClass)} aria-hidden="true">
 			{#if leftSlot}
 				{@render leftSlot()}
@@ -85,13 +90,13 @@
 		</span>
 	{/if}
 
-	{#if children}
+	{#if hasLabel && children}
 		<span class={classnames('label', contentClass)}>
 			{@render children()}
 		</span>
 	{/if}
 
-	{#if rightSlot || rightIcon}
+	{#if hasRightAdornment}
 		<span class={classnames('right-icon', contentClass)} aria-hidden="true">
 			{#if rightSlot}
 				{@render rightSlot()}

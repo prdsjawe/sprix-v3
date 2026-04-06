@@ -14,19 +14,39 @@
 		{ size: 'sm', label: 'Small', description: 'Inline metadata and secondary actions.' },
 		{ size: 'md', label: 'Medium', description: 'Default inline loading indicator.' },
 		{ size: 'lg', label: 'Large', description: 'Higher emphasis row-level status.' },
-		{ size: 'xl', label: 'Extra large', description: 'Section-level loading within roomy layouts.' },
+		{
+			size: 'xl',
+			label: 'Extra large',
+			description: 'Section-level loading within roomy layouts.'
+		},
 		{ size: '2xl', label: '2XL', description: 'Primary empty states and panel placeholders.' },
 		{ size: '3xl', label: '3XL', description: 'Main application loading moments.' }
 	] as const;
 
 	const roles = [
-		{ role: 'current', label: 'Current', description: 'Inherits from surrounding text or control color.' },
+		{
+			role: 'current',
+			label: 'Current',
+			description: 'Inherits from surrounding text or control color.'
+		},
 		{ role: 'primary', label: 'Primary', description: 'Accent loading for featured flows.' },
-		{ role: 'secondary', label: 'Secondary', description: 'Quiet neutral feedback on light surfaces.' },
+		{
+			role: 'secondary',
+			label: 'Secondary',
+			description: 'Quiet neutral feedback on light surfaces.'
+		},
 		{ role: 'tertiary', label: 'Tertiary', description: 'Subdued neutral loading in dense UI.' },
 		{ role: 'danger', label: 'Danger', description: 'Destructive or blocked async work.' },
-		{ role: 'success', label: 'Success', description: 'Positive confirmation while work completes.' },
-		{ role: 'warning', label: 'Warning', description: 'Attention states without destructive weight.' }
+		{
+			role: 'success',
+			label: 'Success',
+			description: 'Positive confirmation while work completes.'
+		},
+		{
+			role: 'warning',
+			label: 'Warning',
+			description: 'Attention states without destructive weight.'
+		}
 	] as const;
 </script>
 
@@ -131,8 +151,8 @@
 					<h2>Use the same primitive from micro states to full-page loading.</h2>
 				</div>
 				<p>
-					Buttons and badges should keep their own layout and color system. Larger loading states can
-					let the spinner carry the message directly.
+					Buttons and badges should keep their own layout and color system. Larger loading states
+					can let the spinner carry the message directly.
 				</p>
 			</div>
 

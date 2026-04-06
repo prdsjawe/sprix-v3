@@ -4,7 +4,7 @@
 
 @layer components {
 	.avatar {
-		@apply relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 align-middle select-none;
+		@apply relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-200 bg-zinc-100 align-middle text-zinc-700 select-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300;
 		@apply transition-[border-color,background-color,color] duration-150;
 
 		img.avatar-image {
@@ -17,11 +17,11 @@
 		}
 
 		span.avatar-fallback {
-			@apply font-semibold leading-none tracking-[0.08em] uppercase;
+			@apply leading-none font-semibold tracking-[0.08em] uppercase;
 		}
 
 		span.avatar-icon {
-			@apply text-slate-400 dark:text-slate-500;
+			@apply text-zinc-400 dark:text-zinc-500;
 
 			svg {
 				@apply fill-transparent stroke-current;

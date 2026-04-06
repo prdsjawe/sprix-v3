@@ -20,21 +20,24 @@
 	const platformItems = [
 		{
 			title: 'Release desk',
-			description: 'Approve launch windows, owner sign-off, and final scope without leaving the header.',
+			description:
+				'Approve launch windows, owner sign-off, and final scope without leaving the header.',
 			meta: '4 queued',
 			href: '#usage',
 			icon: 'rocket-launch'
 		},
 		{
 			title: 'Ops watch',
-			description: 'Track incidents, service health, and escalation ownership from one compact surface.',
+			description:
+				'Track incidents, service health, and escalation ownership from one compact surface.',
 			meta: 'Live status',
 			href: '#interaction',
 			icon: 'server-stack'
 		},
 		{
 			title: 'Design review',
-			description: 'Keep feedback rounds, implementation notes, and locked revisions in a single review lane.',
+			description:
+				'Keep feedback rounds, implementation notes, and locked revisions in a single review lane.',
 			meta: '12 pending',
 			href: '#anatomy',
 			icon: 'paint-brush'
@@ -51,14 +54,16 @@
 		},
 		{
 			title: 'Client programs',
-			description: 'Shared navigation for approvals, assets, delivery status, and stakeholder visibility.',
+			description:
+				'Shared navigation for approvals, assets, delivery status, and stakeholder visibility.',
 			meta: 'External review',
 			href: '#usage',
 			icon: 'briefcase'
 		},
 		{
 			title: 'Governed workspaces',
-			description: 'Permission-aware discovery for security, support, and controlled rollout surfaces.',
+			description:
+				'Permission-aware discovery for security, support, and controlled rollout surfaces.',
 			meta: 'Access-aware',
 			href: '#interaction',
 			icon: 'shield-check'
@@ -75,14 +80,16 @@
 		},
 		{
 			label: 'Interaction notes',
-			description: 'Why the hover delay, focus path, and dismissal model stay intentionally restrained.',
+			description:
+				'Why the hover delay, focus path, and dismissal model stay intentionally restrained.',
 			meta: 'Behavior',
 			href: '#interaction',
 			icon: 'clock'
 		},
 		{
 			label: 'Related sidebar',
-			description: 'Use the sidebar instead when the information architecture turns into a deeper tree.',
+			description:
+				'Use the sidebar instead when the information architecture turns into a deeper tree.',
 			meta: 'Compare',
 			href: '/components/sidebar',
 			icon: 'lifebuoy'
@@ -161,8 +168,8 @@
 						<p class="flyout-eyebrow">Solutions</p>
 						<h2>The dropdown rows can carry more than a plain label.</h2>
 						<p>
-							The content is still just a snippet, so each row can behave like a compact decision card
-							with context, metadata, and a clear next step.
+							The content is still just a snippet, so each row can behave like a compact decision
+							card with context, metadata, and a clear next step.
 						</p>
 					</div>
 
@@ -248,8 +255,8 @@
 					<h2>The nav menu is the top chrome, not a mini card preview.</h2>
 					<p>
 						The wrapper owns the horizontal shell. The logo snippet sits on the left, item triggers
-						stay in the center lane as discrete action buttons, and the right slot carries account or
-						CTA actions without introducing another layout component.
+						stay in the center lane as discrete action buttons, and the right slot carries account
+						or CTA actions without introducing another layout component.
 					</p>
 				</div>
 			</section>
@@ -323,7 +330,12 @@
 		min-height: 100svh;
 		background:
 			radial-gradient(circle at top left, rgba(191, 219, 254, 0.45), transparent 28rem),
-			linear-gradient(180deg, var(--sprix-app-surface) 0%, var(--sprix-app-bg) 20%, var(--sprix-app-bg) 100%);
+			linear-gradient(
+				180deg,
+				var(--sprix-app-surface) 0%,
+				var(--sprix-app-bg) 20%,
+				var(--sprix-app-bg) 100%
+			);
 	}
 
 	.nav-menu-docs__showcase {
@@ -531,7 +543,9 @@
 		border-radius: 1.15rem;
 		border: 0;
 		background: transparent;
-		transition: background-color 180ms ease, color 180ms ease;
+		transition:
+			background-color 180ms ease,
+			color 180ms ease;
 	}
 
 	.flyout-feature:hover,

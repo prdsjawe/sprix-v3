@@ -38,7 +38,10 @@
 						{item.label}
 					</a>
 				{:else}
-					<span class={classnames('brd-label', current && 'brd-label-current')} aria-current={current ? 'page' : undefined}>
+					<span
+						class={classnames('brd-label', current && 'brd-label-current')}
+						aria-current={current ? 'page' : undefined}
+					>
 						{#if item.icon}
 							<span class="brd-icon" aria-hidden="true">
 								<Icon name={item.icon} class="" />

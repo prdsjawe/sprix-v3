@@ -8,15 +8,15 @@
 	}
 
 	.rad {
-		@apply relative flex items-center gap-3 rounded-xl text-slate-900 dark:text-slate-100 transition-[color,background-color] duration-150 ease-out;
+		@apply relative flex items-center gap-3 rounded-xl text-zinc-900 transition-[color,background-color] duration-150 ease-out dark:text-zinc-100;
 	}
 
 	.rad-copy {
-		@apply min-w-0 flex-1 grid gap-1;
+		@apply grid min-w-0 flex-1 gap-1;
 	}
 
 	.rad-label-row {
-		@apply flex items-center gap-1 font-medium text-slate-800 dark:text-slate-200;
+		@apply flex items-center gap-1 font-medium text-zinc-800 dark:text-zinc-200;
 	}
 
 	.rad-required {
@@ -32,11 +32,11 @@
 	}
 
 	.rad-circle {
-		@apply inline-flex items-center justify-center rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-950 shadow-xs transition-[border-color,background-color,box-shadow] duration-150 ease-out;
+		@apply inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white shadow-xs transition-[border-color,background-color,box-shadow] duration-150 ease-out dark:border-zinc-600 dark:bg-zinc-950;
 	}
 
 	.rad-control:focus-visible + .rad-circle {
-		@apply ring-4 ring-blue-100 dark:ring-blue-500/35 ring-offset-0;
+		@apply ring-4 ring-blue-100 ring-offset-0 dark:ring-blue-500/35;
 	}
 
 	.rad-dot {
@@ -45,7 +45,7 @@
 	}
 
 	.rad-message {
-		@apply pl-8 text-sm leading-6 text-slate-500 dark:text-slate-400;
+		@apply pl-8 text-sm leading-6 text-zinc-500 dark:text-zinc-400;
 	}
 
 	.rad-message-error {
@@ -53,7 +53,7 @@
 	}
 
 	.rad:hover .rad-circle {
-		@apply border-slate-400 dark:border-slate-500;
+		@apply border-zinc-400 dark:border-zinc-500;
 	}
 
 	.rad.rad-sm {
@@ -117,7 +117,7 @@
 	}
 
 	.rad.rad-checked .rad-circle {
-		@apply border-blue-500 dark:border-blue-500 bg-white dark:bg-slate-950;
+		@apply border-blue-500 bg-white dark:border-blue-500 dark:bg-zinc-950;
 	}
 
 	.rad.rad-checked .rad-dot {
@@ -125,7 +125,7 @@
 	}
 
 	.rad.rad-error .rad-circle {
-		@apply border-rose-300 dark:border-rose-700/80 bg-rose-50 dark:bg-rose-950/40;
+		@apply border-rose-300 bg-rose-50 dark:border-rose-700/80 dark:bg-rose-950/40;
 	}
 
 	.rad.rad-error .rad-control:focus-visible + .rad-circle {
@@ -137,16 +137,16 @@
 	}
 
 	.rad.rad-disabled {
-		@apply cursor-not-allowed text-slate-400 dark:text-slate-500;
+		@apply cursor-not-allowed text-zinc-400 dark:text-zinc-500;
 	}
 
 	.rad.rad-disabled .rad-label-row,
 	.rad.rad-disabled + .rad-message {
-		@apply text-slate-400 dark:text-slate-500;
+		@apply text-zinc-400 dark:text-zinc-500;
 	}
 
 	.rad.rad-disabled .rad-circle {
-		@apply border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900;
+		@apply border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900;
 	}
 
 	.rad.rad-disabled.rad-checked .rad-dot {
@@ -154,6 +154,6 @@
 	}
 
 	.rad.rad-disabled:hover .rad-circle {
-		@apply border-slate-200 dark:border-slate-700;
+		@apply border-zinc-200 dark:border-zinc-700;
 	}
 }

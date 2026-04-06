@@ -4,11 +4,19 @@
 
 @layer components {
 	.nvm {
-		@apply flex min-h-[4.75rem] w-full flex-wrap items-center gap-4 border-b border-slate-200/90 dark:border-slate-700/90 bg-white/88 dark:bg-slate-950/88 px-4 py-3 text-slate-900 dark:text-slate-100 backdrop-blur-xl;
+		@apply flex min-h-20 w-full flex-col gap-0 border-b border-zinc-200/90 bg-white/88 px-4 py-3 text-zinc-900 backdrop-blur-xl dark:border-zinc-700/90 dark:bg-zinc-950/88 dark:text-zinc-100;
+
+		&.nvm-fixed-on-scroll {
+			@apply sticky top-0 z-40;
+		}
+	}
+
+	.nvm-topbar {
+		@apply flex w-full items-center gap-4;
 	}
 
 	.nvm-main {
-		@apply flex min-w-0 flex-1 flex-wrap items-center gap-4;
+		@apply flex min-w-0 flex-1 items-center gap-4;
 	}
 
 	.nvm-brand {
@@ -20,7 +28,7 @@
 	}
 
 	.nvm-list {
-		@apply flex flex-wrap items-center gap-2.5;
+		@apply flex flex-wrap items-center gap-1;
 	}
 
 	.nvm-item {
@@ -28,18 +36,18 @@
 	}
 
 	.nvm-trigger {
-		@apply inline-flex h-10 items-center gap-2 rounded-xl border border-transparent bg-transparent px-3.25 text-sm font-medium text-slate-700 dark:text-slate-300 no-underline transition-[background-color,color] duration-150 outline-none;
-		@apply hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-950 dark:hover:text-slate-50;
-		@apply focus-visible:ring-2 focus-visible:ring-sky-300 dark:focus-visible:ring-sky-500/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+		@apply inline-flex items-center gap-2 rounded-xl border border-transparent bg-transparent px-2.75 py-1.5 text-sm font-semibold text-zinc-700 no-underline transition-[background-color,color] duration-150 outline-none dark:text-zinc-300;
+		@apply hover:bg-zinc-100 hover:text-zinc-950 dark:hover:bg-zinc-900 dark:hover:text-zinc-50;
+		@apply focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-sky-500/35;
 
 		&[data-state='open'] {
-			@apply bg-slate-100 dark:bg-slate-900 text-slate-950 dark:text-slate-50;
+			@apply bg-zinc-100 text-zinc-950 dark:bg-zinc-900 dark:text-zinc-50;
 		}
 
 		&.nvm-trigger-current,
 		&[data-current='true'] {
-			@apply bg-slate-100 dark:bg-slate-900 text-slate-950 dark:text-slate-50;
-			@apply hover:bg-slate-100 dark:hover:bg-slate-900;
+			@apply bg-zinc-100 text-zinc-950 dark:bg-zinc-900 dark:text-zinc-50;
+			@apply hover:bg-zinc-100 dark:hover:bg-zinc-900;
 		}
 
 		&:disabled {
@@ -56,7 +64,7 @@
 	}
 
 	.nvm-trigger__caret {
-		@apply -mr-0.5 flex size-4 items-center justify-center text-slate-400 dark:text-slate-500 transition-transform duration-200 ease-out;
+		@apply -mr-0.5 flex size-4 items-center justify-center text-zinc-400 transition-transform duration-200 ease-out dark:text-zinc-500;
 
 		svg {
 			@apply size-4 fill-transparent stroke-current;
@@ -64,16 +72,16 @@
 	}
 
 	.nvm-trigger[data-state='open'] .nvm-trigger__caret {
-		@apply rotate-180 text-slate-500 dark:text-slate-400;
+		@apply rotate-180 text-zinc-500 dark:text-zinc-400;
 	}
 
 	.nvm-trigger.nvm-trigger-current .nvm-trigger__caret,
 	.nvm-trigger[data-current='true'] .nvm-trigger__caret {
-		@apply text-slate-500 dark:text-slate-400;
+		@apply text-zinc-500 dark:text-zinc-400;
 	}
 
 	.nvm-content {
-		@apply grid min-w-[21rem] gap-3.5 rounded-[1.45rem] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 p-3.5 text-slate-900 dark:text-slate-100 shadow-sm shadow-slate-900/5;
+		@apply grid min-w-[21rem] gap-3.5 rounded-[1.45rem] border border-zinc-200 bg-white p-3.5 text-zinc-900 shadow-sm shadow-zinc-900/5 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100;
 	}
 
 	.nvm-content-host {
@@ -85,7 +93,43 @@
 	}
 
 	.nvm-right {
-		@apply ml-auto flex items-center gap-2.5;
+		@apply ml-auto flex items-center gap-1.5;
+	}
+
+	.nvm-mobile-toggle {
+		@apply hidden flex-none items-center;
+	}
+
+	.nvm-mobile-shell {
+		@apply flex min-h-full flex-col gap-6;
+	}
+
+	.nvm-mobile-nav {
+		@apply flex-1;
+	}
+
+	.nvm-mobile-list {
+		@apply flex flex-col gap-1;
+	}
+
+	.nvm-mobile-list .nvm-item {
+		@apply w-full;
+	}
+
+	.nvm-mobile-list .nvm-trigger {
+		@apply flex w-full justify-between rounded-xl px-3 py-2.5 text-sm;
+	}
+
+	.nvm-mobile-footer {
+		@apply mt-auto border-t border-zinc-200/80 pt-4 dark:border-zinc-800/80;
+	}
+
+	.nvm-mobile-footer .nvm-right {
+		@apply ml-0 flex-col items-stretch gap-3;
+	}
+
+	.nvm-mobile-footer .nvm-right > .btn {
+		@apply w-full;
 	}
 
 	.tippy-box[data-theme~='sprix-nav-menu'] {
@@ -98,16 +142,11 @@
 
 	@media (max-width: 960px) {
 		.nvm {
-			@apply items-start px-3.5;
-		}
-
-		.nvm-main,
-		.nvm-nav {
-			@apply w-full;
+			@apply px-3.5;
 		}
 
 		.nvm-trigger {
-			@apply h-10 rounded-xl px-3;
+			@apply rounded-xl px-2.75 py-1.5;
 		}
 
 		.nvm-content {
@@ -115,18 +154,30 @@
 		}
 
 		.nvm-right-rail {
-			@apply w-full justify-end;
+			@apply justify-end;
 		}
 	}
 
-	@media (max-width: 720px) {
-		.nvm-list,
-		.nvm-right {
-			@apply w-full flex-wrap;
+	@media (max-width: 767px) {
+		.nvm {
+			@apply min-h-16 px-4 py-3;
 		}
 
+		.nvm-topbar {
+			@apply justify-between gap-3;
+		}
+
+		.nvm-main {
+			@apply min-w-0 flex-1;
+		}
+
+		.nvm-nav,
 		.nvm-right-rail {
-			@apply justify-start;
+			@apply hidden;
+		}
+
+		.nvm-mobile-toggle {
+			@apply flex;
 		}
 	}
 }

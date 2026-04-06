@@ -172,7 +172,12 @@
 					{/if}
 
 					{#if showClose && dismissible}
-						<button type="button" class="sht-close" aria-label={closeLabel} onclick={handleCloseClick}>
+						<button
+							type="button"
+							class="sht-close"
+							aria-label={closeLabel}
+							onclick={handleCloseClick}
+						>
 							<Icon name="x-mark" class="" />
 						</button>
 					{/if}

@@ -13,7 +13,11 @@
 	] as const;
 
 	const sizes = [
-		{ size: 'xs', label: 'Extra small', description: 'Dense utility controls and compact pagination.' },
+		{
+			size: 'xs',
+			label: 'Extra small',
+			description: 'Dense utility controls and compact pagination.'
+		},
 		{ size: 'sm', label: 'Small', description: 'Dense interfaces and compact rows.' },
 		{ size: 'md', label: 'Medium', description: 'Default application control size.' },
 		{ size: 'lg', label: 'Large', description: 'Higher emphasis for key actions.' },
@@ -214,19 +218,21 @@
 				</article>
 
 				<article class="doc-entry">
-						<div class="doc-entry__meta">
-							<h3>Vertical</h3>
-							<p>Use when the group should read as a stacked action block instead of an inline row.</p>
-						</div>
-						<div class="doc-entry__demo doc-entry__demo--start">
-							<UIButtonGroup orientation="vertical" ariaLabel="Priority actions">
-								<UIButton role="secondary" variant="outline">Edit</UIButton>
-								<UIButton role="secondary" variant="outline">Duplicate</UIButton>
-								<UIButton role="secondary" variant="outline">Archive</UIButton>
-							</UIButtonGroup>
-						</div>
-					</article>
-				</div>
+					<div class="doc-entry__meta">
+						<h3>Vertical</h3>
+						<p>
+							Use when the group should read as a stacked action block instead of an inline row.
+						</p>
+					</div>
+					<div class="doc-entry__demo doc-entry__demo--start">
+						<UIButtonGroup orientation="vertical" ariaLabel="Priority actions">
+							<UIButton role="secondary" variant="outline">Edit</UIButton>
+							<UIButton role="secondary" variant="outline">Duplicate</UIButton>
+							<UIButton role="secondary" variant="outline">Archive</UIButton>
+						</UIButtonGroup>
+					</div>
+				</article>
+			</div>
 		</section>
 
 		<section id="examples" class="doc-section doc-card">
@@ -251,7 +257,7 @@
 
 				<article class="state-card">
 					<span class="state-label">Icon only</span>
-					<UIButton role="tertiary" variant="quiet" ariaLabel="Open filters" leftIcon="plus" />
+					<UIButton role="tertiary" variant="quiet" ariaLabel="Open filters" icon="plus" />
 				</article>
 
 				<article class="state-card">

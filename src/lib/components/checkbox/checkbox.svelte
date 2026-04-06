@@ -47,7 +47,13 @@
 	let resolvedRequired = $derived(Boolean(required || fieldContext?.getRequired()));
 	let wrapperClass = $derived(classnames('chk-field', className));
 	let checkboxClass = $derived.by(() =>
-		classnames('chk', CSC[size], checked && 'chk-checked', disabled && 'chk-disabled', invalid && 'chk-error')
+		classnames(
+			'chk',
+			CSC[size],
+			checked && 'chk-checked',
+			disabled && 'chk-disabled',
+			invalid && 'chk-error'
+		)
 	);
 </script>
 

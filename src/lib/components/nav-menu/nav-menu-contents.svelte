@@ -6,10 +6,7 @@
 
 	const item = getNavMenuItemContext();
 
-	let {
-		class: className = '',
-		children
-	}: Partial<NavMenuContents.Props> = $props();
+	let { class: className = '', children }: Partial<NavMenuContents.Props> = $props();
 
 	let contentElement = $state<HTMLDivElement | null>(null);
 	let contentClass = $derived(classnames('nvm-content', className));

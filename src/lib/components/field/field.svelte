@@ -2,7 +2,11 @@
 	import './field.css';
 	import { getContext, setContext } from 'svelte';
 	import classnames from '$utils/classnames';
-	import { FORM_CONTEXT_KEY, normalizeFormError, type FormContextValue } from '../form/form.context';
+	import {
+		FORM_CONTEXT_KEY,
+		normalizeFormError,
+		type FormContextValue
+	} from '../form/form.context';
 	import { FIELD_CONTEXT_KEY, type FieldContextValue } from './field.context';
 	import { FOC } from './field.record';
 
@@ -31,7 +35,9 @@
 			.replace(/[^a-z0-9]+/g, '-')
 			.replace(/^-|-$/g, '');
 	});
-	let resolvedControlId = $derived(controlId || (resolvedBaseId ? `${resolvedBaseId}-control` : ''));
+	let resolvedControlId = $derived(
+		controlId || (resolvedBaseId ? `${resolvedBaseId}-control` : '')
+	);
 	let normalizedError = $derived.by(() => {
 		if (error !== undefined) {
 			return normalizeFormError(error);

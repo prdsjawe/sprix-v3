@@ -4,33 +4,47 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme inline {
+	--color-app-bg: var(--sprix-app-bg);
+	--color-app-bg-muted: var(--sprix-app-bg-muted);
+	--color-app-surface: var(--sprix-app-surface);
+	--color-app-surface-muted: var(--sprix-app-surface-muted);
+	--color-app-surface-elevated: var(--sprix-app-surface-elevated);
+	--color-app-border: var(--sprix-app-border);
+	--color-app-border-strong: var(--sprix-app-border-strong);
+	--color-app-text: var(--sprix-app-text);
+	--color-app-text-muted: var(--sprix-app-text-muted);
+	--color-app-text-subtle: var(--sprix-app-text-subtle);
+	--color-app-overlay: var(--sprix-app-overlay);
+}
+
 :root {
-	--sprix-app-bg: #f8fafc;
-	--sprix-app-bg-muted: #eef2ff;
-	--sprix-app-surface: #ffffff;
-	--sprix-app-surface-muted: rgba(255, 255, 255, 0.88);
-	--sprix-app-surface-elevated: rgba(255, 255, 255, 0.96);
-	--sprix-app-border: #e2e8f0;
-	--sprix-app-border-strong: #cbd5e1;
-	--sprix-app-text: #0f172a;
-	--sprix-app-text-muted: #475569;
-	--sprix-app-text-subtle: #64748b;
-	--sprix-app-overlay: rgba(15, 23, 42, 0.48);
+	--sprix-app-bg: var(--color-zinc-50);
+	--sprix-app-bg-muted: var(--color-indigo-50);
+	--sprix-app-surface: var(--color-white);
+	--sprix-app-surface-muted: color-mix(in oklab, var(--color-white) 88%, transparent);
+	--sprix-app-surface-elevated: color-mix(in oklab, var(--color-white) 96%, transparent);
+	--sprix-app-border: var(--color-zinc-200);
+	--sprix-app-border-strong: var(--color-zinc-300);
+	--sprix-app-text: var(--color-zinc-900);
+	--sprix-app-text-muted: var(--color-zinc-600);
+	--sprix-app-text-subtle: var(--color-zinc-500);
+	--sprix-app-overlay: color-mix(in oklab, var(--color-zinc-950) 48%, transparent);
 }
 
 html.dark,
 html[data-theme='dark'] {
-	--sprix-app-bg: #020617;
-	--sprix-app-bg-muted: #0f172a;
-	--sprix-app-surface: #0f172a;
-	--sprix-app-surface-muted: rgba(15, 23, 42, 0.88);
-	--sprix-app-surface-elevated: rgba(15, 23, 42, 0.96);
-	--sprix-app-border: #1e293b;
-	--sprix-app-border-strong: #334155;
-	--sprix-app-text: #f8fafc;
-	--sprix-app-text-muted: #cbd5e1;
-	--sprix-app-text-subtle: #94a3b8;
-	--sprix-app-overlay: rgba(2, 6, 23, 0.72);
+	--sprix-app-bg: var(--color-zinc-950);
+	--sprix-app-bg-muted: var(--color-zinc-900);
+	--sprix-app-surface: var(--color-zinc-900);
+	--sprix-app-surface-muted: color-mix(in oklab, var(--color-zinc-900) 88%, transparent);
+	--sprix-app-surface-elevated: color-mix(in oklab, var(--color-zinc-900) 96%, transparent);
+	--sprix-app-border: var(--color-zinc-800);
+	--sprix-app-border-strong: var(--color-zinc-700);
+	--sprix-app-text: var(--color-zinc-50);
+	--sprix-app-text-muted: var(--color-zinc-300);
+	--sprix-app-text-subtle: var(--color-zinc-400);
+	--sprix-app-overlay: color-mix(in oklab, var(--color-zinc-950) 72%, transparent);
 }
 
 @layer base {

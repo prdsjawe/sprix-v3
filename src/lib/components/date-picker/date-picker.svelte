@@ -281,7 +281,9 @@
 	};
 
 	const getReferenceKey = () =>
-		normalizedValue.at(-1) || activeDateKey || clampToBounds(TODAY_KEY, normalizedMin, normalizedMax);
+		normalizedValue.at(-1) ||
+		activeDateKey ||
+		clampToBounds(TODAY_KEY, normalizedMin, normalizedMax);
 
 	const openPicker = async () => {
 		if (disabled) return;
@@ -424,13 +426,17 @@
 
 		if (event.key === 'PageUp') {
 			event.preventDefault();
-			await focusDay(clampToBounds(toDateKey(addMonths(parseDateKey(key)!, -1)), normalizedMin, normalizedMax));
+			await focusDay(
+				clampToBounds(toDateKey(addMonths(parseDateKey(key)!, -1)), normalizedMin, normalizedMax)
+			);
 			return;
 		}
 
 		if (event.key === 'PageDown') {
 			event.preventDefault();
-			await focusDay(clampToBounds(toDateKey(addMonths(parseDateKey(key)!, 1)), normalizedMin, normalizedMax));
+			await focusDay(
+				clampToBounds(toDateKey(addMonths(parseDateKey(key)!, 1)), normalizedMin, normalizedMax)
+			);
 			return;
 		}
 
@@ -458,7 +464,8 @@
 
 		lastSyncedValue = nextValue;
 		setVisibleMonthFromKey(normalizedValue[0] || TODAY_KEY);
-		activeDateKey = normalizedValue.at(-1) || clampToBounds(TODAY_KEY, normalizedMin, normalizedMax);
+		activeDateKey =
+			normalizedValue.at(-1) || clampToBounds(TODAY_KEY, normalizedMin, normalizedMax);
 	});
 
 	$effect(() => {
@@ -548,9 +555,7 @@
 							<Icon name="calendar-days" class="" />
 						</span>
 
-						<span
-							class={classnames('dpk-value', !selectedStart && 'dpk-placeholder')}
-						>
+						<span class={classnames('dpk-value', !selectedStart && 'dpk-placeholder')}>
 							{startTriggerLabel}
 						</span>
 					</span>
@@ -560,9 +565,7 @@
 							<Icon name="calendar-days" class="" />
 						</span>
 
-						<span
-							class={classnames('dpk-value', !selectedEnd && 'dpk-placeholder')}
-						>
+						<span class={classnames('dpk-value', !selectedEnd && 'dpk-placeholder')}>
 							{endTriggerLabel}
 						</span>
 					</span>
@@ -615,7 +618,6 @@
 						{headerValue}
 					</span>
 				</div>
-
 			</div>
 
 			<div class={classnames('dpk-calendars', range && 'dpk-calendars-range')}>

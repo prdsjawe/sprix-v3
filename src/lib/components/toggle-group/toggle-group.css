@@ -9,9 +9,9 @@
 
 	.tglg-btn {
 		@apply inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2;
-		@apply text-sm leading-none font-medium text-slate-700 dark:text-slate-300;
+		@apply text-sm leading-none font-medium text-zinc-700 dark:text-zinc-300;
 		@apply transition-[background-color,border-color,color,opacity] duration-150;
-		@apply focus-visible:ring-2 focus-visible:ring-blue-200 dark:focus-visible:ring-blue-500/35 focus-visible:ring-offset-2 focus-visible:outline-none;
+		@apply focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:ring-offset-2 focus-visible:outline-none dark:focus-visible:ring-blue-500/35;
 	}
 
 	.tglg-label {
@@ -19,7 +19,7 @@
 	}
 
 	.tglg-indicator {
-		@apply inline-flex h-4.5 w-4.5 shrink-0 items-center justify-center border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-950;
+		@apply inline-flex h-4.5 w-4.5 shrink-0 items-center justify-center border border-zinc-300 bg-white dark:border-zinc-600 dark:bg-zinc-950;
 		@apply transition-[background-color,border-color,transform] duration-150;
 	}
 
@@ -44,13 +44,13 @@
 	}
 
 	.tglg-btn.tglg-bordered {
-		@apply border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-950;
-		@apply hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100;
+		@apply border-zinc-300 bg-white dark:border-zinc-600 dark:bg-zinc-950;
+		@apply hover:border-zinc-400 hover:bg-zinc-50 hover:text-zinc-900 dark:hover:border-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-100;
 	}
 
 	.tglg-btn.tglg-ghost {
 		@apply border-transparent bg-transparent;
-		@apply hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100;
+		@apply hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-900 dark:hover:text-zinc-100;
 	}
 
 	.tglg-btn.tglg-btn-selected {
@@ -62,21 +62,21 @@
 	}
 
 	.tglg-btn.tglg-btn-selected.tglg-bordered {
-		@apply border-blue-500 dark:border-blue-500 bg-blue-50 dark:bg-blue-950/40;
-		@apply hover:border-blue-600 dark:hover:border-blue-500 hover:bg-blue-100 dark:hover:bg-blue-950/55 hover:text-blue-800 dark:hover:text-blue-200;
+		@apply border-blue-500 bg-blue-50 dark:border-blue-500 dark:bg-blue-950/40;
+		@apply hover:border-blue-600 hover:bg-blue-100 hover:text-blue-800 dark:hover:border-blue-500 dark:hover:bg-blue-950/55 dark:hover:text-blue-200;
 	}
 
 	.tglg-btn.tglg-btn-selected.tglg-ghost {
 		@apply bg-blue-50 dark:bg-blue-950/40;
-		@apply hover:bg-blue-100 dark:hover:bg-blue-950/55 hover:text-blue-800 dark:hover:text-blue-200;
+		@apply hover:bg-blue-100 hover:text-blue-800 dark:hover:bg-blue-950/55 dark:hover:text-blue-200;
 	}
 
 	.tglg-btn.tglg-btn-selected.tglg-check .tglg-indicator {
-		@apply border-blue-500 dark:border-blue-500 bg-blue-500;
+		@apply border-blue-500 bg-blue-500 dark:border-blue-500;
 	}
 
 	.tglg-btn.tglg-btn-selected.tglg-radio .tglg-indicator {
-		@apply border-blue-500 dark:border-blue-500 bg-white dark:bg-slate-950;
+		@apply border-blue-500 bg-white dark:border-blue-500 dark:bg-zinc-950;
 	}
 
 	.tglg-btn.tglg-btn-disabled {
@@ -84,21 +84,21 @@
 	}
 
 	.tglg-btn.tglg-btn-disabled.tglg-bordered {
-		@apply border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500;
-		@apply hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-400 dark:hover:text-slate-500;
+		@apply border-zinc-200 bg-zinc-50 text-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-500;
+		@apply hover:border-zinc-200 hover:bg-zinc-50 hover:text-zinc-400 dark:hover:border-zinc-700 dark:hover:bg-zinc-900 dark:hover:text-zinc-500;
 	}
 
 	.tglg-btn.tglg-btn-disabled.tglg-ghost {
-		@apply text-slate-400 dark:text-slate-500;
-		@apply hover:bg-transparent hover:text-slate-400 dark:hover:text-slate-500;
+		@apply text-zinc-400 dark:text-zinc-500;
+		@apply hover:bg-transparent hover:text-zinc-400 dark:hover:text-zinc-500;
 	}
 
 	.tglg-btn.tglg-btn-disabled .tglg-indicator {
-		@apply border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900;
+		@apply border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900;
 	}
 
 	.tglg-btn.tglg-btn-disabled.tglg-btn-selected.tglg-check .tglg-indicator {
-		@apply border-blue-300 dark:border-blue-700/80 bg-blue-300 dark:bg-blue-900/70;
+		@apply border-blue-300 bg-blue-300 dark:border-blue-700/80 dark:bg-blue-900/70;
 	}
 
 	.tglg-btn.tglg-btn-disabled.tglg-btn-selected.tglg-radio .tglg-mark {

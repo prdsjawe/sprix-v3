@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Sprix UI'
+  short_description: 'Compose Svelte UI from existing Sprix components first'
+  default_prompt: 'Use $sprix-ui to build or refine a Svelte page or section by composing existing Sprix components before creating bespoke ones, with dark mode and responsive behavior.'

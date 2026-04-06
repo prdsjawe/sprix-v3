@@ -39,9 +39,7 @@
 	let bodyId = $derived(children || confirmPrompt ? `${resolvedId}-body` : '');
 	let describedBy = $derived([descriptionId, bodyId].filter(Boolean).join(' ') || undefined);
 	let dialogClass = $derived(classnames('ald', ADTC[type], className));
-	let promptMatches = $derived(
-		!confirmPrompt || promptValue.trim() === confirmPrompt.trim()
-	);
+	let promptMatches = $derived(!confirmPrompt || promptValue.trim() === confirmPrompt.trim());
 	let confirmRole: Button.Role = $derived(type === 'destructive' ? 'danger' : 'primary');
 
 	const closeDialog = () => {
@@ -205,7 +203,12 @@
 		{/if}
 
 		<div class="ald-actions">
-			<Button role="secondary" variant="outline" disabled={isConfirming} onclick={handleCancelClick}>
+			<Button
+				role="secondary"
+				variant="outline"
+				disabled={isConfirming}
+				onclick={handleCancelClick}
+			>
 				{cancelLabel}
 			</Button>
 

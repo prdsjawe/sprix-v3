@@ -4,7 +4,7 @@
 
 @layer components {
 	.prg {
-		@apply relative block h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800;
+		@apply relative block h-1.5 w-full overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800;
 		box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.8);
 	}
 

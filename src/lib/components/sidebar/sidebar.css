@@ -4,14 +4,14 @@
 
 @layer components {
 	.sdb {
-		@apply flex min-h-[32rem] w-full items-stretch overflow-visible border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 shadow-sm;
+		@apply flex min-h-[32rem] w-full items-stretch overflow-visible border border-zinc-200 bg-white text-zinc-900 shadow-sm dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100;
 		transition:
 			background-color 750ms ease,
 			border-color 750ms ease;
 	}
 
 	.sdb-rail {
-		@apply relative flex min-h-[32rem] w-[17.5rem] flex-col gap-1 border-r border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-4 text-slate-900 dark:text-slate-100;
+		@apply relative flex min-h-[32rem] w-[17.5rem] flex-col gap-1 border-r border-zinc-200 bg-zinc-50 p-4 text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100;
 		transition:
 			width 750ms cubic-bezier(0.22, 1, 0.36, 1),
 			border-color 750ms ease,
@@ -36,12 +36,12 @@
 	}
 
 	.sdb-footer {
-		@apply mt-auto border-t border-slate-200 dark:border-slate-700 pt-4;
+		@apply mt-auto border-t border-zinc-200 pt-4 dark:border-zinc-700;
 	}
 
 	.sdb-collapse {
-		@apply flex size-7 shrink-0 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400 shadow-sm transition-colors outline-none;
-		@apply hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-950 dark:hover:text-slate-50 focus-visible:ring-2 focus-visible:ring-sky-300 dark:focus-visible:ring-sky-500/35 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50;
+		@apply flex size-7 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 shadow-sm transition-colors outline-none dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-400;
+		@apply hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-950 focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:hover:border-zinc-600 dark:hover:bg-zinc-900 dark:hover:text-zinc-50 dark:focus-visible:ring-sky-500/35;
 
 		svg {
 			@apply size-4 fill-transparent stroke-current;
@@ -57,15 +57,15 @@
 	}
 
 	.sdb-item {
-		@apply flex w-full items-center gap-3 rounded-xl border border-transparent px-3 py-2 text-left text-slate-600 dark:text-slate-400 no-underline transition-all outline-none;
-		@apply hover:bg-white dark:hover:bg-slate-950 hover:text-slate-950 dark:hover:text-slate-50 focus-visible:ring-2 focus-visible:ring-sky-300 dark:focus-visible:ring-sky-500/35 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50;
+		@apply flex w-full items-center gap-3 rounded-xl border border-transparent px-3 py-2 text-left text-zinc-600 no-underline transition-all outline-none dark:text-zinc-400;
+		@apply hover:bg-white hover:text-zinc-950 focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:hover:bg-zinc-950 dark:hover:text-zinc-50 dark:focus-visible:ring-sky-500/35;
 
 		&[data-state='active'] {
-			@apply bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300;
+			@apply bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300;
 		}
 
 		&[data-state='open'] {
-			@apply bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300;
+			@apply bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300;
 		}
 
 		&:disabled {
@@ -78,7 +78,7 @@
 	}
 
 	.sdb-item__icon {
-		@apply flex size-6 shrink-0 items-center justify-center text-slate-500 dark:text-slate-400;
+		@apply flex size-6 shrink-0 items-center justify-center text-zinc-500 dark:text-zinc-400;
 
 		svg {
 			@apply size-5 fill-transparent stroke-current;
@@ -110,15 +110,15 @@
 	}
 
 	.sdb-item__hint {
-		@apply truncate text-xs leading-5 text-slate-400 dark:text-slate-500;
+		@apply truncate text-xs leading-5 text-zinc-400 dark:text-zinc-500;
 	}
 
 	.sdb-item__badge {
-		@apply rounded-full bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 text-[0.65rem] font-medium text-slate-600 dark:text-slate-400;
+		@apply rounded-full bg-zinc-200 px-1.5 py-0.5 text-[0.65rem] font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400;
 	}
 
 	.sdb-item__surface {
-		@apply flex size-6 shrink-0 items-center justify-center text-slate-400 dark:text-slate-500;
+		@apply flex size-6 shrink-0 items-center justify-center text-zinc-400 dark:text-zinc-500;
 
 		svg {
 			@apply size-5 fill-transparent stroke-current;
@@ -142,7 +142,7 @@
 	}
 
 	.sdb-panel {
-		@apply flex h-full w-[18rem] min-w-[18rem] flex-col gap-3 border-l border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 p-4;
+		@apply flex h-full w-[18rem] min-w-[18rem] flex-col gap-3 border-l border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-950;
 		will-change: transform, opacity;
 		transition:
 			opacity 220ms ease,
@@ -162,10 +162,10 @@
 
 	.sdb-entry {
 		@apply flex w-full items-start gap-3 rounded-lg border border-transparent bg-transparent px-2.5 py-2 text-left transition-all outline-none;
-		@apply hover:bg-slate-100 dark:hover:bg-slate-900 focus-visible:ring-2 focus-visible:ring-sky-300 dark:focus-visible:ring-sky-500/35 focus-visible:ring-offset-2 focus-visible:outline-none;
+		@apply hover:bg-zinc-100 focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:outline-none dark:hover:bg-zinc-900 dark:focus-visible:ring-sky-500/35;
 
 		&[data-selected='true'] {
-			@apply bg-slate-100 dark:bg-slate-900 text-slate-950 dark:text-slate-50;
+			@apply bg-zinc-100 text-zinc-950 dark:bg-zinc-900 dark:text-zinc-50;
 		}
 
 		&:disabled {
@@ -174,7 +174,7 @@
 	}
 
 	.sdb-entry__icon {
-		@apply mt-0.5 flex size-6 shrink-0 items-center justify-center text-slate-500 dark:text-slate-400;
+		@apply mt-0.5 flex size-6 shrink-0 items-center justify-center text-zinc-500 dark:text-zinc-400;
 
 		svg {
 			@apply size-5 fill-transparent stroke-current;
@@ -190,23 +190,23 @@
 	}
 
 	.sdb-entry__label {
-		@apply truncate text-sm font-medium text-slate-900 dark:text-slate-100;
+		@apply truncate text-sm font-medium text-zinc-900 dark:text-zinc-100;
 	}
 
 	.sdb-entry__description {
-		@apply m-0 text-xs leading-5 text-slate-500 dark:text-slate-400;
+		@apply m-0 text-xs leading-5 text-zinc-500 dark:text-zinc-400;
 	}
 
 	.sdb-entry__meta {
-		@apply text-[0.68rem] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase;
+		@apply text-[0.68rem] font-semibold tracking-[0.16em] text-zinc-500 uppercase dark:text-zinc-400;
 	}
 
 	.sdb-entry__badge {
-		@apply rounded-full bg-slate-100 dark:bg-slate-900 px-1.5 py-0.5 text-[0.65rem] font-medium text-slate-500 dark:text-slate-400;
+		@apply rounded-full bg-zinc-100 px-1.5 py-0.5 text-[0.65rem] font-medium text-zinc-500 dark:bg-zinc-900 dark:text-zinc-400;
 	}
 
 	.sdb-menu {
-		@apply grid min-w-[15rem] gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 p-2 shadow-lg shadow-slate-900/8;
+		@apply grid min-w-[15rem] gap-2 rounded-xl border border-zinc-200 bg-white p-2 shadow-lg shadow-zinc-900/8 dark:border-zinc-700 dark:bg-zinc-950;
 	}
 
 	.sdb-menu-host {
@@ -228,7 +228,7 @@
 		}
 
 		.sdb-rail {
-			@apply min-h-0 w-full border-r-0 border-b border-slate-200 dark:border-slate-700;
+			@apply min-h-0 w-full border-r-0 border-b border-zinc-200 dark:border-zinc-700;
 		}
 
 		.sdb.sdb-collapsed .sdb-rail {

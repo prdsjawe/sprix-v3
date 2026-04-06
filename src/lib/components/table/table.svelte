@@ -2,12 +2,7 @@
 	import './table.css';
 	import classnames from '$utils/classnames';
 
-	let {
-		id = '',
-		class: className = '',
-		ariaLabel = '',
-		children
-	}: Partial<Table.Props> = $props();
+	let { id = '', class: className = '', ariaLabel = '', children }: Partial<Table.Props> = $props();
 
 	let tableClass = $derived(classnames('tbl', className));
 </script>

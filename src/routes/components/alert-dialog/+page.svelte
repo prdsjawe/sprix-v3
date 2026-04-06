@@ -31,7 +31,8 @@
 	const handleDismissCancel = () => {
 		toast.info('Stayed on the rollout', {
 			group: DOCS_GROUP,
-			description: 'Dismiss callbacks fire from the cancel button, backdrop click, and Escape when enabled.'
+			description:
+				'Dismiss callbacks fire from the cancel button, backdrop click, and Escape when enabled.'
 		});
 	};
 
@@ -50,24 +51,21 @@
 	};
 
 	const handleAsyncConfirm = async () => {
-		await toast.promise(
-			() => wait(1400).then(() => 'Growth workspace'),
-			{
-				group: DOCS_GROUP,
-				loading: {
-					title: 'Archiving workspace',
-					description: 'Background jobs are being paused before the archive is committed.'
-				},
-				success: (workspace) => ({
-					title: 'Workspace archived',
-					description: `${workspace} was moved to cold storage and can be restored later.`
-				}),
-				error: {
-					title: 'Archive failed',
-					description: 'The dialog stays open if the async step rejects.'
-				}
+		await toast.promise(() => wait(1400).then(() => 'Growth workspace'), {
+			group: DOCS_GROUP,
+			loading: {
+				title: 'Archiving workspace',
+				description: 'Background jobs are being paused before the archive is committed.'
+			},
+			success: (workspace) => ({
+				title: 'Workspace archived',
+				description: `${workspace} was moved to cold storage and can be restored later.`
+			}),
+			error: {
+				title: 'Archive failed',
+				description: 'The dialog stays open if the async step rejects.'
 			}
-		);
+		});
 	};
 
 	const handleControlledConfirm = async () => {
@@ -151,7 +149,9 @@
 						<span class="principle__index">02</span>
 						<div>
 							<h3>Escalate only when needed</h3>
-							<p>Use prompt confirmation and non-dismissible mode for actions with real consequence.</p>
+							<p>
+								Use prompt confirmation and non-dismissible mode for actions with real consequence.
+							</p>
 						</div>
 					</article>
 
@@ -159,7 +159,9 @@
 						<span class="principle__index">03</span>
 						<div>
 							<h3>Let async work own the loading state</h3>
-							<p>The confirm action awaits promises and locks the dialog while the request is active.</p>
+							<p>
+								The confirm action awaits promises and locks the dialog while the request is active.
+							</p>
 						</div>
 					</article>
 				</div>
@@ -182,7 +184,10 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Info</h3>
-						<p>For blocking notices, policy acknowledgements, or confirmation before a major context change.</p>
+						<p>
+							For blocking notices, policy acknowledgements, or confirmation before a major context
+							change.
+						</p>
 					</div>
 
 					<div class="doc-entry__demo">
@@ -193,11 +198,16 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Destructive</h3>
-						<p>For archive, delete, revoke, or similar irreversible actions that should feel visibly riskier.</p>
+						<p>
+							For archive, delete, revoke, or similar irreversible actions that should feel visibly
+							riskier.
+						</p>
 					</div>
 
 					<div class="doc-entry__demo">
-						<UIButton role="danger" onclick={() => (destructiveOpen = true)}>Open destructive state</UIButton>
+						<UIButton role="danger" onclick={() => (destructiveOpen = true)}
+							>Open destructive state</UIButton
+						>
 					</div>
 				</article>
 			</div>
@@ -210,8 +220,8 @@
 					<h2>Decide whether the user may back out with Esc or a backdrop click.</h2>
 				</div>
 				<p>
-					`dismissible` defaults to `true`. Turn it off only when the flow truly requires an explicit
-					confirm or cancel button choice.
+					`dismissible` defaults to `true`. Turn it off only when the flow truly requires an
+					explicit confirm or cancel button choice.
 				</p>
 			</div>
 
@@ -338,8 +348,8 @@
 	cancelLabel="Keep current owner"
 >
 	<p class="dialog-copy">
-		Use the info tone when the flow is sensitive but not destructive. The emphasis stays clear without
-		signaling irreversible loss.
+		Use the info tone when the flow is sensitive but not destructive. The emphasis stays clear
+		without signaling irreversible loss.
 	</p>
 </UIAlertDialog>
 
@@ -351,7 +361,9 @@
 	confirmLabel="Archive branch"
 	cancelLabel="Keep branch"
 >
-	<p class="dialog-copy">Choose destructive when the action should visually separate itself from routine decisions.</p>
+	<p class="dialog-copy">
+		Choose destructive when the action should visually separate itself from routine decisions.
+	</p>
 </UIAlertDialog>
 
 <UIAlertDialog
@@ -362,7 +374,9 @@
 	cancelLabel="Stay here"
 	oncancel={handleDismissCancel}
 >
-	<p class="dialog-copy">Try Escape or click the backdrop to verify the default dismissal behavior.</p>
+	<p class="dialog-copy">
+		Try Escape or click the backdrop to verify the default dismissal behavior.
+	</p>
 </UIAlertDialog>
 
 <UIAlertDialog
@@ -375,7 +389,9 @@
 	dismissible={false}
 	onconfirm={handleLockedConfirm}
 >
-	<p class="dialog-copy">This flow blocks backdrop and Escape dismissal because the operator must make a clear decision.</p>
+	<p class="dialog-copy">
+		This flow blocks backdrop and Escape dismissal because the operator must make a clear decision.
+	</p>
 </UIAlertDialog>
 
 <UIAlertDialog
@@ -403,7 +419,10 @@
 	cancelLabel="Keep active"
 	onconfirm={handleAsyncConfirm}
 >
-	<p class="dialog-copy">The confirm button enters a loading state and cancellation is temporarily disabled during the request.</p>
+	<p class="dialog-copy">
+		The confirm button enters a loading state and cancellation is temporarily disabled during the
+		request.
+	</p>
 </UIAlertDialog>
 
 <UIAlertDialog
@@ -417,7 +436,8 @@
 	onconfirm={handleControlledConfirm}
 >
 	<p class="dialog-copy">
-		This pattern is useful when you need to finish extra local state updates before closing the dialog.
+		This pattern is useful when you need to finish extra local state updates before closing the
+		dialog.
 	</p>
 </UIAlertDialog>
 

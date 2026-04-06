@@ -8,10 +8,7 @@
 	import classnames from '$utils/classnames';
 	import createTippy from '$utils/tippy';
 	import Button from '../button/button.svelte';
-	import {
-		DROPDOWN_MENU_TIPPY_OFFSET,
-		DROPDOWN_MENU_TIPPY_THEME
-	} from './dropdown-menu.record';
+	import { DROPDOWN_MENU_TIPPY_OFFSET, DROPDOWN_MENU_TIPPY_THEME } from './dropdown-menu.record';
 
 	const fallbackId = `dropdown-menu-${++dropdownMenuSequence}`;
 
@@ -28,8 +25,8 @@
 		value,
 		ariaLabel,
 		ariaHaspopup = 'menu',
-		leftIcon = '',
-		rightIcon = '',
+		leftIcon,
+		rightIcon,
 		leftSlot,
 		rightSlot,
 		open = $bindable(false),
@@ -228,7 +225,7 @@
 		{variant}
 		{disabled}
 		{loading}
-		ariaLabel={ariaLabel}
+		{ariaLabel}
 		ariaControls={children ? contentId : undefined}
 		ariaExpanded={children ? open : undefined}
 		ariaHaspopup={children ? ariaHaspopup : undefined}

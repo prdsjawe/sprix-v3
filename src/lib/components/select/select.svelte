@@ -47,7 +47,13 @@
 	let listboxId = $derived(controlId ? `${controlId}-listbox` : '');
 	let wrapperClass = $derived(classnames('slt-field', className));
 	let selectClass = $derived.by(() =>
-		classnames('slt', SSC[size], open && 'slt-open', disabled && 'slt-disabled', invalid && 'slt-error')
+		classnames(
+			'slt',
+			SSC[size],
+			open && 'slt-open',
+			disabled && 'slt-disabled',
+			invalid && 'slt-error'
+		)
 	);
 	let optionClass = $derived(classnames('slt-option', SOC[size]));
 	let optionGroups = $derived.by(() => {
@@ -133,9 +139,7 @@
 		if (index < 0) return;
 
 		await tick();
-		contentElement
-			?.querySelector<HTMLButtonElement>(`[data-option-index="${index}"]`)
-			?.focus();
+		contentElement?.querySelector<HTMLButtonElement>(`[data-option-index="${index}"]`)?.focus();
 	};
 
 	const openMenu = async (direction: 1 | -1 = 1) => {
@@ -345,14 +349,16 @@
 			onblur={handleBlur}
 			onkeydown={handleTriggerKeydown}
 		>
-			<span class={classnames('slt-value', !selectedOption && 'slt-placeholder')}>{triggerLabel}</span>
+			<span class={classnames('slt-value', !selectedOption && 'slt-placeholder')}
+				>{triggerLabel}</span
+			>
 			<span class="slt-icon" aria-hidden="true">
 				<Icon name={open ? 'chevron-up' : 'chevron-down'} class="" />
 			</span>
 		</button>
 
 		{#if resolvedName}
-			<input type="hidden" name={resolvedName} value={value} />
+			<input type="hidden" name={resolvedName} {value} />
 		{/if}
 	</div>
 

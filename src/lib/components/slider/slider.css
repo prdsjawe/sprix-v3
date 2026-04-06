@@ -14,7 +14,7 @@
 	}
 
 	.sld-track {
-		@apply relative h-1.5 w-full grow overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800;
+		@apply relative h-1.5 w-full grow overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800;
 		box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.8);
 	}
 
@@ -23,7 +23,7 @@
 	}
 
 	.sld-thumb {
-		@apply absolute top-1/2 z-10 block size-4 -translate-y-1/2 rounded-full border border-blue-600/70 dark:border-blue-500/70 bg-white dark:bg-slate-950 outline-none;
+		@apply absolute top-1/2 z-10 block size-4 -translate-y-1/2 rounded-full border border-blue-600/70 bg-white outline-none dark:border-blue-500/70 dark:bg-zinc-950;
 		@apply transition-[transform,box-shadow,border-color] duration-150;
 		box-shadow: 0 1px 2px rgb(15 23 42 / 0.16);
 

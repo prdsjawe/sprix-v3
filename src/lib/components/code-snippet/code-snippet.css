@@ -4,7 +4,7 @@
 
 @layer components {
 	.cds {
-		@apply overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 bg-linear-to-br from-white dark:from-slate-950 via-slate-50 dark:via-slate-950 to-slate-100 dark:to-slate-900 text-slate-900 dark:text-slate-100;
+		@apply overflow-hidden rounded-2xl border border-zinc-200 bg-white text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100;
 
 		&.cds-wrap .cds-body {
 			@apply overflow-x-hidden;
@@ -16,15 +16,15 @@
 	}
 
 	.cds-header {
-		@apply flex items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-950/80 px-4 py-2.5;
+		@apply flex items-center justify-between gap-3 border-b border-zinc-200 bg-white/80 px-4 py-2.5 dark:border-zinc-700 dark:bg-zinc-950/80;
 	}
 
 	.cds-file {
-		@apply truncate text-xs font-semibold tracking-[0.16em] text-slate-600 dark:text-slate-400 uppercase;
+		@apply truncate text-xs font-semibold tracking-[0.16em] text-zinc-600 uppercase dark:text-zinc-400;
 	}
 
 	.cds-language {
-		@apply inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 px-2 py-1 text-[0.6875rem] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase;
+		@apply inline-flex items-center rounded-full border border-zinc-200 bg-zinc-100 px-2 py-1 text-[0.6875rem] font-semibold tracking-[0.16em] text-zinc-500 uppercase dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400;
 	}
 
 	.cds-body {
@@ -39,6 +39,30 @@
 		@apply grid min-w-full font-mono text-[0.8125rem] leading-6;
 	}
 
+	.cds:not(.cds-no-lines) .cds-code {
+		background-image: linear-gradient(
+			to right,
+			var(--color-zinc-50) 0,
+			var(--color-zinc-50) calc(var(--cds-gutter-width, 0px) - 1px),
+			var(--color-zinc-200) calc(var(--cds-gutter-width, 0px) - 1px),
+			var(--color-zinc-200) var(--cds-gutter-width, 0px),
+			transparent var(--cds-gutter-width, 0px)
+		);
+		background-repeat: no-repeat;
+	}
+
+	html.dark .cds:not(.cds-no-lines) .cds-code,
+	html[data-theme='dark'] .cds:not(.cds-no-lines) .cds-code {
+		background-image: linear-gradient(
+			to right,
+			var(--color-zinc-900) 0,
+			var(--color-zinc-900) calc(var(--cds-gutter-width, 0px) - 1px),
+			var(--color-zinc-700) calc(var(--cds-gutter-width, 0px) - 1px),
+			var(--color-zinc-700) var(--cds-gutter-width, 0px),
+			transparent var(--cds-gutter-width, 0px)
+		);
+	}
+
 	.cds-line {
 		@apply grid min-w-full grid-cols-[auto_minmax(0,1fr)] items-start;
 	}
@@ -48,13 +72,79 @@
 	}
 
 	.cds-line-number {
-		@apply border-r border-slate-200 dark:border-slate-700 px-3 py-0 text-right text-xs font-medium text-slate-400 dark:text-slate-500 select-none;
-		@apply bg-slate-50/90 dark:bg-slate-900/90;
+		@apply block bg-transparent px-3 py-0 text-right text-xs font-medium text-zinc-400 select-none dark:text-zinc-500;
 		min-inline-size: calc((var(--cds-line-digits, 2) * 0.7ch) + 1.75rem);
 	}
 
 	.cds-line-code {
-		@apply block min-w-max px-4 py-0 whitespace-pre text-slate-800 dark:text-slate-200;
+		@apply block min-w-max px-4 py-0 whitespace-pre text-zinc-700 dark:text-zinc-300;
 		tab-size: 2;
+	}
+
+	.cds-token {
+		color: inherit;
+	}
+
+	.cds-token-comment {
+		color: #5c6370;
+	}
+
+	.cds-token-keyword {
+		color: #8f3bb8;
+	}
+
+	.cds-token-string {
+		color: #2f7d32;
+	}
+
+	.cds-token-number {
+		color: #b15c00;
+	}
+
+	.cds-token-function {
+		color: #155eaf;
+	}
+
+	.cds-token-tag {
+		color: #b4232c;
+	}
+
+	.cds-token-attribute {
+		color: #9a6700;
+	}
+
+	html.dark .cds-token-comment,
+	html[data-theme='dark'] .cds-token-comment {
+		color: #7f848e;
+	}
+
+	html.dark .cds-token-keyword,
+	html[data-theme='dark'] .cds-token-keyword {
+		color: #c678dd;
+	}
+
+	html.dark .cds-token-string,
+	html[data-theme='dark'] .cds-token-string {
+		color: #98c379;
+	}
+
+	html.dark .cds-token-number,
+	html[data-theme='dark'] .cds-token-number {
+		color: #d19a66;
+	}
+
+	html.dark .cds-token-function,
+	html[data-theme='dark'] .cds-token-function {
+		color: #61afef;
+	}
+
+	html.dark .cds-token-tag,
+	html[data-theme='dark'] .cds-token-tag {
+		color: #e06c75;
+	}
+
+	html.dark .cds-token-attribute,
+	html[data-theme='dark'] .cds-token-attribute {
+		color: #e5c07b;
 	}
 }

@@ -83,8 +83,8 @@
 					<h2>Keep shortcut groups readable at a glance.</h2>
 				</div>
 				<p>
-					Most combinations only need text separators around the keys. The component should stay small
-					enough to stack without turning into button chrome.
+					Most combinations only need text separators around the keys. The component should stay
+					small enough to stack without turning into button chrome.
 				</p>
 			</div>
 
@@ -128,8 +128,8 @@
 				<article class="state-card">
 					<span class="state-label">Inline copy</span>
 					<p class="inline-copy">
-						Press <UIKbd>Tab</UIKbd> to move focus forward, then use <UIKbd>Enter</UIKbd> to confirm
-						the selected action.
+						Press <UIKbd>Tab</UIKbd> to move focus forward, then use <UIKbd>Enter</UIKbd> to confirm the
+						selected action.
 					</p>
 				</article>
 

@@ -161,7 +161,9 @@
 							<UIAvatar name="Sprix Team" size="xl" />
 							<UIAvatar name="Pedro Duarte" size="md" />
 						</div>
-						<p>Use `name` when the layout needs identity even before the real image is available.</p>
+						<p>
+							Use `name` when the layout needs identity even before the real image is available.
+						</p>
 					</div>
 				</article>
 
@@ -169,9 +171,17 @@
 					<span class="state-label">Broken source</span>
 					<div class="stack-list">
 						<div class="avatar-row">
-							<UIAvatar src="/missing-avatar.jpg" name="Pedro Duarte" alt="Pedro Duarte" size="xl" />
+							<UIAvatar
+								src="/missing-avatar.jpg"
+								name="Pedro Duarte"
+								alt="Pedro Duarte"
+								size="xl"
+							/>
 						</div>
-						<p>The image surface recovers automatically into initials instead of leaving a broken tag.</p>
+						<p>
+							The image surface recovers automatically into initials instead of leaving a broken
+							tag.
+						</p>
 					</div>
 				</article>
 
@@ -181,7 +191,9 @@
 						<div class="avatar-row">
 							<UIAvatar size="xl" />
 						</div>
-						<p>A neutral icon keeps the shape stable when no image or identity string is available.</p>
+						<p>
+							A neutral icon keeps the shape stable when no image or identity string is available.
+						</p>
 					</div>
 				</article>
 			</div>
@@ -193,7 +205,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Typical identity patterns across the product.</h2>
 				</div>
-				<p>Use smaller sizes in dense collections and reserve the largest tiers for dedicated profile areas.</p>
+				<p>
+					Use smaller sizes in dense collections and reserve the largest tiers for dedicated profile
+					areas.
+				</p>
 			</div>
 
 			<div class="state-grid">
@@ -206,7 +221,10 @@
 							<UIAvatar name="Ada Lovelace" size="sm" />
 							<UIAvatar size="sm" />
 						</div>
-						<p>Smaller tiers work well beside chips, labels, and dense metadata without dominating the row.</p>
+						<p>
+							Smaller tiers work well beside chips, labels, and dense metadata without dominating
+							the row.
+						</p>
 					</div>
 				</article>
 
@@ -327,7 +345,14 @@
 	}
 
 	code {
-		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
+		font-family:
+			ui-monospace,
+			SFMono-Regular,
+			Menlo,
+			Monaco,
+			Consolas,
+			Liberation Mono,
+			monospace;
 		font-size: 0.8rem;
 		color: var(--sprix-app-text-muted);
 	}

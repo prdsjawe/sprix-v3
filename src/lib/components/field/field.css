@@ -16,7 +16,7 @@
 	}
 
 	.fld-label {
-		@apply flex items-center gap-1 text-sm font-medium text-slate-800 dark:text-slate-200;
+		@apply flex items-center gap-1 text-sm font-medium text-zinc-800 dark:text-zinc-200;
 	}
 
 	.fld-required {
@@ -25,7 +25,7 @@
 
 	.fld-description,
 	.fld-message {
-		@apply text-sm leading-6 text-slate-500 dark:text-slate-400;
+		@apply text-sm leading-6 text-zinc-500 dark:text-zinc-400;
 	}
 
 	.fld-message.fld-message-error {

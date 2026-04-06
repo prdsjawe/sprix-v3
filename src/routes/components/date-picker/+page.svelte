@@ -12,7 +12,11 @@
 	const sizes = [
 		{ size: 'sm', label: 'Small', description: 'Compact utility bars and tighter admin forms.' },
 		{ size: 'md', label: 'Medium', description: 'Default calendar density for product flows.' },
-		{ size: 'lg', label: 'Large', description: 'Roomier date entry for prominent booking or scheduling steps.' }
+		{
+			size: 'lg',
+			label: 'Large',
+			description: 'Roomier date entry for prominent booking or scheduling steps.'
+		}
 	] as const;
 
 	const stringifyValue = (value: string[]) => JSON.stringify(value);
@@ -49,21 +53,29 @@
 				<h2>One trigger, one floating calendar, one value shape.</h2>
 				<p class="lead">
 					`DatePicker` keeps the same calm shell as the other form primitives and always binds to a
-					`string[]`. Single mode returns one ISO date. `range` mode returns two ISO dates in ascending
-					order after the second selection.
+					`string[]`. Single mode returns one ISO date. `range` mode returns two ISO dates in
+					ascending order after the second selection.
 				</p>
 			</div>
 
 			<div class="hero-card__stack">
 				<div class="demo-card">
-					<UIField label="Publish date" name="hero-publish" helper="Single selection returns one value in the array.">
+					<UIField
+						label="Publish date"
+						name="hero-publish"
+						helper="Single selection returns one value in the array."
+					>
 						<UIDatePicker bind:value={publishDate} size="lg" />
 					</UIField>
 					<code>{stringifyValue(publishDate)}</code>
 				</div>
 
 				<div class="demo-card">
-					<UIField label="Launch window" name="hero-window" helper="Range mode stays open until the second date is picked.">
+					<UIField
+						label="Launch window"
+						name="hero-window"
+						helper="Range mode stays open until the second date is picked."
+					>
 						<UIDatePicker bind:value={launchWindow} size="lg" range />
 					</UIField>
 					<code>{stringifyValue(launchWindow)}</code>
@@ -77,7 +89,10 @@
 					<p class="section-kicker">Sizes</p>
 					<h2>Three densities, same calendar anatomy.</h2>
 				</div>
-				<p>Use `sm`, `md`, and `lg` to align with adjacent inputs and selects without changing behavior.</p>
+				<p>
+					Use `sm`, `md`, and `lg` to align with adjacent inputs and selects without changing
+					behavior.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -103,27 +118,42 @@
 					<p class="section-kicker">States</p>
 					<h2>Field messaging outside, control state inside.</h2>
 				</div>
-				<p>`Field` still owns the visible label and descriptions, while the picker shell handles open, disabled, and invalid states.</p>
+				<p>
+					`Field` still owns the visible label and descriptions, while the picker shell handles
+					open, disabled, and invalid states.
+				</p>
 			</div>
 
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Helper</span>
-					<UIField label="Review date" name="state-helper" helper="Use the control on its own or bind the array into a form model.">
+					<UIField
+						label="Review date"
+						name="state-helper"
+						helper="Use the control on its own or bind the array into a form model."
+					>
 						<UIDatePicker placeholder="Select a review date" />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Error</span>
-					<UIField label="Approval window" name="state-error" error="Choose a valid date before continuing.">
+					<UIField
+						label="Approval window"
+						name="state-error"
+						error="Choose a valid date before continuing."
+					>
 						<UIDatePicker range placeholder="Select an approval window" />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Disabled</span>
-					<UIField label="Archive date" name="state-disabled" helper="Disabled pickers still preserve the selected label.">
+					<UIField
+						label="Archive date"
+						name="state-disabled"
+						helper="Disabled pickers still preserve the selected label."
+					>
 						<UIDatePicker bind:value={disabledDate} disabled />
 					</UIField>
 				</article>
@@ -136,13 +166,20 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Single-date and range flows with constraints.</h2>
 				</div>
-				<p>Use `range`, `min`, `max`, and `weekStartsOn` to keep the component narrow but useful across scheduling flows.</p>
+				<p>
+					Use `range`, `min`, `max`, and `weekStartsOn` to keep the component narrow but useful
+					across scheduling flows.
+				</p>
 			</div>
 
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Single value API</span>
-					<UIField label="Content embargo" name="example-single" helper="Still returns an array so upstream state stays consistent.">
+					<UIField
+						label="Content embargo"
+						name="example-single"
+						helper="Still returns an array so upstream state stays consistent."
+					>
 						<UIDatePicker bind:value={publishDate} />
 					</UIField>
 					<code>{stringifyValue(publishDate)}</code>
@@ -150,7 +187,11 @@
 
 				<article class="state-card">
 					<span class="state-label">Date range API</span>
-					<UIField label="Booking window" name="example-range" helper="The second selection closes the picker and finalizes the range.">
+					<UIField
+						label="Booking window"
+						name="example-range"
+						helper="The second selection closes the picker and finalizes the range."
+					>
 						<UIDatePicker bind:value={constrainedRange} range min="2026-04-10" max="2026-04-28" />
 					</UIField>
 					<code>{stringifyValue(constrainedRange)}</code>
@@ -158,7 +199,11 @@
 
 				<article class="state-card">
 					<span class="state-label">Monday start</span>
-					<UIField label="Sprint planning" name="example-week" helper="Shift the calendar grid when a Monday-first layout is the better default.">
+					<UIField
+						label="Sprint planning"
+						name="example-week"
+						helper="Shift the calendar grid when a Monday-first layout is the better default."
+					>
 						<UIDatePicker range weekStartsOn={1} placeholder="Select sprint dates" />
 					</UIField>
 				</article>

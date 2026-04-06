@@ -11,7 +11,7 @@
 		--crs-translate: 0%;
 
 		&:focus-visible {
-			@apply outline-none ring-2 ring-blue-200 dark:ring-blue-500/35 ring-offset-2;
+			@apply ring-2 ring-blue-200 ring-offset-2 outline-none dark:ring-blue-500/35;
 		}
 	}
 
@@ -20,7 +20,7 @@
 	}
 
 	.crs-status {
-		@apply text-xs font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase;
+		@apply text-xs font-semibold tracking-[0.16em] text-zinc-500 uppercase dark:text-zinc-400;
 	}
 
 	.crs-actions {
@@ -28,17 +28,13 @@
 	}
 
 	.crs-viewport {
-		@apply relative overflow-hidden rounded-[1.35rem] border border-slate-200/90 dark:border-slate-700/90 bg-white/88 dark:bg-slate-950/88;
+		@apply relative overflow-hidden rounded-[1.35rem] border border-zinc-200/90 bg-white/88 dark:border-zinc-700/90 dark:bg-zinc-950/88;
 		@apply touch-pan-y select-none;
 	}
 
 	.crs-track {
 		@apply flex will-change-transform;
-		transform: translate3d(
-			calc(var(--crs-translate) + var(--crs-drag-offset)),
-			0,
-			0
-		);
+		transform: translate3d(calc(var(--crs-translate) + var(--crs-drag-offset)), 0, 0);
 		transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
@@ -65,36 +61,36 @@
 	}
 
 	.crs-dot {
-		@apply h-2.5 w-2.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-950 transition-[transform,background-color,border-color] duration-150;
-		@apply hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-100 dark:hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 dark:focus-visible:ring-blue-500/35 focus-visible:ring-offset-2;
+		@apply h-2.5 w-2.5 rounded-full border border-zinc-300 bg-white transition-[transform,background-color,border-color] duration-150 dark:border-zinc-600 dark:bg-zinc-950;
+		@apply hover:border-zinc-400 hover:bg-zinc-100 focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:ring-offset-2 focus-visible:outline-none dark:hover:border-zinc-500 dark:hover:bg-zinc-900 dark:focus-visible:ring-blue-500/35;
 
 		&.crs-dot-active {
-			@apply border-blue-600 dark:border-blue-500 bg-blue-500;
+			@apply border-blue-600 bg-blue-500 dark:border-blue-500;
 			transform: scale(1.05);
 		}
 	}
 
 	.crs-empty {
-		@apply rounded-[1.35rem] border border-dashed border-slate-300 dark:border-slate-600 bg-white/75 dark:bg-slate-950/75 px-4 py-8 text-center text-sm leading-6 text-slate-500 dark:text-slate-400;
+		@apply rounded-[1.35rem] border border-dashed border-zinc-300 bg-white/75 px-4 py-8 text-center text-sm leading-6 text-zinc-500 dark:border-zinc-600 dark:bg-zinc-950/75 dark:text-zinc-400;
 	}
 
 	.crs-fallback {
-		@apply grid h-full gap-2 rounded-[1.1rem] border border-slate-200 dark:border-slate-700 bg-linear-to-b from-white dark:from-slate-950 to-slate-50 dark:to-slate-950 p-4;
+		@apply grid h-full gap-2 rounded-[1.1rem] border border-zinc-200 bg-linear-to-b from-white to-zinc-50 p-4 dark:border-zinc-700 dark:from-zinc-950 dark:to-zinc-950;
 	}
 
 	.crs-fallback-eyebrow {
-		@apply text-[0.68rem] font-semibold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase;
+		@apply text-[0.68rem] font-semibold tracking-[0.16em] text-zinc-500 uppercase dark:text-zinc-400;
 	}
 
 	.crs-fallback-title {
-		@apply text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100;
+		@apply text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-100;
 	}
 
 	.crs-fallback-description {
-		@apply text-sm leading-6 text-slate-600 dark:text-slate-400;
+		@apply text-sm leading-6 text-zinc-600 dark:text-zinc-400;
 	}
 
 	.crs-fallback-meta {
-		@apply mt-auto text-xs font-medium text-slate-500 dark:text-slate-400;
+		@apply mt-auto text-xs font-medium text-zinc-500 dark:text-zinc-400;
 	}
 }

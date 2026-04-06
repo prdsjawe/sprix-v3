@@ -71,7 +71,6 @@
 		if (sidebarSurface === 'multipanel') return '35.5rem';
 		return '17.5rem';
 	});
-
 </script>
 
 <svelte:head>

@@ -1,4 +1,47 @@
 declare global {
+	namespace App {
+		namespace Components {
+			interface DarkModeProps {
+				class?: string;
+				ariaLabel?: string;
+			}
+
+			interface DocsSidebarSection {
+				id: string;
+				label: string;
+				meta?: string;
+			}
+
+			interface DocsSidebarProps {
+				title?: string;
+				sections?: readonly DocsSidebarSection[];
+			}
+
+			interface ExampleSidebarItem {
+				id: string;
+				label: string;
+				icon: Icon.Name;
+				active?: boolean;
+			}
+
+			interface ExampleAppShellProps {
+				appName: string;
+				pageTitle: string;
+				pageDescription?: string;
+				statusLabel?: string;
+				sidebarTitle?: string;
+				sidebarItems: readonly ExampleSidebarItem[];
+				primaryActionLabel?: string;
+				secondaryActionLabel?: string;
+				children: Utils.Snippet;
+			}
+
+			interface ExampleHeaderProps {
+				appName: string;
+			}
+		}
+	}
+
 	namespace Utils {
 		type Snippet<Args extends unknown[] = []> = import('svelte').Snippet<Args>;
 		type AnchorAttrs = import('svelte/elements').HTMLAnchorAttributes;

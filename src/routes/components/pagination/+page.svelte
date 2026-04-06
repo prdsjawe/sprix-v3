@@ -10,9 +10,21 @@
 	] as const;
 
 	const sizes = [
-		{ size: 'xs', label: 'Extra small', description: 'Default dense footer for tables and document lists.' },
-		{ size: 'sm', label: 'Small', description: 'Roomier list views that still need compact navigation.' },
-		{ size: 'md', label: 'Medium', description: 'Broader surfaces where pagination should read as a stronger control row.' }
+		{
+			size: 'xs',
+			label: 'Extra small',
+			description: 'Default dense footer for tables and document lists.'
+		},
+		{
+			size: 'sm',
+			label: 'Small',
+			description: 'Roomier list views that still need compact navigation.'
+		},
+		{
+			size: 'md',
+			label: 'Medium',
+			description: 'Broader surfaces where pagination should read as a stronger control row.'
+		}
 	] as const;
 
 	let heroPage = $state(8);
@@ -65,7 +77,10 @@
 					<p class="section-kicker">Sizes</p>
 					<h2>Default to `xs`, scale only when the layout needs it.</h2>
 				</div>
-				<p>Pagination borrows the button size system, but it stays denser than general action rows by design.</p>
+				<p>
+					Pagination borrows the button size system, but it stays denser than general action rows by
+					design.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -95,8 +110,8 @@
 					<h2>Show the current neighborhood and trim the rest.</h2>
 				</div>
 				<p>
-					The component keeps the current page, its nearby siblings, and the outer boundaries visible.
-					Gaps collapse into ellipses so long runs still read cleanly.
+					The component keeps the current page, its nearby siblings, and the outer boundaries
+					visible. Gaps collapse into ellipses so long runs still read cleanly.
 				</p>
 			</div>
 
@@ -108,7 +123,11 @@
 					</div>
 					<div class="pagination-frame">
 						<p class="pagination-frame__label">63 results pages</p>
-						<UIPagination count={63} page={reviewPage} onpagechange={(page) => (reviewPage = page)} />
+						<UIPagination
+							count={63}
+							page={reviewPage}
+							onpagechange={(page) => (reviewPage = page)}
+						/>
 					</div>
 				</article>
 
@@ -131,7 +150,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Use it as a controlled nav row.</h2>
 				</div>
-				<p>The parent keeps page state, which makes it straightforward to sync list queries, filters, or URL params.</p>
+				<p>
+					The parent keeps page state, which makes it straightforward to sync list queries, filters,
+					or URL params.
+				</p>
 			</div>
 
 			<div class="state-grid">
@@ -139,7 +161,11 @@
 					<span class="state-label">Inbox</span>
 					<div class="pagination-frame">
 						<p class="pagination-frame__label">Showing page {compactPage} of 14</p>
-						<UIPagination count={14} page={compactPage} onpagechange={(page) => (compactPage = page)} />
+						<UIPagination
+							count={14}
+							page={compactPage}
+							onpagechange={(page) => (compactPage = page)}
+						/>
 					</div>
 				</article>
 

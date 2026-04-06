@@ -62,9 +62,9 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Same wrapper posture as tooltip, but with a real card surface.</h2>
 				<p class="lead">
-					`HoverCard` wraps arbitrary trigger content and opens richer custom HTML on hover or focus.
-					Keep it for contextual previews that need structure, hierarchy, and actions. If the message
-					could fit in one short sentence, stay on `Tooltip`.
+					`HoverCard` wraps arbitrary trigger content and opens richer custom HTML on hover or
+					focus. Keep it for contextual previews that need structure, hierarchy, and actions. If the
+					message could fit in one short sentence, stay on `Tooltip`.
 				</p>
 			</div>
 
@@ -87,7 +87,10 @@
 								</div>
 								<UIBadge role="success" variant="pill-color" size="sm">Online</UIBadge>
 							</div>
-							<p>Leads the shared component system, design reviews, and launch QA for product surfaces.</p>
+							<p>
+								Leads the shared component system, design reviews, and launch QA for product
+								surfaces.
+							</p>
 							<div class="hover-panel__meta">
 								<span>Manila</span>
 								<span>12 active reviews</span>
@@ -108,7 +111,10 @@
 								</div>
 								<UIBadge role="primary" variant="pill-color" size="sm">83% shipped</UIBadge>
 							</div>
-							<p>Payments and workspace settings are live. Mobile exports are still in staged rollout.</p>
+							<p>
+								Payments and workspace settings are live. Mobile exports are still in staged
+								rollout.
+							</p>
 							<div class="hover-panel__stats">
 								<div>
 									<strong>27</strong>
@@ -131,7 +137,9 @@
 					<p class="section-kicker">Placements</p>
 					<h2>Use the same directional placement model as tooltip.</h2>
 				</div>
-				<p>The trigger contract stays small while the content grows into a bordered card with shadow.</p>
+				<p>
+					The trigger contract stays small while the content grows into a bordered card with shadow.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -149,7 +157,10 @@
 									<div class="hover-mini">
 										<small>{item.label} placement</small>
 										<h3>Structured preview</h3>
-										<p>Keep the content richer than a tooltip, but lighter than a dialog or full popover workflow.</p>
+										<p>
+											Keep the content richer than a tooltip, but lighter than a dialog or full
+											popover workflow.
+										</p>
 									</div>
 								{/snippet}
 							</UIHoverCard>
@@ -165,7 +176,10 @@
 					<p class="section-kicker">Showcase</p>
 					<h2>Patterns that benefit from custom HTML.</h2>
 				</div>
-				<p>These examples lean on headings, metadata rows, and supporting actions instead of one-line hint copy.</p>
+				<p>
+					These examples lean on headings, metadata rows, and supporting actions instead of one-line
+					hint copy.
+				</p>
 			</div>
 
 			<div class="state-grid">
@@ -189,7 +203,10 @@
 									</div>
 									<UIBadge role="secondary" variant="pill" size="sm">Focus mode</UIBadge>
 								</div>
-								<p>Maintains navigation primitives, docs polish, and state-heavy Svelte component demos.</p>
+								<p>
+									Maintains navigation primitives, docs polish, and state-heavy Svelte component
+									demos.
+								</p>
 								<div class="hover-panel__meta">
 									<span>11 merged this week</span>
 									<span>7 reviews waiting</span>
@@ -219,7 +236,10 @@
 										+0.7%
 									</span>
 								</div>
-								<p>Improved after the checkout review step was simplified for returning workspace members.</p>
+								<p>
+									Improved after the checkout review step was simplified for returning workspace
+									members.
+								</p>
 								<div class="hover-panel__stats">
 									<div>
 										<strong>12.4k</strong>
@@ -255,7 +275,10 @@
 									</div>
 									<UIBadge role="success" variant="pill-color" size="sm">99.98%</UIBadge>
 								</div>
-								<p>API latency is stable, background jobs are draining normally, and no incidents are open.</p>
+								<p>
+									API latency is stable, background jobs are draining normally, and no incidents are
+									open.
+								</p>
 								<div class="hover-panel__meta">
 									<span>API 184ms p95</span>
 									<span>Queue delay 9s</span>

@@ -26,8 +26,7 @@
 			`--tabs-indicator-x: ${indicatorX}px; --tabs-indicator-width: ${indicatorWidth}px; --tabs-indicator-opacity: ${indicatorVisible ? 1 : 0};`
 	);
 
-	const getTabId = (item: Tabs.Item, index: number) =>
-		item.id || `${id || 'tabs'}-tab-${index}`;
+	const getTabId = (item: Tabs.Item, index: number) => item.id || `${id || 'tabs'}-tab-${index}`;
 
 	const getTabButtons = () =>
 		Array.from(rootElement?.querySelectorAll<HTMLButtonElement>('[data-tabs-trigger]') ?? []);

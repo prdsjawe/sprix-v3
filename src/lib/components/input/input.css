@@ -8,8 +8,8 @@
 	}
 
 	.ipt {
-		@apply relative flex items-center rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-[border-color,box-shadow,background-color,color] duration-150 ease-out;
-		@apply focus-within:border-blue-400 dark:focus-within:border-blue-600/80 focus-within:ring-4 focus-within:ring-blue-100 dark:focus-within:ring-blue-500/35;
+		@apply relative flex items-center rounded-xl border border-zinc-300 bg-white text-zinc-900 transition-[border-color,box-shadow,background-color,color] duration-150 ease-out dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-100;
+		@apply focus-within:border-blue-400 focus-within:ring-4 focus-within:ring-blue-100 dark:focus-within:border-blue-600/80 dark:focus-within:ring-blue-500/35;
 
 		&.ipt-sm {
 			@apply min-h-10 gap-2 px-3;
@@ -33,7 +33,7 @@
 			}
 
 			.ipt-icon {
-				@apply text-slate-400 dark:text-slate-500;
+				@apply text-zinc-400 dark:text-zinc-500;
 
 				svg {
 					@apply h-4.5 w-4.5 fill-transparent stroke-current;
@@ -63,7 +63,7 @@
 			}
 
 			.ipt-icon {
-				@apply text-slate-400 dark:text-slate-500;
+				@apply text-zinc-400 dark:text-zinc-500;
 
 				svg {
 					@apply h-5 w-5 fill-transparent stroke-current;
@@ -93,7 +93,7 @@
 			}
 
 			.ipt-icon {
-				@apply text-slate-400 dark:text-slate-500;
+				@apply text-zinc-400 dark:text-zinc-500;
 
 				svg {
 					@apply h-5.5 w-5.5 fill-transparent stroke-current;
@@ -102,18 +102,18 @@
 		}
 
 		&.ipt-disabled {
-			@apply cursor-not-allowed border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500;
+			@apply cursor-not-allowed border-zinc-200 bg-zinc-50 text-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-500;
 		}
 
 		&.ipt-error {
-			@apply border-rose-300 dark:border-rose-700/80 bg-rose-50/40 dark:bg-rose-950/40;
-			@apply focus-within:border-rose-400 dark:focus-within:border-rose-600/80 focus-within:ring-rose-100 dark:focus-within:ring-rose-500/35;
+			@apply border-rose-300 bg-rose-50/40 dark:border-rose-700/80 dark:bg-rose-950/40;
+			@apply focus-within:border-rose-400 focus-within:ring-rose-100 dark:focus-within:border-rose-600/80 dark:focus-within:ring-rose-500/35;
 		}
 	}
 
 	.ipt-control {
-		@apply min-w-0 flex-1 border-0 bg-transparent p-0 text-slate-900 dark:text-slate-100 outline-none;
-		@apply placeholder:text-slate-400 dark:placeholder:text-slate-500 disabled:cursor-not-allowed disabled:text-slate-400 dark:disabled:text-slate-500;
+		@apply min-w-0 flex-1 border-0 bg-transparent p-0 text-zinc-900 outline-none dark:text-zinc-100;
+		@apply placeholder:text-zinc-400 disabled:cursor-not-allowed disabled:text-zinc-400 dark:placeholder:text-zinc-500 dark:disabled:text-zinc-500;
 	}
 
 	.ipt-icon {
@@ -121,8 +121,8 @@
 	}
 
 	.ipt-toggle {
-		@apply inline-flex shrink-0 cursor-pointer items-center justify-center rounded-lg border border-transparent bg-transparent text-slate-400 dark:text-slate-500 transition-colors duration-150;
-		@apply hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-600 dark:hover:text-slate-400 focus-visible:ring-2 focus-visible:ring-blue-200 dark:focus-visible:ring-blue-500/35 focus-visible:outline-none;
+		@apply inline-flex shrink-0 cursor-pointer items-center justify-center rounded-lg border border-transparent bg-transparent text-zinc-400 transition-colors duration-150 dark:text-zinc-500;
+		@apply hover:bg-zinc-100 hover:text-zinc-600 focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:outline-none dark:hover:bg-zinc-900 dark:hover:text-zinc-400 dark:focus-visible:ring-blue-500/35;
 
 		svg {
 			@apply h-5 w-5 fill-transparent stroke-current;
@@ -130,11 +130,11 @@
 	}
 
 	.ipt-toggle.ipt-toggle-disabled {
-		@apply cursor-not-allowed text-slate-300 dark:text-slate-600 hover:bg-transparent hover:text-slate-300 dark:hover:text-slate-600;
+		@apply cursor-not-allowed text-zinc-300 hover:bg-transparent hover:text-zinc-300 dark:text-zinc-600 dark:hover:text-zinc-600;
 	}
 
 	.ipt-message {
-		@apply text-sm leading-6 text-slate-500 dark:text-slate-400;
+		@apply text-sm leading-6 text-zinc-500 dark:text-zinc-400;
 	}
 
 	.ipt-message-error {

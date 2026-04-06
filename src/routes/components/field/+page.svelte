@@ -22,7 +22,9 @@
 	let cardNumber = $state('1234 5678 9012 3456');
 	let comments = $state('');
 	let supportEmail = $state('help@sprix.dev');
-	let workspaceNotes = $state('Share the rollback owner, support readiness, and customer comms status.');
+	let workspaceNotes = $state(
+		'Share the rollback owner, support readiness, and customer comms status.'
+	);
 	let releaseAlerts = $state(true);
 	let termsAccepted = $state(false);
 	let billingPlan = $state<Radio.Value>('monthly');
@@ -58,9 +60,9 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Move field chrome out of the input and keep controls focused on the control shell.</h2>
 				<p class="lead">
-					`Field` wraps any compatible control and renders the visible label, description, helper, and error
-					text. `Form` is a light semantic wrapper that can also pass zod-style error objects to fields by
-					name.
+					`Field` wraps any compatible control and renders the visible label, description, helper,
+					and error text. `Form` is a light semantic wrapper that can also pass zod-style error
+					objects to fields by name.
 				</p>
 			</div>
 
@@ -91,11 +93,14 @@
 			<div class="section-heading">
 				<div>
 					<p class="section-kicker">Layout</p>
-					<h2>Default to vertical fields, then switch to horizontal rows for inline decisions and actions.</h2>
+					<h2>
+						Default to vertical fields, then switch to horizontal rows for inline decisions and
+						actions.
+					</h2>
 				</div>
 				<p>
-					`orientation="horizontal"` keeps the control row inline without forcing a subcomponent family. It is
-					useful for action rows, checkbox lines, and compact confirmation controls.
+					`orientation="horizontal"` keeps the control row inline without forcing a subcomponent
+					family. It is useful for action rows, checkbox lines, and compact confirmation controls.
 				</p>
 			</div>
 
@@ -106,7 +111,11 @@
 						<p>The common case: label above, control in the middle, helper or error beneath.</p>
 					</div>
 
-					<UIField label="Full name" name="full_name" helper="Shown across invoices and customer summaries.">
+					<UIField
+						label="Full name"
+						name="full_name"
+						helper="Shown across invoices and customer summaries."
+					>
 						<UIInput bind:value={fullName} placeholder="Evil Rabbit" />
 					</UIField>
 				</article>
@@ -114,10 +123,16 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Horizontal</h3>
-						<p>Clicker-style controls and action rows can stay on one line while helper copy still sits below.</p>
+						<p>
+							Clicker-style controls and action rows can stay on one line while helper copy still
+							sits below.
+						</p>
 					</div>
 
-					<UIField orientation="horizontal" helper="Use horizontal layout when the control row should read as one compact unit.">
+					<UIField
+						orientation="horizontal"
+						helper="Use horizontal layout when the control row should read as one compact unit."
+					>
 						<UIButton type="button">Submit</UIButton>
 						<UIButton type="button" variant="outline" role="secondary">Cancel</UIButton>
 					</UIField>
@@ -126,7 +141,10 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Field-aware controls</h3>
-						<p>Checkbox, radio, and toggle can also consume field context when you want the wrapper to own helper and error copy.</p>
+						<p>
+							Checkbox, radio, and toggle can also consume field context when you want the wrapper
+							to own helper and error copy.
+						</p>
 					</div>
 
 					<div class="stack-demo">
@@ -167,11 +185,13 @@
 			<div class="section-heading">
 				<div>
 					<p class="section-kicker">Errors</p>
-					<h2>Explicit `error` props and zod-style form maps both resolve to the same field surface.</h2>
+					<h2>
+						Explicit `error` props and zod-style form maps both resolve to the same field surface.
+					</h2>
 				</div>
 				<p>
-					`Form` accepts `errors` as `string`, `string[]`, or an object with an `_errors` array, which
-					matches the shapes you typically flatten out of zod validation results.
+					`Form` accepts `errors` as `string`, `string[]`, or an object with an `_errors` array,
+					which matches the shapes you typically flatten out of zod validation results.
 				</p>
 			</div>
 
@@ -184,7 +204,11 @@
 						error="Enter a valid 16-digit card number."
 						helper="This is ignored when an explicit error is present."
 					>
-						<UIInput bind:value={cardNumber} inputmode="numeric" placeholder="1234 5678 9012 3456" />
+						<UIInput
+							bind:value={cardNumber}
+							inputmode="numeric"
+							placeholder="1234 5678 9012 3456"
+						/>
 					</UIField>
 				</article>
 
@@ -196,10 +220,18 @@
 							name="card_number"
 							description="The field pulls its error from the parent form by matching `name`."
 						>
-							<UIInput bind:value={cardNumber} inputmode="numeric" placeholder="1234 5678 9012 3456" />
+							<UIInput
+								bind:value={cardNumber}
+								inputmode="numeric"
+								placeholder="1234 5678 9012 3456"
+							/>
 						</UIField>
 
-						<UIField label="Comments" name="comments" helper="Zod arrays and `_errors` normalize into one string.">
+						<UIField
+							label="Comments"
+							name="comments"
+							helper="Zod arrays and `_errors` normalize into one string."
+						>
 							<UITextarea bind:value={comments} rows={3} />
 						</UIField>
 					</UIForm>
@@ -214,8 +246,8 @@
 					<h2>Compose full forms without baking label and message layout into every control.</h2>
 				</div>
 				<p>
-					The control stays reusable, while `Field` keeps the surrounding form anatomy consistent across input
-					and textarea.
+					The control stays reusable, while `Field` keeps the surrounding form anatomy consistent
+					across input and textarea.
 				</p>
 			</div>
 
@@ -231,7 +263,11 @@
 					</UIField>
 
 					<UIField label="Card number" name="card_number" required>
-						<UIInput bind:value={cardNumber} inputmode="numeric" placeholder="1234 5678 9012 3456" />
+						<UIInput
+							bind:value={cardNumber}
+							inputmode="numeric"
+							placeholder="1234 5678 9012 3456"
+						/>
 					</UIField>
 
 					<UIField
@@ -239,7 +275,12 @@
 						name="comments"
 						helper="Keep comments concise so support can scan them quickly during fulfillment."
 					>
-						<UITextarea bind:value={comments} rows={4} resize="none" placeholder="Add any additional comments" />
+						<UITextarea
+							bind:value={comments}
+							rows={4}
+							resize="none"
+							placeholder="Add any additional comments"
+						/>
 					</UIField>
 
 					<UIField orientation="horizontal">

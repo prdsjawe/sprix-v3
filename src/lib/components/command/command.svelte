@@ -275,9 +275,11 @@
 		}
 
 		void tick().then(() => {
-			document.getElementById(`${resolvedId}-item-${sanitizeToken(activeItem.value)}`)?.scrollIntoView({
-				block: 'nearest'
-			});
+			document
+				.getElementById(`${resolvedId}-item-${sanitizeToken(activeItem.value)}`)
+				?.scrollIntoView({
+					block: 'nearest'
+				});
 		});
 	});
 </script>
@@ -321,7 +323,12 @@
 						</div>
 					</div>
 				{:else if showClose && dismissible}
-					<button type="button" class="cmd-close" aria-label={closeLabel} onclick={handleCloseClick}>
+					<button
+						type="button"
+						class="cmd-close"
+						aria-label={closeLabel}
+						onclick={handleCloseClick}
+					>
 						<Icon name="x-mark" class="" />
 					</button>
 				{/if}
@@ -338,7 +345,7 @@
 				bind:value={search}
 				type="text"
 				class="cmd-search"
-				placeholder={placeholder}
+				{placeholder}
 				aria-controls={resultsId}
 				aria-activedescendant={activeDescendant}
 				aria-label="Search commands"

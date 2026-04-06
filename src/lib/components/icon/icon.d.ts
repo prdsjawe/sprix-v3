@@ -205,6 +205,7 @@ declare global {
 			| 'globe-americas'
 			| 'globe-asia-australia'
 			| 'globe-europe-africa'
+			| 'github'
 			| 'h1'
 			| 'h2'
 			| 'h3'

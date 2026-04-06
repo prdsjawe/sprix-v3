@@ -69,14 +69,19 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Use it when the overlay needs a real mini workflow.</h2>
 				<p class="lead">
-					`Popover` keeps the same floating card posture as `HoverCard`, but it is opened by click and
-					meant for interactive content. Use it for quick forms, inline actions, and focused settings
-					that should not escalate into a full dialog.
+					`Popover` keeps the same floating card posture as `HoverCard`, but it is opened by click
+					and meant for interactive content. Use it for quick forms, inline actions, and focused
+					settings that should not escalate into a full dialog.
 				</p>
 			</div>
 
 			<div class="hero-actions">
-				<UIPopover bind:open={invitePopoverOpen} placement="bottom-start" contentClass="w-[22rem]" maxWidth="none">
+				<UIPopover
+					bind:open={invitePopoverOpen}
+					placement="bottom-start"
+					contentClass="w-[22rem]"
+					maxWidth="none"
+				>
 					<UIButton role="secondary" variant="outline">
 						{invitePopoverOpen ? 'Close invite panel' : 'Invite teammate'}
 					</UIButton>
@@ -106,7 +111,11 @@
 							</div>
 
 							<div class="popover-panel__footer">
-								<UIButton role="secondary" variant="outline" onclick={() => (invitePopoverOpen = false)}>
+								<UIButton
+									role="secondary"
+									variant="outline"
+									onclick={() => (invitePopoverOpen = false)}
+								>
 									Cancel
 								</UIButton>
 								<UIButton onclick={() => (invitePopoverOpen = false)}>Send invite</UIButton>
@@ -115,7 +124,12 @@
 					{/snippet}
 				</UIPopover>
 
-				<UIPopover bind:open={releasePopoverOpen} placement="bottom-end" contentClass="w-[20rem]" maxWidth="none">
+				<UIPopover
+					bind:open={releasePopoverOpen}
+					placement="bottom-end"
+					contentClass="w-[20rem]"
+					maxWidth="none"
+				>
 					<UIButton role="secondary" variant="soft">
 						{releasePopoverOpen ? 'Hide release actions' : 'Release actions'}
 					</UIButton>
@@ -140,10 +154,16 @@
 							</div>
 
 							<div class="popover-actions">
-								<UIButton role="secondary" variant="outline" onclick={() => (releasePopoverOpen = false)}>
+								<UIButton
+									role="secondary"
+									variant="outline"
+									onclick={() => (releasePopoverOpen = false)}
+								>
 									Save draft
 								</UIButton>
-								<UIButton role="success" onclick={() => (releasePopoverOpen = false)}>Publish</UIButton>
+								<UIButton role="success" onclick={() => (releasePopoverOpen = false)}
+									>Publish</UIButton
+								>
 							</div>
 						</div>
 					{/snippet}
@@ -157,7 +177,10 @@
 					<p class="section-kicker">Placements</p>
 					<h2>Keep the same directional placement model as tooltip and hover card.</h2>
 				</div>
-				<p>The behavior changes to click-driven interaction, but placement still passes directly through to tippy.</p>
+				<p>
+					The behavior changes to click-driven interaction, but placement still passes directly
+					through to tippy.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -175,7 +198,10 @@
 									<div class="popover-mini">
 										<small>{item.label} placement</small>
 										<h3>Compact action card</h3>
-										<p>Use the same placement primitives when the overlay needs buttons or fields instead of passive text.</p>
+										<p>
+											Use the same placement primitives when the overlay needs buttons or fields
+											instead of passive text.
+										</p>
 									</div>
 								{/snippet}
 							</UIPopover>
@@ -191,7 +217,10 @@
 					<p class="section-kicker">Showcase</p>
 					<h2>Examples that need more than hover-only preview content.</h2>
 				</div>
-				<p>These examples keep the popover open while the user types, reviews metadata, and clicks through actions.</p>
+				<p>
+					These examples keep the popover open while the user types, reviews metadata, and clicks
+					through actions.
+				</p>
 			</div>
 
 			<div class="state-grid">
@@ -210,7 +239,9 @@
 									<UIBadge role="warning" variant="pill" size="sm">Needs response</UIBadge>
 								</div>
 
-								<p>Invite one stakeholder into this approval thread without leaving the release page.</p>
+								<p>
+									Invite one stakeholder into this approval thread without leaving the release page.
+								</p>
 
 								<UISeparator class="w-full" />
 
@@ -230,7 +261,12 @@
 
 				<article class="state-card">
 					<span class="state-label">Action stack</span>
-					<UIPopover bind:open={quickNoteOpen} placement="top" contentClass="w-[19.5rem]" maxWidth="none">
+					<UIPopover
+						bind:open={quickNoteOpen}
+						placement="top"
+						contentClass="w-[19.5rem]"
+						maxWidth="none"
+					>
 						<div class="metric-trigger">
 							<span>Open issues</span>
 							<strong>3 blockers</strong>
@@ -260,10 +296,16 @@
 								<UISeparator class="w-full" />
 
 								<div class="popover-actions">
-									<UIButton role="secondary" variant="outline" onclick={() => (quickNoteOpen = false)}>
+									<UIButton
+										role="secondary"
+										variant="outline"
+										onclick={() => (quickNoteOpen = false)}
+									>
 										Later
 									</UIButton>
-									<UIButton role="danger" onclick={() => (quickNoteOpen = false)}>Resolve now</UIButton>
+									<UIButton role="danger" onclick={() => (quickNoteOpen = false)}
+										>Resolve now</UIButton
+									>
 								</div>
 							</div>
 						{/snippet}
@@ -272,7 +314,13 @@
 
 				<article class="state-card">
 					<span class="state-label">Block trigger</span>
-					<UIPopover as="div" tabindex={0} placement="top-start" contentClass="w-[21rem]" maxWidth="none">
+					<UIPopover
+						as="div"
+						tabindex={0}
+						placement="top-start"
+						contentClass="w-[21rem]"
+						maxWidth="none"
+					>
 						<div class="panel-trigger">
 							<div>
 								<strong>Notification routing</strong>
@@ -291,7 +339,10 @@
 									<UIBadge role="success" variant="pill-color" size="sm">Active</UIBadge>
 								</div>
 
-								<p>Push deployment notes to the primary team room and keep email alerts disabled for this workflow.</p>
+								<p>
+									Push deployment notes to the primary team room and keep email alerts disabled for
+									this workflow.
+								</p>
 
 								<UISeparator class="w-full" />
 

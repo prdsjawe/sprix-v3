@@ -12,20 +12,20 @@
 	}
 
 	.otp-cell {
-		@apply h-14 w-11 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-950 px-0 text-center text-[1.625rem] font-semibold leading-none text-slate-900 dark:text-slate-100 caret-transparent outline-none transition-[border-color,background-color,color,box-shadow] duration-150 ease-out;
-		@apply placeholder:text-slate-300 dark:placeholder:text-slate-600 hover:border-slate-400 dark:hover:border-slate-500 focus:border-blue-400 dark:focus:border-blue-600/80 focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-500/35;
+		@apply h-14 w-11 rounded-lg border border-zinc-300 bg-white px-0 text-center text-[1.625rem] leading-none font-semibold text-zinc-900 caret-transparent transition-[border-color,background-color,color,box-shadow] duration-150 ease-out outline-none dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-100;
+		@apply placeholder:text-zinc-300 hover:border-zinc-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 dark:placeholder:text-zinc-600 dark:hover:border-zinc-500 dark:focus:border-blue-600/80 dark:focus:ring-blue-500/35;
 		@apply sm:h-16 sm:w-13 sm:text-[1.875rem];
 		font-variant-numeric: tabular-nums;
 	}
 
 	.otp.otp-invalid .otp-cell {
-		@apply border-rose-300 dark:border-rose-700/80 bg-rose-50/40 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300;
-		@apply hover:border-rose-400 dark:hover:border-rose-600/80 focus:border-rose-400 dark:focus:border-rose-600/80 focus:ring-rose-100 dark:focus:ring-rose-500/35;
+		@apply border-rose-300 bg-rose-50/40 text-rose-700 dark:border-rose-700/80 dark:bg-rose-950/40 dark:text-rose-300;
+		@apply hover:border-rose-400 focus:border-rose-400 focus:ring-rose-100 dark:hover:border-rose-600/80 dark:focus:border-rose-600/80 dark:focus:ring-rose-500/35;
 	}
 
 	.otp.otp-disabled .otp-cell {
-		@apply cursor-not-allowed border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500;
-		@apply placeholder:text-slate-300 dark:placeholder:text-slate-600 hover:border-slate-200 dark:hover:border-slate-700;
+		@apply cursor-not-allowed border-zinc-200 bg-zinc-50 text-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-500;
+		@apply placeholder:text-zinc-300 hover:border-zinc-200 dark:placeholder:text-zinc-600 dark:hover:border-zinc-700;
 	}
 
 	.otp.otp-readonly .otp-cell {

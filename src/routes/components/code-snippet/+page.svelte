@@ -65,18 +65,14 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Use it for readable previews, not as an editor surface.</h2>
 				<p class="lead">
-					`CodeSnippet` is for showing code clearly inside docs and showcase cards. Keep the gutter on
-					when the snippet will be discussed line by line, and turn it off when the preview is just
-					supporting metadata.
+					`CodeSnippet` is for showing code clearly inside docs and showcase cards. Keep the gutter
+					on when the snippet will be discussed line by line, and turn it off when the preview is
+					just supporting metadata.
 				</p>
 			</div>
 
 			<div class="hero-card__demo">
-				<UICodeSnippet
-					filename="toolbar.svelte"
-					language="svelte"
-					code={heroSnippet}
-				/>
+				<UICodeSnippet filename="toolbar.svelte" language="svelte" code={heroSnippet} />
 			</div>
 		</section>
 
@@ -87,8 +83,8 @@
 					<h2>Line numbers are useful when the snippet is instructional.</h2>
 				</div>
 				<p>
-					The default keeps the gutter visible. Disable `showLineNumbers` when a small preview should
-					read more like a terminal fragment than a referenced source block.
+					The default keeps the gutter visible. Disable `showLineNumbers` when a small preview
+					should read more like a terminal fragment than a referenced source block.
 				</p>
 			</div>
 
@@ -96,20 +92,20 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Default gutter</h3>
-						<p>Best for docs, code review notes, and any example you might describe by line number.</p>
+						<p>
+							Best for docs, code review notes, and any example you might describe by line number.
+						</p>
 					</div>
 
-					<UICodeSnippet
-						filename="usage.svelte"
-						language="svelte"
-						code={componentSnippet}
-					/>
+					<UICodeSnippet filename="usage.svelte" language="svelte" code={componentSnippet} />
 				</article>
 
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Plain preview</h3>
-						<p>Hide the gutter when the snippet is short and the chrome would outweigh the content.</p>
+						<p>
+							Hide the gutter when the snippet is short and the chrome would outweigh the content.
+						</p>
 					</div>
 
 					<UICodeSnippet
@@ -137,12 +133,7 @@
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Wrapped line</span>
-					<UICodeSnippet
-						filename="release-query.ts"
-						language="ts"
-						code={wrappedSnippet}
-						wrap
-					/>
+					<UICodeSnippet filename="release-query.ts" language="ts" code={wrappedSnippet} wrap />
 				</article>
 
 				<article class="state-card">
@@ -239,7 +230,7 @@
 	.lead {
 		max-width: 62ch;
 	}
-	
+
 	.state-card {
 		padding: 1rem;
 		border: 1px solid var(--sprix-app-border);

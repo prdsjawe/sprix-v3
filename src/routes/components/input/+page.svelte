@@ -48,9 +48,9 @@
 				<p class="section-kicker">Overview</p>
 				<h2>One control shell, multiple field contexts.</h2>
 				<p class="lead">
-					`Input` now focuses on the control shell itself. Pair it with `Field` when you need the visible
-					label, description, helper text, or error message. It still supports `sm`, `md`, and `lg`, and
-					password fields automatically get a visibility toggle.
+					`Input` now focuses on the control shell itself. Pair it with `Field` when you need the
+					visible label, description, helper text, or error message. It still supports `sm`, `md`,
+					and `lg`, and password fields automatically get a visibility toggle.
 				</p>
 			</div>
 
@@ -108,7 +108,11 @@
 						<p>Standard control paired with field-level label and helper copy.</p>
 					</div>
 					<div class="doc-entry__demo">
-						<UIField label="Full name" name="type-text" helper="Used across your profile and invoices.">
+						<UIField
+							label="Full name"
+							name="type-text"
+							helper="Used across your profile and invoices."
+						>
 							<UIInput bind:value={name} />
 						</UIField>
 					</div>
@@ -146,13 +150,20 @@
 					<p class="section-kicker">States</p>
 					<h2>Messaging and availability.</h2>
 				</div>
-				<p>Helper text and errors belong to `Field`, while disabled appearance stays inside the control shell.</p>
+				<p>
+					Helper text and errors belong to `Field`, while disabled appearance stays inside the
+					control shell.
+				</p>
 			</div>
 
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Helper</span>
-					<UIField label="Project slug" name="state-helper" helper="Lowercase, hyphen-separated, and unique.">
+					<UIField
+						label="Project slug"
+						name="state-helper"
+						helper="Lowercase, hyphen-separated, and unique."
+					>
 						<UIInput placeholder="sprix-v3" />
 					</UIField>
 				</article>
@@ -200,14 +211,23 @@
 
 				<article class="state-card">
 					<span class="state-label">Trailing status</span>
-					<UIField label="Repository URL" name="example-status" helper="Connection verified and ready.">
+					<UIField
+						label="Repository URL"
+						name="example-status"
+						helper="Connection verified and ready."
+					>
 						<UIInput rightIcon="check-circle" value="github.com/sprix-v3" />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Required password</span>
-					<UIField label="New password" name="example-password" required helper="Use a unique password for this workspace.">
+					<UIField
+						label="New password"
+						name="example-password"
+						required
+						helper="Use a unique password for this workspace."
+					>
 						<UIInput type="password" />
 					</UIField>
 				</article>

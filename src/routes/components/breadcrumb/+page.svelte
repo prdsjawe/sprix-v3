@@ -117,7 +117,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Typical product and documentation trails.</h2>
 				</div>
-				<p>Keep labels concise. If the path is getting long, the information architecture probably needs work first.</p>
+				<p>
+					Keep labels concise. If the path is getting long, the information architecture probably
+					needs work first.
+				</p>
 			</div>
 
 			<div class="state-grid">

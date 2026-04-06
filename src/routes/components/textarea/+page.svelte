@@ -11,9 +11,21 @@
 	] as const;
 
 	const sizes = [
-		{ size: 'sm', label: 'Small', description: 'Compact forms, dense admin tools, and side panels.' },
-		{ size: 'md', label: 'Medium', description: 'Default multiline field for everyday product forms.' },
-		{ size: 'lg', label: 'Large', description: 'Roomier writing surfaces for notes, briefs, and drafts.' }
+		{
+			size: 'sm',
+			label: 'Small',
+			description: 'Compact forms, dense admin tools, and side panels.'
+		},
+		{
+			size: 'md',
+			label: 'Medium',
+			description: 'Default multiline field for everyday product forms.'
+		},
+		{
+			size: 'lg',
+			label: 'Large',
+			description: 'Roomier writing surfaces for notes, briefs, and drafts.'
+		}
 	] as const;
 
 	let incidentSummary = $state(
@@ -84,7 +96,9 @@
 					<p class="section-kicker">Sizes</p>
 					<h2>Three density tiers, same writing model.</h2>
 				</div>
-				<p>Use `sm`, `md`, and `lg` to match layout density without changing the component anatomy.</p>
+				<p>
+					Use `sm`, `md`, and `lg` to match layout density without changing the component anatomy.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -174,7 +188,9 @@
 					<p class="section-kicker">States</p>
 					<h2>Messaging and availability stay consistent.</h2>
 				</div>
-				<p>Helper text, errors, and disabled appearance follow the same field contract as `Input`.</p>
+				<p>
+					Helper text, errors, and disabled appearance follow the same field contract as `Input`.
+				</p>
 			</div>
 
 			<div class="state-grid">
@@ -220,7 +236,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Common long-form field patterns.</h2>
 				</div>
-				<p>Use textarea where the user is composing, explaining, or documenting rather than entering a single token.</p>
+				<p>
+					Use textarea where the user is composing, explaining, or documenting rather than entering
+					a single token.
+				</p>
 			</div>
 
 			<div class="state-grid">

@@ -17,7 +17,7 @@
 
 	let tagName = $derived.by((): TColumn.As => as || (section === 'header' ? 'th' : 'td'));
 	let resolvedScope = $derived.by(() =>
-		tagName === 'th' ? (scope || (section === 'header' ? 'col' : undefined)) : undefined
+		tagName === 'th' ? scope || (section === 'header' ? 'col' : undefined) : undefined
 	);
 	let columnClass = $derived(
 		classnames('tbl-column', tagName === 'th' && 'tbl-column-head', className)

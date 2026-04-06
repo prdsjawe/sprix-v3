@@ -26,7 +26,9 @@
 
 	const fallbackItemId = createAccordionItemId(accordion.getRootId());
 
-	let itemId = $derived(id || (value ? `${accordion.getRootId()}-${toSlug(value)}` : fallbackItemId));
+	let itemId = $derived(
+		id || (value ? `${accordion.getRootId()}-${toSlug(value)}` : fallbackItemId)
+	);
 	let itemValue = $derived(value || itemId);
 	let open = $derived(accordion.isItemOpen(itemValue));
 	let itemClass = $derived.by(() =>

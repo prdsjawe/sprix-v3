@@ -107,7 +107,10 @@
 					<p class="section-kicker">Variants</p>
 					<h2>Choose how much chrome the control should carry.</h2>
 				</div>
-				<p>`bordered` reads like a compact segmented control. `ghost` stays lighter for toolbars and filter bars.</p>
+				<p>
+					`bordered` reads like a compact segmented control. `ghost` stays lighter for toolbars and
+					filter bars.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -130,7 +133,10 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Ghost</h3>
-						<p>Use when the surrounding layout already defines the surface and the state can stay lighter.</p>
+						<p>
+							Use when the surrounding layout already defines the surface and the state can stay
+							lighter.
+						</p>
 					</div>
 					<div class="doc-entry__demo doc-entry__demo--start">
 						<UIToggleGroup
@@ -158,7 +164,10 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Check</h3>
-						<p>Ideal for layered filters and formatting tools where several options can stay active together.</p>
+						<p>
+							Ideal for layered filters and formatting tools where several options can stay active
+							together.
+						</p>
 					</div>
 					<div class="doc-entry__demo doc-entry__demo--start">
 						<UIToggleGroup
@@ -175,7 +184,10 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Radio</h3>
-						<p>Use when one answer should win and the control needs stronger button affordance than plain radios.</p>
+						<p>
+							Use when one answer should win and the control needs stronger button affordance than
+							plain radios.
+						</p>
 					</div>
 					<div class="doc-entry__demo doc-entry__demo--start">
 						<UIToggleGroup
@@ -262,7 +274,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Typical toolbar and filter usage.</h2>
 				</div>
-				<p>Use concise labels and let the selected surface carry the state instead of surrounding the whole row with extra chrome.</p>
+				<p>
+					Use concise labels and let the selected surface carry the state instead of surrounding the
+					whole row with extra chrome.
+				</p>
 			</div>
 
 			<div class="state-grid">

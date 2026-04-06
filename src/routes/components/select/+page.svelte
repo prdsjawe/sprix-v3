@@ -16,15 +16,45 @@
 	] as const;
 
 	const environmentOptions: Select.Option[] = [
-		{ value: 'production', label: 'Production', description: 'Live customer traffic', group: 'Environments' },
-		{ value: 'staging', label: 'Staging', description: 'Pre-release verification', group: 'Environments' },
-		{ value: 'preview', label: 'Preview', description: 'Ephemeral branch builds', group: 'Environments' }
+		{
+			value: 'production',
+			label: 'Production',
+			description: 'Live customer traffic',
+			group: 'Environments'
+		},
+		{
+			value: 'staging',
+			label: 'Staging',
+			description: 'Pre-release verification',
+			group: 'Environments'
+		},
+		{
+			value: 'preview',
+			label: 'Preview',
+			description: 'Ephemeral branch builds',
+			group: 'Environments'
+		}
 	];
 
 	const ownerOptions: Select.Option[] = [
-		{ value: 'mia-santos', label: 'Mia Santos', description: 'Design systems lead', group: 'Design' },
-		{ value: 'lara-ong', label: 'Lara Ong', description: 'Operations manager', group: 'Operations' },
-		{ value: 'kian-reyes', label: 'Kian Reyes', description: 'Product engineer', group: 'Engineering' }
+		{
+			value: 'mia-santos',
+			label: 'Mia Santos',
+			description: 'Design systems lead',
+			group: 'Design'
+		},
+		{
+			value: 'lara-ong',
+			label: 'Lara Ong',
+			description: 'Operations manager',
+			group: 'Operations'
+		},
+		{
+			value: 'kian-reyes',
+			label: 'Kian Reyes',
+			description: 'Product engineer',
+			group: 'Engineering'
+		}
 	];
 
 	const visibilityOptions: Select.Option[] = [
@@ -63,19 +93,33 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Custom select UI without the shadcn-style trigger, content, group, and item split.</h2>
 				<p class="lead">
-					`Select` is the simpler sibling to `ComboBox`. It is not a native select element, and it does not
-					accept free-form input. Instead, it opens a styled listbox via `createTippy`, renders options from
-					data, and works cleanly with `Field` for labels, descriptions, helper text, and errors.
+					`Select` is the simpler sibling to `ComboBox`. It is not a native select element, and it
+					does not accept free-form input. Instead, it opens a styled listbox via `createTippy`,
+					renders options from data, and works cleanly with `Field` for labels, descriptions, helper
+					text, and errors.
 				</p>
 			</div>
 
 			<div class="hero-card__stack">
-				<UIField label="Target environment" name="hero-environment" helper="Choose the environment you want to deploy to.">
+				<UIField
+					label="Target environment"
+					name="hero-environment"
+					helper="Choose the environment you want to deploy to."
+				>
 					<UISelect bind:value={environment} size="lg" options={environmentOptions} />
 				</UIField>
 
-				<UIField label="Owner" name="hero-owner" helper="Group labels come from the option data, not extra components.">
-					<UISelect bind:value={owner} size="lg" options={ownerOptions} placeholder="Choose an owner" />
+				<UIField
+					label="Owner"
+					name="hero-owner"
+					helper="Group labels come from the option data, not extra components."
+				>
+					<UISelect
+						bind:value={owner}
+						size="lg"
+						options={ownerOptions}
+						placeholder="Choose an owner"
+					/>
 				</UIField>
 			</div>
 		</section>
@@ -98,7 +142,11 @@
 						</div>
 						<div class="doc-entry__demo">
 							<UIField label={`${item.label} select`} name={`size-${item.size}`}>
-								<UISelect size={item.size} placeholder="Choose an environment" options={environmentOptions} />
+								<UISelect
+									size={item.size}
+									placeholder="Choose an environment"
+									options={environmentOptions}
+								/>
 							</UIField>
 						</div>
 					</article>
@@ -112,32 +160,51 @@
 					<p class="section-kicker">States</p>
 					<h2>Field messaging outside, control state inside.</h2>
 				</div>
-				<p>`Field` handles helper and error copy, while the select shell owns open, selected, and disabled styling.</p>
+				<p>
+					`Field` handles helper and error copy, while the select shell owns open, selected, and
+					disabled styling.
+				</p>
 			</div>
 
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Helper</span>
-					<UIField label="Visibility" name="state-helper" helper="Use a simple typed array for single-choice flows.">
+					<UIField
+						label="Visibility"
+						name="state-helper"
+						helper="Use a simple typed array for single-choice flows."
+					>
 						<UISelect options={visibilityOptions} placeholder="Choose visibility" />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Error</span>
-					<UIField label="Owner" name="state-error" error="Choose an owner before moving this request forward.">
+					<UIField
+						label="Owner"
+						name="state-error"
+						error="Choose an owner before moving this request forward."
+					>
 						<UISelect options={ownerOptions} placeholder="Select an owner" />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Disabled</span>
-					<UIField label="Workspace tier" name="state-disabled" helper="Disabled controls still preserve the current label.">
-						<UISelect bind:value={disabledValue} disabled options={[
-							{ value: 'starter', label: 'Starter' },
-							{ value: 'growth', label: 'Growth' },
-							{ value: 'enterprise', label: 'Enterprise' }
-						]} />
+					<UIField
+						label="Workspace tier"
+						name="state-disabled"
+						helper="Disabled controls still preserve the current label."
+					>
+						<UISelect
+							bind:value={disabledValue}
+							disabled
+							options={[
+								{ value: 'starter', label: 'Starter' },
+								{ value: 'growth', label: 'Growth' },
+								{ value: 'enterprise', label: 'Enterprise' }
+							]}
+						/>
 					</UIField>
 				</article>
 			</div>
@@ -150,29 +217,42 @@
 					<h2>Grouped options and form-friendly field composition.</h2>
 				</div>
 				<p>
-					Use `group` and `description` inside the option data when the list needs more structure, but keep the
-					API to one component and one `options` prop.
+					Use `group` and `description` inside the option data when the list needs more structure,
+					but keep the API to one component and one `options` prop.
 				</p>
 			</div>
 
 			<div class="state-grid">
 				<article class="state-card">
 					<span class="state-label">Grouped owners</span>
-					<UIField label="Review owner" name="example-grouped" helper="Selections render descriptions inside the popup only.">
+					<UIField
+						label="Review owner"
+						name="example-grouped"
+						helper="Selections render descriptions inside the popup only."
+					>
 						<UISelect bind:value={owner} options={ownerOptions} placeholder="Assign a reviewer" />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Required field</span>
-					<UIField label="Deployment target" name="example-required" required helper="The trigger inherits field metadata through context.">
+					<UIField
+						label="Deployment target"
+						name="example-required"
+						required
+						helper="The trigger inherits field metadata through context."
+					>
 						<UISelect bind:value={environment} options={environmentOptions} />
 					</UIField>
 				</article>
 
 				<article class="state-card">
 					<span class="state-label">Placeholder</span>
-					<UIField label="Audience" name="example-placeholder" helper="Use placeholders when the current value should remain unset until a choice is made.">
+					<UIField
+						label="Audience"
+						name="example-placeholder"
+						helper="Use placeholders when the current value should remain unset until a choice is made."
+					>
 						<UISelect options={visibilityOptions} placeholder="Choose an audience" />
 					</UIField>
 				</article>

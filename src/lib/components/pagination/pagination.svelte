@@ -97,7 +97,7 @@
 		{#if showPrevNext && totalPages > 1}
 			<li>
 				<Button
-					size={size}
+					{size}
 					role="secondary"
 					variant="quiet"
 					class="pgn-control"
@@ -115,7 +115,7 @@
 					<span class="pgn-ellipsis" aria-hidden="true">&hellip;</span>
 				{:else}
 					<Button
-						size={size}
+						{size}
 						role="secondary"
 						variant={item.current ? 'default' : 'quiet'}
 						class={classnames('pgn-page', item.current && 'pgn-page-current')}
@@ -123,7 +123,7 @@
 							? `Page ${item.value}, current page`
 							: `Go to page ${item.value}`}
 						ariaCurrent={item.current ? 'page' : undefined}
-						disabled={disabled}
+						{disabled}
 						onclick={() => handlePageChange(item.value)}
 					>
 						{item.value}
@@ -135,7 +135,7 @@
 		{#if showPrevNext && totalPages > 1}
 			<li>
 				<Button
-					size={size}
+					{size}
 					role="secondary"
 					variant="quiet"
 					class="pgn-control"

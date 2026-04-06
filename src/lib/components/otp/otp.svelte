@@ -49,7 +49,12 @@
 	);
 	let wrapperClass = $derived(classnames('otp-field', className));
 	let otpClass = $derived(
-		classnames('otp', isInvalid && 'otp-invalid', disabled && 'otp-disabled', readonly && 'otp-readonly')
+		classnames(
+			'otp',
+			isInvalid && 'otp-invalid',
+			disabled && 'otp-disabled',
+			readonly && 'otp-readonly'
+		)
 	);
 
 	$effect(() => {
@@ -72,10 +77,7 @@
 	};
 
 	const sanitizeChars = (nextValue: string) =>
-		nextValue
-			.replace(/\s+/g, '')
-			.slice(0, resolvedLength)
-			.split('');
+		nextValue.replace(/\s+/g, '').slice(0, resolvedLength).split('');
 
 	const overwriteValue = (startIndex: number, nextValue: string) => {
 		const chars = sanitizeChars(nextValue).slice(0, resolvedLength - startIndex);
@@ -114,7 +116,10 @@
 		}
 
 		const nextIndex = overwriteValue(index, event.currentTarget.value);
-		await focusCell(nextIndex < resolvedLength - 1 ? nextIndex + 1 : nextIndex, nextIndex < resolvedLength - 1);
+		await focusCell(
+			nextIndex < resolvedLength - 1 ? nextIndex + 1 : nextIndex,
+			nextIndex < resolvedLength - 1
+		);
 	};
 
 	const handleFocus = async (index: number, event: Utils.FocusEvent<HTMLInputElement>) => {
@@ -212,24 +217,31 @@
 
 		event.preventDefault();
 		const nextIndex = overwriteValue(index, pastedValue);
-		await focusCell(nextIndex < resolvedLength - 1 ? nextIndex + 1 : nextIndex, nextIndex < resolvedLength - 1);
+		await focusCell(
+			nextIndex < resolvedLength - 1 ? nextIndex + 1 : nextIndex,
+			nextIndex < resolvedLength - 1
+		);
 	};
 </script>
 
 <div class={wrapperClass}>
 	{#if resolvedName}
-		<input type="hidden" name={resolvedName} value={normalizedValue} disabled={disabled} />
+		<input type="hidden" name={resolvedName} value={normalizedValue} {disabled} />
 	{/if}
 
 	<div class={otpClass} bind:this={rootElement}>
 		{#each cellValues as cellValue, index}
 			<input
-				id={index === 0 ? (controlId || undefined) : (controlId ? `${controlId}-${index + 1}` : undefined)}
+				id={index === 0
+					? controlId || undefined
+					: controlId
+						? `${controlId}-${index + 1}`
+						: undefined}
 				type="text"
 				value={cellValue}
 				class="otp-cell"
 				data-otp-index={index}
-				inputmode={inputmode}
+				{inputmode}
 				autocomplete={index === 0 ? autocomplete : 'off'}
 				maxlength="1"
 				pattern="[0-9A-Za-z]*"
@@ -238,8 +250,8 @@
 				aria-invalid={isInvalid || undefined}
 				aria-describedby={describedBy}
 				aria-required={isRequired || undefined}
-				disabled={disabled}
-				readonly={readonly}
+				{disabled}
+				{readonly}
 				oninput={(event) => handleInput(index, event)}
 				{onchange}
 				onfocus={(event) => handleFocus(index, event)}

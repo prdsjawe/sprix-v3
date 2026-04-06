@@ -160,11 +160,7 @@
 				item.group,
 				item.badge,
 				...(item.keywords ?? []),
-				...(Array.isArray(item.shortcut)
-					? item.shortcut
-					: item.shortcut
-						? [item.shortcut]
-						: [])
+				...(Array.isArray(item.shortcut) ? item.shortcut : item.shortcut ? [item.shortcut] : [])
 			]
 				.filter(Boolean)
 				.join(' ')
@@ -210,24 +206,21 @@
 	const handleAsyncSelect = async (item: Command.Item) => {
 		asyncValue = item.value;
 
-		await toast.promise(
-			() => wait(950).then(() => item.label),
-			{
-				group: DOCS_GROUP,
-				loading: {
-					title: 'Running command',
-					description: `Working on ${item.label.toLowerCase()}.`
-				},
-				success: (label) => ({
-					title: 'Command completed',
-					description: `${label} finished and the palette closed after the async step resolved.`
-				}),
-				error: {
-					title: 'Command failed',
-					description: 'The palette stays open if the async selection handler rejects.'
-				}
+		await toast.promise(() => wait(950).then(() => item.label), {
+			group: DOCS_GROUP,
+			loading: {
+				title: 'Running command',
+				description: `Working on ${item.label.toLowerCase()}.`
+			},
+			success: (label) => ({
+				title: 'Command completed',
+				description: `${label} finished and the palette closed after the async step resolved.`
+			}),
+			error: {
+				title: 'Command failed',
+				description: 'The palette stays open if the async selection handler rejects.'
 			}
-		);
+		});
 	};
 </script>
 
@@ -258,10 +251,10 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Use it when users should search, skim grouped actions, and execute one result fast.</h2>
 				<p class="lead">
-					`Command` is a dialog-backed command palette with grouped items, search filtering, keyboard
-					navigation, optional footer content, and async-safe selection. It borrows the same border,
-					radius, backdrop, and elevation language as `Dialog`, but the layout is tuned for fast action
-					discovery instead of general modal content.
+					`Command` is a dialog-backed command palette with grouped items, search filtering,
+					keyboard navigation, optional footer content, and async-safe selection. It borrows the
+					same border, radius, backdrop, and elevation language as `Dialog`, but the layout is tuned
+					for fast action discovery instead of general modal content.
 				</p>
 			</div>
 
@@ -297,7 +290,10 @@
 						<span class="principle__index">01</span>
 						<div>
 							<h3>Dialog shell, command posture</h3>
-							<p>The component stays visually aligned with the modal family, but its main body is optimized for search and selection.</p>
+							<p>
+								The component stays visually aligned with the modal family, but its main body is
+								optimized for search and selection.
+							</p>
 						</div>
 					</article>
 
@@ -305,7 +301,10 @@
 						<span class="principle__index">02</span>
 						<div>
 							<h3>Groups keep density readable</h3>
-							<p>Short labels, useful descriptions, and grouped headings prevent long command lists from turning into flat noise.</p>
+							<p>
+								Short labels, useful descriptions, and grouped headings prevent long command lists
+								from turning into flat noise.
+							</p>
 						</div>
 					</article>
 
@@ -313,7 +312,10 @@
 						<span class="principle__index">03</span>
 						<div>
 							<h3>Selection logic stays in the parent</h3>
-							<p>The route owns follow-up navigation, mutations, and toasts through `onselect`, while the component owns filtering and keyboard motion.</p>
+							<p>
+								The route owns follow-up navigation, mutations, and toasts through `onselect`, while
+								the component owns filtering and keyboard motion.
+							</p>
 						</div>
 					</article>
 				</div>
@@ -327,9 +329,9 @@
 					<h2>Keep the item contract explicit and let the palette layout do the heavy lifting.</h2>
 				</div>
 				<p>
-					Each item can carry a label, description, group, icon, shortcut, badge, and keyword aliases.
-					The footer remains a simple snippet so the parent can add hints or result summaries without
-					rebuilding the palette shell.
+					Each item can carry a label, description, group, icon, shortcut, badge, and keyword
+					aliases. The footer remains a simple snippet so the parent can add hints or result
+					summaries without rebuilding the palette shell.
 				</p>
 			</div>
 
@@ -338,8 +340,8 @@
 					<div class="doc-entry__meta">
 						<h3>Item fields</h3>
 						<p>
-							Use `group` for headings, `keywords` for search aliases, and `shortcut` for the compact
-							key hints shown on the right edge.
+							Use `group` for headings, `keywords` for search aliases, and `shortcut` for the
+							compact key hints shown on the right edge.
 						</p>
 					</div>
 
@@ -354,8 +356,8 @@
 					<div class="doc-entry__meta">
 						<h3>Footer snippet</h3>
 						<p>
-							Keep the footer concise. It works well for keyboard hints, current result count, or one
-							small piece of state from the parent.
+							Keep the footer concise. It works well for keyboard hints, current result count, or
+							one small piece of state from the parent.
 						</p>
 					</div>
 
@@ -375,9 +377,9 @@
 					<h2>Filter against real keywords, not just the visible label.</h2>
 				</div>
 				<p>
-					The palette matches against label, description, group, badge, and optional keyword aliases.
-					That keeps the visible copy tight while still letting users search the language they naturally
-					type.
+					The palette matches against label, description, group, badge, and optional keyword
+					aliases. That keeps the visible copy tight while still letting users search the language
+					they naturally type.
 				</p>
 			</div>
 
@@ -403,8 +405,8 @@
 				<article class="state-card">
 					<span class="state-label">Empty state</span>
 					<p class="state-copy">
-						If nothing matches, the palette swaps to a structured empty state instead of leaving a blank
-						results area.
+						If nothing matches, the palette swaps to a structured empty state instead of leaving a
+						blank results area.
 					</p>
 					<UIButton
 						role="secondary"
@@ -427,8 +429,8 @@
 					<h2>Make the search field and list feel usable without ever touching the mouse.</h2>
 				</div>
 				<p>
-					The input keeps focus while the active item moves underneath it, so the user can type, press
-					arrow keys, and submit with Enter in one uninterrupted flow.
+					The input keeps focus while the active item moves underneath it, so the user can type,
+					press arrow keys, and submit with Enter in one uninterrupted flow.
 				</p>
 			</div>
 
@@ -456,7 +458,9 @@
 					</div>
 
 					<div class="doc-entry__demo">
-						<UIButton role="primary" onclick={() => (overviewOpen = true)}>Try keyboard flow</UIButton>
+						<UIButton role="primary" onclick={() => (overviewOpen = true)}
+							>Try keyboard flow</UIButton
+						>
 					</div>
 				</article>
 			</div>
@@ -466,11 +470,13 @@
 			<div class="section-heading">
 				<div>
 					<p class="section-kicker">Examples</p>
-					<h2>Keep close behavior configurable for the workflow instead of hardcoding one posture.</h2>
+					<h2>
+						Keep close behavior configurable for the workflow instead of hardcoding one posture.
+					</h2>
 				</div>
 				<p>
-					The default flow closes after selection. You can also keep the palette open for repeated actions
-					or let an async command resolve before the modal dismisses.
+					The default flow closes after selection. You can also keep the palette open for repeated
+					actions or let an async command resolve before the modal dismisses.
 				</p>
 			</div>
 
@@ -481,8 +487,8 @@
 						<UIBadge size="xs" role="secondary" variant="modern">closeOnSelect=false</UIBadge>
 					</div>
 					<p class="state-copy">
-						This version stays open after each selection so a user can queue several small release tasks
-						without reopening the palette.
+						This version stays open after each selection so a user can queue several small release
+						tasks without reopening the palette.
 					</p>
 					<UIButton role="secondary" variant="outline" onclick={() => (stickyOpen = true)}>
 						Open sticky palette

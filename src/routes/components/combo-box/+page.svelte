@@ -201,10 +201,7 @@
 					>
 						<div class="option-stack">
 							{#each tags as item}
-								<UIComboBoxItem
-									label={item.label}
-									description={item.description}
-								/>
+								<UIComboBoxItem label={item.label} description={item.description} />
 							{/each}
 						</div>
 					</UIComboBox>
@@ -251,7 +248,9 @@
 						placeholder="Type a teammate name"
 					>
 						<div class="option-stack">
-							{#each owners.filter((item) => item.label.toLowerCase().includes(searchValue.toLowerCase())) as item}
+							{#each owners.filter((item) => item.label
+									.toLowerCase()
+									.includes(searchValue.toLowerCase())) as item}
 								<UIComboBoxItem
 									label={item.label}
 									description={item.description}

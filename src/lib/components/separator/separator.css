@@ -4,7 +4,7 @@
 
 @layer components {
 	.sep {
-		@apply block shrink-0 bg-slate-200 dark:bg-slate-800;
+		@apply block shrink-0 bg-zinc-200 dark:bg-zinc-800;
 
 		&.sep-horizontal {
 			@apply h-px w-full;

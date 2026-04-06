@@ -7,11 +7,7 @@
 	import { tick } from 'svelte';
 	import classnames from '$utils/classnames';
 	import createTippy from '$utils/tippy';
-	import {
-		POPOVER_MAX_WIDTH,
-		POPOVER_TIPPY_OFFSET,
-		POPOVER_TIPPY_THEME
-	} from './popover.record';
+	import { POPOVER_MAX_WIDTH, POPOVER_TIPPY_OFFSET, POPOVER_TIPPY_THEME } from './popover.record';
 
 	const fallbackId = `popover-${++popoverSequence}`;
 

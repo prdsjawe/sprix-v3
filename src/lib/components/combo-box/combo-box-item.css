@@ -4,8 +4,8 @@
 
 @layer components {
 	.cbi {
-		@apply relative flex w-full items-start justify-between gap-3 rounded-lg text-left text-slate-700 dark:text-slate-300 transition-[background-color,color] duration-150 ease-out;
-		@apply hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100 focus-visible:bg-slate-100 dark:focus-visible:bg-slate-900 focus-visible:text-slate-900 dark:focus-visible:text-slate-100 focus-visible:outline-none;
+		@apply relative flex w-full items-start justify-between gap-3 rounded-lg text-left text-zinc-700 transition-[background-color,color] duration-150 ease-out dark:text-zinc-300;
+		@apply hover:bg-zinc-100 hover:text-zinc-900 focus-visible:bg-zinc-100 focus-visible:text-zinc-900 focus-visible:outline-none dark:hover:bg-zinc-900 dark:hover:text-zinc-100 dark:focus-visible:bg-zinc-900 dark:focus-visible:text-zinc-100;
 
 		&.cbi-sm {
 			@apply px-2.5 py-2;
@@ -44,28 +44,28 @@
 		}
 
 		&.cbi-active {
-			@apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100;
+			@apply bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100;
 		}
 
 		&.cbi-selected {
-			@apply bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300;
+			@apply bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300;
 		}
 
 		&.cbi-disabled {
-			@apply cursor-not-allowed text-slate-300 dark:text-slate-600 hover:bg-transparent hover:text-slate-300 dark:hover:text-slate-600;
+			@apply cursor-not-allowed text-zinc-300 hover:bg-transparent hover:text-zinc-300 dark:text-zinc-600 dark:hover:text-zinc-600;
 		}
 	}
 
 	.cbi-copy {
-		@apply min-w-0 flex-1 grid gap-0.5;
+		@apply grid min-w-0 flex-1 gap-0.5;
 	}
 
 	.cbi-label {
-		@apply truncate font-medium leading-6;
+		@apply truncate leading-6 font-medium;
 	}
 
 	.cbi-description {
-		@apply text-slate-500 dark:text-slate-400;
+		@apply text-zinc-500 dark:text-zinc-400;
 	}
 
 	.cbi-check {

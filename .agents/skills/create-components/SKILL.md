@@ -45,7 +45,7 @@ export {};
 11. Create a sibling `[component].css` file inside the component folder with this template:
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer components {
 	/* component classes */
@@ -82,17 +82,13 @@ Default to this structure inside `[component].svelte`:
 
 ```svelte
 <script lang="ts">
-	import "./component.css";
-	import classnames from "$lib/utils/classnames";
-	import { COMPONENT_RECORD } from "./component.record";
+	import './component.css';
+	import classnames from '$lib/utils/classnames';
+	import { COMPONENT_RECORD } from './component.record';
 
-	let {
-		id = "",
-		class: className = "",
-		children
-	}: Partial<ComponentName.Props> = $props();
+	let { id = '', class: className = '', children }: Partial<ComponentName.Props> = $props();
 
-	let componentClass = $derived(classnames("component-base", COMPONENT_RECORD.variant, className));
+	let componentClass = $derived(classnames('component-base', COMPONENT_RECORD.variant, className));
 </script>
 ```
 
@@ -118,9 +114,9 @@ Example:
 ```ts
 declare global {
 	namespace Button {
-		type Size = "sm" | "md" | "lg" | "xl";
-		type Role = "primary" | "secondary" | "tertiary" | "danger" | "success" | "warning";
-		type Variant = "default" | "flat" | "quiet" | "outline" | "soft" | "disabled";
+		type Size = 'sm' | 'md' | 'lg' | 'xl';
+		type Role = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'success' | 'warning';
+		type Variant = 'default' | 'flat' | 'quiet' | 'outline' | 'soft' | 'disabled';
 
 		interface Props {
 			id?: string;
@@ -175,10 +171,7 @@ Example pattern:
 
 ```svelte
 <script lang="ts">
-	let {
-		onclick,
-		onkeydown
-	}: Partial<Button.Props> = $props();
+	let { onclick, onkeydown }: Partial<Button.Props> = $props();
 
 	const handleKeydown = (event: Utils.KeyboardEvent<HTMLButtonElement>) => {
 		onkeydown?.(event);
@@ -221,7 +214,7 @@ Treat `[component].css` as a layered class system:
 Example pattern:
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer components {
 	.btn {
@@ -266,12 +259,12 @@ Example:
 
 ```ts
 export const BRC: Button.RoleClass = {
-	primary: "btn-primary",
-	secondary: "btn-secondary",
-	tertiary: "btn-tertiary",
-	danger: "btn-danger",
-	success: "btn-success",
-	warning: "btn-warning"
+	primary: 'btn-primary',
+	secondary: 'btn-secondary',
+	tertiary: 'btn-tertiary',
+	danger: 'btn-danger',
+	success: 'btn-success',
+	warning: 'btn-warning'
 };
 ```
 

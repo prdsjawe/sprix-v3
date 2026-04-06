@@ -4,6 +4,7 @@ declare global {
 			id?: string;
 			class?: string;
 			ariaLabel?: string;
+			fixedOnScroll?: boolean;
 			logo?: Utils.Snippet;
 			right?: Utils.Snippet;
 			children?: Utils.Snippet;

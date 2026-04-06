@@ -55,7 +55,13 @@
 	let resolvedRequired = $derived(Boolean(required || fieldContext?.getRequired()));
 	let wrapperClass = $derived(classnames('rad-field', className));
 	let radioClass = $derived.by(() =>
-		classnames('rad', RSC[size], isChecked && 'rad-checked', disabled && 'rad-disabled', invalid && 'rad-error')
+		classnames(
+			'rad',
+			RSC[size],
+			isChecked && 'rad-checked',
+			disabled && 'rad-disabled',
+			invalid && 'rad-error'
+		)
 	);
 
 	const syncGroup = (event: Utils.DOMEvent<HTMLInputElement>) => {

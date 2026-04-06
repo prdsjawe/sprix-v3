@@ -29,9 +29,7 @@
 	let groupedToasts = $derived.by(() =>
 		$toastStore.filter((item) => item.group === group).sort((a, b) => b.createdAt - a.createdAt)
 	);
-	let renderedToasts = $derived.by(() =>
-		groupedToasts.slice(0, Math.max(1, visibleToasts))
-	);
+	let renderedToasts = $derived.by(() => groupedToasts.slice(0, Math.max(1, visibleToasts)));
 	let expanded = $derived(pointerInside || focusInside);
 	let rootClass = $derived(classnames('tst-root', expanded && 'tst-root-expanded', className));
 

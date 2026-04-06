@@ -34,9 +34,9 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Use it when the interface needs a clear next step, not placeholder filler.</h2>
 				<p class="lead">
-					`Empty` handles the structured case for zero results, first-run setup, and sections with no
-					content yet. It gives you one consistent wrapper for icon or media, copy, optional supporting
-					content, and an action row.
+					`Empty` handles the structured case for zero results, first-run setup, and sections with
+					no content yet. It gives you one consistent wrapper for icon or media, copy, optional
+					supporting content, and an action row.
 				</p>
 			</div>
 
@@ -69,7 +69,10 @@
 					<p class="section-kicker">Layout</p>
 					<h2>Scale the state without changing the structure.</h2>
 				</div>
-				<p>Keep the API small: size for density, alignment for posture, and variant for whether the surface owns its own panel.</p>
+				<p>
+					Keep the API small: size for density, alignment for posture, and variant for whether the
+					surface owns its own panel.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -139,7 +142,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Use icon mode for speed and media mode for more branded states.</h2>
 				</div>
-				<p>Most cases should stay on the built-in icon path. Reach for a custom media snippet only when the zero state needs stronger context.</p>
+				<p>
+					Most cases should stay on the built-in icon path. Reach for a custom media snippet only
+					when the zero state needs stronger context.
+				</p>
 			</div>
 
 			<div class="example-grid">
@@ -165,7 +171,10 @@
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Custom media</h3>
-						<p>Use the media snippet for richer visual storytelling without changing the rest of the API.</p>
+						<p>
+							Use the media snippet for richer visual storytelling without changing the rest of the
+							API.
+						</p>
 					</div>
 
 					<UIEmpty

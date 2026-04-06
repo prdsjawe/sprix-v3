@@ -17,9 +17,21 @@
 	] as const;
 
 	const sizes = [
-		{ size: 'sm', label: 'Small', description: 'Dense sidebars, utility drawers, and compact admin flows.' },
-		{ size: 'md', label: 'Medium', description: 'Default density for product settings and standard docs.' },
-		{ size: 'lg', label: 'Large', description: 'Roomier FAQ and support surfaces with more breathing room.' }
+		{
+			size: 'sm',
+			label: 'Small',
+			description: 'Dense sidebars, utility drawers, and compact admin flows.'
+		},
+		{
+			size: 'md',
+			label: 'Medium',
+			description: 'Default density for product settings and standard docs.'
+		},
+		{
+			size: 'lg',
+			label: 'Large',
+			description: 'Roomier FAQ and support surfaces with more breathing room.'
+		}
 	] as const;
 
 	const variants = [
@@ -99,8 +111,8 @@
 							<UIAccordionTrigger>Billing support</UIAccordionTrigger>
 							<UIAccordionContent>
 								<p>
-									Workspace invoices are generated on the first of the month. Mid-cycle plan
-									changes are prorated automatically on the next statement.
+									Workspace invoices are generated on the first of the month. Mid-cycle plan changes
+									are prorated automatically on the next statement.
 								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
@@ -160,7 +172,10 @@
 					<p class="section-kicker">Variants</p>
 					<h2>Pick the surface treatment based on context.</h2>
 				</div>
-				<p>`default` stays quiet inside a larger page. `card` gives each disclosure its own container.</p>
+				<p>
+					`default` stays quiet inside a larger page. `card` gives each disclosure its own
+					container.
+				</p>
 			</div>
 
 			<div class="doc-grid">
@@ -177,8 +192,8 @@
 									<UIAccordionTrigger>Implementation summary</UIAccordionTrigger>
 									<UIAccordionContent>
 										<p>
-											The variant changes the surrounding shell while keeping the trigger,
-											content, and state model intact.
+											The variant changes the surrounding shell while keeping the trigger, content,
+											and state model intact.
 										</p>
 									</UIAccordionContent>
 								</UIAccordionItem>
@@ -187,8 +202,8 @@
 									<UIAccordionTrigger>Design notes</UIAccordionTrigger>
 									<UIAccordionContent>
 										<p>
-											Use the quieter default surface inside dense documentation. Use card when
-											the accordion should read like a grouped panel.
+											Use the quieter default surface inside dense documentation. Use card when the
+											accordion should read like a grouped panel.
 										</p>
 									</UIAccordionContent>
 								</UIAccordionItem>
@@ -205,7 +220,10 @@
 					<p class="section-kicker">Modes</p>
 					<h2>Choose one-open or many-open behavior deliberately.</h2>
 				</div>
-				<p>`type="single"` fits FAQs and mutually exclusive reading flows. `type="multiple"` fits checklists and grouped references.</p>
+				<p>
+					`type="single"` fits FAQs and mutually exclusive reading flows. `type="multiple"` fits
+					checklists and grouped references.
+				</p>
 			</div>
 
 			<div class="state-grid">
@@ -215,14 +233,19 @@
 						<UIAccordionItem value="permissions">
 							<UIAccordionTrigger>Permission changes</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Route access updates through workspace admins so approval history stays auditable.</p>
+								<p>
+									Route access updates through workspace admins so approval history stays auditable.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 
 						<UIAccordionItem value="retention">
 							<UIAccordionTrigger>Data retention</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Project activity logs are retained for 180 days on Growth and 365 days on Enterprise.</p>
+								<p>
+									Project activity logs are retained for 180 days on Growth and 365 days on
+									Enterprise.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 					</UIAccordion>
@@ -241,7 +264,10 @@
 						<UIAccordionItem value="rollback">
 							<UIAccordionTrigger>Rollback ready</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Previous image tags and environment variables are stored alongside the rollout ticket.</p>
+								<p>
+									Previous image tags and environment variables are stored alongside the rollout
+									ticket.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 
@@ -262,7 +288,10 @@
 					<p class="section-kicker">States</p>
 					<h2>Keep interaction rules explicit.</h2>
 				</div>
-				<p>Use `collapsible` when zero-open is acceptable, and disable only the specific rows that should not be interactive.</p>
+				<p>
+					Use `collapsible` when zero-open is acceptable, and disable only the specific rows that
+					should not be interactive.
+				</p>
 			</div>
 
 			<div class="state-grid">
@@ -272,14 +301,20 @@
 						<UIAccordionItem value="required">
 							<UIAccordionTrigger>Required review path</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>The active section cannot be collapsed, which is useful when one panel must stay visible.</p>
+								<p>
+									The active section cannot be collapsed, which is useful when one panel must stay
+									visible.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 
 						<UIAccordionItem value="secondary">
 							<UIAccordionTrigger>Secondary notes</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Users can still move between items, but the accordion never settles into an all-closed state.</p>
+								<p>
+									Users can still move between items, but the accordion never settles into an
+									all-closed state.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 					</UIAccordion>
@@ -310,14 +345,20 @@
 						<UIAccordionItem value="retention">
 							<UIAccordionTrigger>How long do exports stay available?</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Signed export URLs remain active for 24 hours before the archive must be regenerated.</p>
+								<p>
+									Signed export URLs remain active for 24 hours before the archive must be
+									regenerated.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 
 						<UIAccordionItem value="guests">
 							<UIAccordionTrigger>Can guests approve requests?</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>No. Guest access is view-only unless the workspace upgrades the role assignment policy.</p>
+								<p>
+									No. Guest access is view-only unless the workspace upgrades the role assignment
+									policy.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 					</UIAccordion>
@@ -331,7 +372,10 @@
 					<p class="section-kicker">Examples</p>
 					<h2>Good disclosure patterns are structured, not decorative.</h2>
 				</div>
-				<p>Use accordion when the user benefits from scanning labels first, then opening only the content they need.</p>
+				<p>
+					Use accordion when the user benefits from scanning labels first, then opening only the
+					content they need.
+				</p>
 			</div>
 
 			<div class="state-grid">
@@ -341,19 +385,28 @@
 						<UIAccordionItem value="refunds">
 							<UIAccordionTrigger>Refund eligibility</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Monthly plans can be refunded within seven days when no billable usage has been recorded.</p>
+								<p>
+									Monthly plans can be refunded within seven days when no billable usage has been
+									recorded.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 						<UIAccordionItem value="transfers">
 							<UIAccordionTrigger>Workspace transfers</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Ownership transfers require confirmation from both the current owner and the receiving admin.</p>
+								<p>
+									Ownership transfers require confirmation from both the current owner and the
+									receiving admin.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 						<UIAccordionItem value="security">
 							<UIAccordionTrigger>Security reviews</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Enterprise customers can request the latest security packet from the trust center workspace.</p>
+								<p>
+									Enterprise customers can request the latest security packet from the trust center
+									workspace.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 					</UIAccordion>
@@ -365,19 +418,27 @@
 						<UIAccordionItem value="monitoring">
 							<UIAccordionTrigger>Monitoring ready</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Dashboards, alerts, and incident escalation notes were updated before the rollout window.</p>
+								<p>
+									Dashboards, alerts, and incident escalation notes were updated before the rollout
+									window.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 						<UIAccordionItem value="messaging">
 							<UIAccordionTrigger>Customer messaging</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Status page drafts and in-app notices are prepared in case the rollout window extends.</p>
+								<p>
+									Status page drafts and in-app notices are prepared in case the rollout window
+									extends.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 						<UIAccordionItem value="handoff">
 							<UIAccordionTrigger>On-call handoff</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>The next on-call engineer has the rollback plan, owner list, and success metrics.</p>
+								<p>
+									The next on-call engineer has the rollback plan, owner list, and success metrics.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 					</UIAccordion>
@@ -389,13 +450,19 @@
 						<UIAccordionItem value="sso">
 							<UIAccordionTrigger>Single sign-on</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Use disclosure to keep advanced configuration readable while preserving a predictable settings page rhythm.</p>
+								<p>
+									Use disclosure to keep advanced configuration readable while preserving a
+									predictable settings page rhythm.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 						<UIAccordionItem value="audit">
 							<UIAccordionTrigger>Audit exports</UIAccordionTrigger>
 							<UIAccordionContent>
-								<p>Export access logs, role updates, and sign-in events when your compliance workflow requires archival copies.</p>
+								<p>
+									Export access logs, role updates, and sign-in events when your compliance workflow
+									requires archival copies.
+								</p>
 							</UIAccordionContent>
 						</UIAccordionItem>
 					</UIAccordion>

@@ -23,7 +23,8 @@ const lifecycleMap = new Map<
 	}
 >();
 
-const createToastId = () => `toast-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+const createToastId = () =>
+	`toast-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 
 const resolveGroup = (group?: string) => group || DEFAULT_GROUP;
 
@@ -91,11 +92,7 @@ const upsertToast = (item: Toast.Item) => {
 	return item.id;
 };
 
-const createToast = (
-	type: Toast.Type,
-	input: Toast.Input,
-	options: Partial<Toast.Options> = {}
-) =>
+const createToast = (type: Toast.Type, input: Toast.Input, options: Partial<Toast.Options> = {}) =>
 	upsertToast({
 		...normalizeInput(input, { ...options, type }, type),
 		createdAt: Date.now()

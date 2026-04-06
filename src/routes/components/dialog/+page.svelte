@@ -81,7 +81,8 @@
 
 		toast.success('Draft saved', {
 			group: DOCS_GROUP,
-			description: 'Non-dismissible mode kept the modal open until the user chose an explicit action.'
+			description:
+				'Non-dismissible mode kept the modal open until the user chose an explicit action.'
 		});
 	};
 
@@ -128,11 +129,13 @@
 		<section id="overview" class="doc-section hero-card">
 			<div class="hero-card__copy">
 				<p class="section-kicker">Overview</p>
-				<h2>Use it for context, short workflows, and structured edits that should stay inside a modal.</h2>
+				<h2>
+					Use it for context, short workflows, and structured edits that should stay inside a modal.
+				</h2>
 				<p class="lead">
-					`Dialog` is deliberately broader than `AlertDialog`: it provides a controlled overlay, title,
-					description, body, and optional footer snippet, then leaves validation, submit behavior, and
-					action meaning to the parent.
+					`Dialog` is deliberately broader than `AlertDialog`: it provides a controlled overlay,
+					title, description, body, and optional footer snippet, then leaves validation, submit
+					behavior, and action meaning to the parent.
 				</p>
 			</div>
 
@@ -165,7 +168,10 @@
 						<span class="principle__index">01</span>
 						<div>
 							<h3>Not a confirmation primitive</h3>
-							<p>Choose `AlertDialog` for risky choices. Use `Dialog` when the work is informational or task-oriented.</p>
+							<p>
+								Choose `AlertDialog` for risky choices. Use `Dialog` when the work is informational
+								or task-oriented.
+							</p>
 						</div>
 					</article>
 
@@ -173,7 +179,10 @@
 						<span class="principle__index">02</span>
 						<div>
 							<h3>Parent keeps the logic</h3>
-							<p>Open state, validation, save handlers, and follow-up toasts stay in the route or feature layer.</p>
+							<p>
+								Open state, validation, save handlers, and follow-up toasts stay in the route or
+								feature layer.
+							</p>
 						</div>
 					</article>
 
@@ -195,8 +204,8 @@
 					<h2>Keep the API narrow, then compose the body and footer from the parent.</h2>
 				</div>
 				<p>
-					The primitive exposes `title`, `description`, `children`, and `footer`. That keeps the shell
-					reusable without recreating a larger subcomponent family.
+					The primitive exposes `title`, `description`, `children`, and `footer`. That keeps the
+					shell reusable without recreating a larger subcomponent family.
 				</p>
 			</div>
 
@@ -205,8 +214,8 @@
 					<div class="doc-entry__meta">
 						<h3>Header and body</h3>
 						<p>
-							Accessible labeling comes from `title` and `description`, while the main content lives in
-							the default snippet.
+							Accessible labeling comes from `title` and `description`, while the main content lives
+							in the default snippet.
 						</p>
 					</div>
 
@@ -221,8 +230,8 @@
 					<div class="doc-entry__meta">
 						<h3>Footer snippet</h3>
 						<p>
-							Render action buttons only when the modal needs them. Information-only content can omit the
-							footer entirely.
+							Render action buttons only when the modal needs them. Information-only content can
+							omit the footer entirely.
 						</p>
 					</div>
 
@@ -251,7 +260,8 @@
 				<article class="state-card">
 					<span class="state-label">Small</span>
 					<p class="state-copy">
-						Short, focused tasks such as renaming a workspace or updating a single setting fit the compact shell.
+						Short, focused tasks such as renaming a workspace or updating a single setting fit the
+						compact shell.
 					</p>
 					<UIButton role="primary" onclick={() => (smallOpen = true)}>Rename workspace</UIButton>
 				</article>
@@ -259,7 +269,8 @@
 				<article class="state-card">
 					<span class="state-label">Large</span>
 					<p class="state-copy">
-						Use larger widths for multi-field forms, supporting notes, and more deliberate editing sessions.
+						Use larger widths for multi-field forms, supporting notes, and more deliberate editing
+						sessions.
 					</p>
 					<UIButton role="secondary" variant="outline" onclick={() => (largeOpen = true)}>
 						Open planning brief
@@ -272,11 +283,15 @@
 			<div class="section-heading">
 				<div>
 					<p class="section-kicker">Dismissal</p>
-					<h2>Default to a dismissible modal, then lock it only when the flow truly requires a clear choice.</h2>
+					<h2>
+						Default to a dismissible modal, then lock it only when the flow truly requires a clear
+						choice.
+					</h2>
 				</div>
 				<p>
-					`dismissible` defaults to `true`, which keeps backdrop clicks, Escape, and the close button available.
-					Turn it off when the user must actively choose an explicit action inside the footer.
+					`dismissible` defaults to `true`, which keeps backdrop clicks, Escape, and the close
+					button available. Turn it off when the user must actively choose an explicit action inside
+					the footer.
 				</p>
 			</div>
 
@@ -284,7 +299,8 @@
 				<article class="state-card">
 					<span class="state-label">Dismissible</span>
 					<p class="state-copy">
-						Close button, Escape, and backdrop click all call `onclose`, which makes lightweight analytics or toast feedback straightforward.
+						Close button, Escape, and backdrop click all call `onclose`, which makes lightweight
+						analytics or toast feedback straightforward.
 					</p>
 					<UIButton role="secondary" variant="outline" onclick={() => (announcementOpen = true)}>
 						Open dismissible dialog
@@ -294,7 +310,8 @@
 				<article class="state-card">
 					<span class="state-label">Locked</span>
 					<p class="state-copy">
-						Disable dismissal when the task needs an explicit button press, such as saving or abandoning staged work.
+						Disable dismissal when the task needs an explicit button press, such as saving or
+						abandoning staged work.
 					</p>
 					<UIButton role="warning" onclick={() => (lockedOpen = true)}>Open locked dialog</UIButton>
 				</article>
@@ -308,8 +325,8 @@
 					<h2>Build on the shell with existing input primitives and route-owned state.</h2>
 				</div>
 				<p>
-					These examples use `Input`, `Textarea`, and `Button` directly in the body and footer without
-					introducing extra dialog-specific helper components.
+					These examples use `Input`, `Textarea`, and `Button` directly in the body and footer
+					without introducing extra dialog-specific helper components.
 				</p>
 			</div>
 
@@ -317,7 +334,8 @@
 				<article class="state-card">
 					<span class="state-label">Profile form</span>
 					<p class="state-copy">
-						Compact edit flow with two text fields and a standard footer row. Save behavior lives entirely in the parent.
+						Compact edit flow with two text fields and a standard footer row. Save behavior lives
+						entirely in the parent.
 					</p>
 					<UIButton role="primary" onclick={() => (profileOpen = true)}>Open profile form</UIButton>
 				</article>
@@ -325,7 +343,8 @@
 				<article class="state-card">
 					<span class="state-label">Planning brief</span>
 					<p class="state-copy">
-						Larger dialog with long-form input and more room for supporting copy. It still uses the same primitive.
+						Larger dialog with long-form input and more room for supporting copy. It still uses the
+						same primitive.
 					</p>
 					<UIButton role="secondary" variant="outline" onclick={() => (largeOpen = true)}>
 						Open planning editor
@@ -367,8 +386,8 @@
 >
 	<div class="modal-stack">
 		<p class="dialog-copy">
-			Deployment environments move into read-only mode on Friday at 23:00 UTC. New jobs queue automatically and
-			restart once maintenance ends.
+			Deployment environments move into read-only mode on Friday at 23:00 UTC. New jobs queue
+			automatically and restart once maintenance ends.
 		</p>
 
 		<ul class="detail-list">
@@ -409,7 +428,8 @@
 >
 	<div class="modal-stack">
 		<p class="dialog-copy">
-			Three checklist items are still marked as draft-only. Keep editing or save the draft before leaving this flow.
+			Three checklist items are still marked as draft-only. Keep editing or save the draft before
+			leaving this flow.
 		</p>
 
 		<ul class="detail-list">

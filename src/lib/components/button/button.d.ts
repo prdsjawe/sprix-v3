@@ -3,8 +3,9 @@ declare global {
 		type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 		type Role = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'success' | 'warning';
 		type Variant = 'default' | 'flat' | 'quiet' | 'outline' | 'soft' | 'disabled';
+		type IconName = Exclude<Icon.Name, ''>;
 
-		interface Props {
+		interface BaseProps {
 			id?: string;
 			type?: Utils.ButtonAttrs['type'];
 			size?: Size;
@@ -15,20 +16,46 @@ declare global {
 			class?: string;
 			name?: string;
 			value?: string | number;
-			ariaLabel?: string;
 			ariaCurrent?: Utils.AriaCurrent;
 			ariaControls?: string;
 			ariaExpanded?: boolean;
 			ariaHaspopup?: Utils.AriaHasPopup;
-			children?: Utils.Snippet;
-			leftIcon?: Icon.Name;
-			rightIcon?: Icon.Name;
-			leftSlot?: Utils.Snippet;
-			rightSlot?: Utils.Snippet;
 			onclick?: (event: Utils.MouseEvent<HTMLButtonElement>) => void;
 			onfocus?: (event: Utils.FocusEvent<HTMLButtonElement>) => void;
 			onblur?: (event: Utils.FocusEvent<HTMLButtonElement>) => void;
 			onkeydown?: (event: Utils.KeyboardEvent<HTMLButtonElement>) => void;
+		}
+
+		interface ContentProps {
+			ariaLabel?: string;
+			children?: Utils.Snippet;
+			icon?: never;
+			leftIcon?: IconName;
+			rightIcon?: IconName;
+			leftSlot?: Utils.Snippet;
+			rightSlot?: Utils.Snippet;
+		}
+
+		interface IconOnlyProps {
+			ariaLabel: string;
+			children?: never;
+			icon: IconName;
+			leftIcon?: never;
+			rightIcon?: never;
+			leftSlot?: never;
+			rightSlot?: never;
+		}
+
+		type Props = BaseProps & (ContentProps | IconOnlyProps);
+
+		interface ResolvedProps extends BaseProps {
+			ariaLabel?: string;
+			children?: Utils.Snippet;
+			icon?: IconName;
+			leftIcon?: IconName;
+			rightIcon?: IconName;
+			leftSlot?: Utils.Snippet;
+			rightSlot?: Utils.Snippet;
 		}
 
 		type SizeClass = Record<Size, string>;

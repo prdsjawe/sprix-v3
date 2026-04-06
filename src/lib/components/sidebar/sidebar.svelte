@@ -31,9 +31,7 @@
 	let surfaceItem = $derived(
 		items.find(
 			(item) =>
-				item.id === openItem &&
-				!item.disabled &&
-				Boolean(item.surface && item.entries?.length)
+				item.id === openItem && !item.disabled && Boolean(item.surface && item.entries?.length)
 		)
 	);
 	let dropdownItem = $derived(surfaceItem?.surface === 'dropdown' ? surfaceItem : null);
@@ -44,9 +42,7 @@
 	);
 
 	const getTriggerButtons = () =>
-		Array.from(
-			rootElement?.querySelectorAll<HTMLElement>('[data-sidebar-trigger="true"]') ?? []
-		);
+		Array.from(rootElement?.querySelectorAll<HTMLElement>('[data-sidebar-trigger="true"]') ?? []);
 
 	const getEnabledItemIndex = (startIndex: number, direction: 1 | -1) => {
 		if (!items.length) return -1;
@@ -291,7 +287,10 @@
 
 		{#if item.surface && item.entries?.length}
 			<span class="sdb-item__surface" aria-hidden="true">
-				<Icon name={item.surface === 'dropdown' ? 'ellipsis-horizontal' : 'chevron-right'} class="" />
+				<Icon
+					name={item.surface === 'dropdown' ? 'ellipsis-horizontal' : 'chevron-right'}
+					class=""
+				/>
 			</span>
 		{/if}
 	{/if}
@@ -320,7 +319,9 @@
 						data-state={openItem === item.id ? 'open' : value === item.id ? 'active' : 'inactive'}
 						aria-label={collapsed ? item.label : undefined}
 						aria-current={value === item.id ? 'page' : undefined}
-						aria-controls={item.surface === 'multipanel' ? `${id || 'sidebar'}-panel-${item.id}` : undefined}
+						aria-controls={item.surface === 'multipanel'
+							? `${id || 'sidebar'}-panel-${item.id}`
+							: undefined}
 						onclick={() => handleItemClick(item)}
 						onkeydown={(event) => handleItemKeydown(event, item, index)}
 					>
@@ -336,7 +337,9 @@
 						aria-label={collapsed ? item.label : undefined}
 						aria-current={value === item.id ? 'page' : undefined}
 						aria-expanded={item.surface && item.entries?.length ? openItem === item.id : undefined}
-						aria-controls={item.surface === 'multipanel' ? `${id || 'sidebar'}-panel-${item.id}` : undefined}
+						aria-controls={item.surface === 'multipanel'
+							? `${id || 'sidebar'}-panel-${item.id}`
+							: undefined}
 						disabled={item.disabled}
 						onclick={() => handleItemClick(item)}
 						onkeydown={(event) => handleItemKeydown(event, item, index)}

@@ -72,7 +72,9 @@
 		`--crs-gap: ${resolvedGap}px; --crs-columns: ${visibleColumns}; --crs-translate: ${currentPage * -100}%; --crs-drag-offset: ${dragOffset}px;`
 	);
 	let pageStatus = $derived(
-		hasMultiplePages ? `Page ${currentPage + 1} of ${pages.length}` : `${items.length} item${items.length === 1 ? '' : 's'}`
+		hasMultiplePages
+			? `Page ${currentPage + 1} of ${pages.length}`
+			: `${items.length} item${items.length === 1 ? '' : 's'}`
 	);
 
 	const getPageId = (index: number) => `${id || 'carousel'}-page-${index + 1}`;

@@ -21,7 +21,7 @@
 	}
 
 	.pgn-ellipsis {
-		@apply flex shrink-0 items-center justify-center font-medium text-slate-500 dark:text-slate-400 select-none;
+		@apply flex shrink-0 items-center justify-center font-medium text-zinc-500 select-none dark:text-zinc-400;
 	}
 
 	.pgn-xs {

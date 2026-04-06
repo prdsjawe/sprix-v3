@@ -43,10 +43,7 @@
 		classnames('dlg-body', hasHeader ? 'dlg-body-divided' : 'dlg-body-standalone')
 	);
 	let footerClass = $derived(
-		classnames(
-			'dlg-footer',
-			hasHeader || hasBody ? 'dlg-footer-divided' : 'dlg-footer-standalone'
-		)
+		classnames('dlg-footer', hasHeader || hasBody ? 'dlg-footer-divided' : 'dlg-footer-standalone')
 	);
 
 	const closeDialog = () => {

@@ -141,6 +141,10 @@
 	});
 </script>
 
-<li class={itemClass} data-state={open ? 'open' : 'closed'} data-disabled={disabled ? 'true' : undefined}>
+<li
+	class={itemClass}
+	data-state={open ? 'open' : 'closed'}
+	data-disabled={disabled ? 'true' : undefined}
+>
 	{@render children?.()}
 </li>

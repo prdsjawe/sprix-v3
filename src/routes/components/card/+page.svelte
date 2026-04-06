@@ -38,9 +38,9 @@
 				<p class="section-kicker">Overview</p>
 				<h2>Use it for grouped content, not generic boxed layout.</h2>
 				<p class="lead">
-					`Card` is a restrained bordered surface with a built-in title, description, optional header
-					action, and optional footer snippet. It avoids a shadow by default and leaves width,
-					internal form layout, and nested content up to the caller.
+					`Card` is a restrained bordered surface with a built-in title, description, optional
+					header action, and optional footer snippet. It avoids a shadow by default and leaves
+					width, internal form layout, and nested content up to the caller.
 				</p>
 			</div>
 
@@ -82,21 +82,28 @@
 					<p class="section-kicker">Anatomy</p>
 					<h2>Keep the surface quiet and the structure obvious.</h2>
 				</div>
-				<p>Most usage should stay within the built-in title, description, action, children, and footer hooks.</p>
+				<p>
+					Most usage should stay within the built-in title, description, action, children, and
+					footer hooks.
+				</p>
 			</div>
 
 			<div class="doc-grid">
 				<article class="doc-entry">
 					<div class="doc-entry__meta">
 						<h3>Header copy</h3>
-						<p>Use `title` and `description` for the common case rather than custom header markup.</p>
+						<p>
+							Use `title` and `description` for the common case rather than custom header markup.
+						</p>
 					</div>
 					<UICard
 						title="Deployment notes"
 						description="Rollout begins after sign-off from design and QA."
 					>
 						<div class="card-stack">
-							<p class="entry-copy">Cards work well for compact summaries, forms, and grouped actions.</p>
+							<p class="entry-copy">
+								Cards work well for compact summaries, forms, and grouped actions.
+							</p>
 						</div>
 					</UICard>
 				</article>
@@ -115,7 +122,9 @@
 						{/snippet}
 
 						<div class="card-stack">
-							<p class="entry-copy">A single quiet action in the header is enough for most cards.</p>
+							<p class="entry-copy">
+								A single quiet action in the header is enough for most cards.
+							</p>
 						</div>
 					</UICard>
 				</article>
@@ -130,7 +139,9 @@
 						description="Review the release notes before sending them to customers."
 					>
 						<div class="card-stack">
-							<p class="entry-copy">The footer stays outside the content body so action groups read as a separate step.</p>
+							<p class="entry-copy">
+								The footer stays outside the content body so action groups read as a separate step.
+							</p>
 						</div>
 
 						{#snippet footer()}
@@ -150,7 +161,10 @@
 					<p class="section-kicker">Example</p>
 					<h2>Login card.</h2>
 				</div>
-				<p>The layout below mirrors the requested reference but keeps the card itself as a single reusable primitive.</p>
+				<p>
+					The layout below mirrors the requested reference but keeps the card itself as a single
+					reusable primitive.
+				</p>
 			</div>
 
 			<div class="example-shell">

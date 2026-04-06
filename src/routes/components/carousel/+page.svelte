@@ -13,7 +13,8 @@
 			id: 'handoff',
 			eyebrow: 'Design handoff',
 			title: 'Q2 launch review',
-			description: 'Bundle annotated screens, copy locks, and reviewer notes into one release lane.',
+			description:
+				'Bundle annotated screens, copy locks, and reviewer notes into one release lane.',
 			meta: '12 tasks ready',
 			tint: '#0f766e'
 		},
@@ -37,7 +38,8 @@
 			id: 'content',
 			eyebrow: 'Content ops',
 			title: 'Release notes',
-			description: 'Track approvals, screenshots, and publish readiness without leaving the docs shell.',
+			description:
+				'Track approvals, screenshots, and publish readiness without leaving the docs shell.',
 			meta: 'Ready to ship',
 			tint: '#ea580c'
 		},
@@ -53,7 +55,8 @@
 			id: 'ops',
 			eyebrow: 'Operations',
 			title: 'Incident review',
-			description: 'Surface timeline, ownership, and follow-ups in a format that still fits smaller frames.',
+			description:
+				'Surface timeline, ownership, and follow-ups in a format that still fits smaller frames.',
 			meta: 'Postmortem',
 			tint: '#475569'
 		}
@@ -92,8 +95,8 @@
 				<h2>Group cards into full-width pages instead of letting a long strip drift around.</h2>
 				<p class="lead">
 					The component keeps one stable viewport, hides overflow, and recalculates columns from the
-					container width. That means it avoids the usual carousel issues: clipped last cards, partial
-					peeking, and awkward wrap behavior when the shell gets tighter.
+					container width. That means it avoids the usual carousel issues: clipped last cards,
+					partial peeking, and awkward wrap behavior when the shell gets tighter.
 				</p>
 			</div>
 
@@ -125,8 +128,8 @@
 					<h2>The same data still fits when the shell gets narrower.</h2>
 				</div>
 				<p>
-					Both examples below use the same carousel logic. Only the wrapper width changes, so you can
-					evaluate the fit behavior directly instead of guessing at breakpoints.
+					Both examples below use the same carousel logic. Only the wrapper width changes, so you
+					can evaluate the fit behavior directly instead of guessing at breakpoints.
 				</p>
 			</div>
 
@@ -205,16 +208,17 @@
 					ariaLabel="Controlled carousel"
 				>
 					{#snippet slide(item)}
-						<article class="showcase-slide showcase-slide-featured" style={`--slide-accent: ${getTint(item)};`}>
+						<article
+							class="showcase-slide showcase-slide-featured"
+							style={`--slide-accent: ${getTint(item)};`}
+						>
 							<span class="showcase-slide__accent"></span>
 							<p class="showcase-slide__eyebrow">{item.eyebrow}</p>
 							<h3>{item.title}</h3>
 							<p class="showcase-slide__body">{item.description}</p>
 							<div class="showcase-slide__footer">
 								<span class="showcase-slide__meta">{item.meta}</span>
-								<UIButton size="sm" role="secondary" variant="outline">
-									Review
-								</UIButton>
+								<UIButton size="sm" role="secondary" variant="outline">Review</UIButton>
 							</div>
 						</article>
 					{/snippet}
@@ -331,8 +335,11 @@
 		padding: 1.15rem;
 		border: 1px solid color-mix(in srgb, var(--slide-accent) 20%, var(--sprix-app-border-strong));
 		border-radius: 1.1rem;
-		background:
-			linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.98) 0%,
+			rgba(248, 250, 252, 0.95) 100%
+		);
 	}
 
 	.showcase-slide-featured {
