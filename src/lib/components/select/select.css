@@ -4,11 +4,11 @@
 
 @layer components {
 	.slt-field {
-		@apply grid gap-2;
+		@apply grid w-full gap-2;
 	}
 
 	.slt {
-		@apply relative rounded-xl border border-zinc-300 bg-white text-zinc-900 transition-[border-color,box-shadow,background-color,color] duration-150 ease-out dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-100;
+		@apply relative w-full rounded-xl border border-zinc-300 bg-white text-zinc-900 transition-[border-color,box-shadow,background-color,color] duration-150 ease-out dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-100;
 		@apply focus-within:border-blue-400 focus-within:ring-4 focus-within:ring-blue-100 dark:focus-within:border-blue-600/80 dark:focus-within:ring-blue-500/35;
 
 		&.slt-sm {

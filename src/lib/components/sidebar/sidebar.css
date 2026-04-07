@@ -26,6 +26,24 @@
 		@apply w-[4.75rem];
 	}
 
+	.sdb.sdb-rail-only .sdb-rail {
+		@apply w-full border-r-0;
+	}
+
+	.sdb.sdb-scrollable {
+		@apply min-h-0 overflow-hidden;
+	}
+
+	.sdb.sdb-scrollable .sdb-rail,
+	.sdb.sdb-scrollable .sdb-panel {
+		@apply min-h-0 overflow-y-auto overscroll-contain;
+	}
+
+	.sdb.sdb-scrollable .sdb-body,
+	.sdb.sdb-scrollable .sdb-panel-wrap {
+		@apply min-h-0;
+	}
+
 	.sdb-header,
 	.sdb-footer {
 		@apply grid gap-2;
@@ -58,7 +76,7 @@
 
 	.sdb-item {
 		@apply flex w-full items-center gap-3 rounded-xl border border-transparent px-3 py-2 text-left text-zinc-600 no-underline transition-all outline-none dark:text-zinc-400;
-		@apply hover:bg-white hover:text-zinc-950 focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:hover:bg-zinc-950 dark:hover:text-zinc-50 dark:focus-visible:ring-sky-500/35;
+		@apply hover:bg-zinc-100 hover:text-zinc-950 focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:hover:bg-zinc-950 dark:hover:text-zinc-50 dark:focus-visible:ring-sky-500/35;
 
 		&[data-state='active'] {
 			@apply bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300;
@@ -85,8 +103,14 @@
 		}
 	}
 
+	.sdb-item__fallback {
+		@apply flex size-6 shrink-0 items-center justify-center text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400;
+	}
+
 	.sdb-item[data-state='active'] .sdb-item__icon,
+	.sdb-item[data-state='active'] .sdb-item__fallback,
 	.sdb-item[data-state='open'] .sdb-item__icon,
+	.sdb-item[data-state='open'] .sdb-item__fallback,
 	.sdb-item[data-state='active'] .sdb-item__surface,
 	.sdb-item[data-state='open'] .sdb-item__surface {
 		@apply text-blue-600 dark:text-blue-300;

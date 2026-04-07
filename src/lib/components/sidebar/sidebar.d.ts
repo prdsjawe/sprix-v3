@@ -33,6 +33,8 @@ declare global {
 			value?: string;
 			openItem?: string;
 			entryValue?: string;
+			railOnly?: boolean;
+			scrollable?: boolean;
 			collapsed?: boolean;
 			showCollapseToggle?: boolean;
 			class?: string;

@@ -1,336 +1,51 @@
 <script lang="ts">
-	import { Header, Sidebar } from '../../../app/components';
-	import { Badge as UIBadge, Button as UIButton, Tooltip as UITooltip } from '$lib/components';
+	import ComponentDocsPage from '../_components/ComponentDocsPage.svelte';
+	import DocsExample from '../_components/DocsExample.svelte';
+	import { Button, Tooltip } from '$lib/components';
 
-	const sections = [
-		{ id: 'overview', label: 'Overview', meta: 'Wrapper contract' },
-		{ id: 'placements', label: 'Placements', meta: 'Top, side, bottom' },
-		{ id: 'content', label: 'Content', meta: 'Text and rich snippet' }
-	] as const;
+	const basicSnippet = `<script lang="ts">
+		import { Button, Tooltip } from '$lib/components';
+	<\/script>
 
-	const placements = [
-		{
-			placement: 'top',
-			label: 'Top',
-			description: 'Default posture for compact button and icon hints.'
-		},
-		{
-			placement: 'right',
-			label: 'Right',
-			description: 'Useful when the trigger sits in a narrow list or rail.'
-		},
-		{
-			placement: 'bottom',
-			label: 'Bottom',
-			description: 'Good for inline text affordances and badge-like triggers.'
-		},
-		{
-			placement: 'left',
-			label: 'Left',
-			description: 'Works well for right-aligned controls and trailing utilities.'
-		}
-	] as const;
+	<Tooltip text="Copy launch link" class="inline-flex">
+		<Button role="secondary" variant="outline" icon="link" ariaLabel="Copy launch link" />
+	</Tooltip>`;
 </script>
 
-<svelte:head>
-	<title>Tooltip Docs</title>
-	<meta
-		name="description"
-		content="Documentation for the Sprix tooltip primitive, including wrapper usage, placement options, and rich snippet content."
-	/>
-</svelte:head>
-
-<Header
-	eyebrow="Documentation"
+<ComponentDocsPage
+	slug="tooltip"
 	title="Tooltip"
-	description="Small tippy-backed overlay for concise hints and lightweight contextual guidance. It wraps arbitrary trigger content and keeps the popup surface narrow by default."
-	pathLabel="components/tooltip"
-	pathHref="/components/tooltip"
-/>
+	subtitle="A concise label or hint shown on hover or focus."
+	description="Sprix tooltip component examples."
+	{basicSnippet}
+>
+	{#snippet live()}
+		<div class="mx-auto flex w-full max-w-4xl justify-center">
+			<Tooltip text="Copy launch link" class="inline-flex">
+				<Button role="secondary" variant="outline" icon="link" ariaLabel="Copy launch link" />
+			</Tooltip>
+		</div>
+	{/snippet}
 
-<div class="docs-shell">
-	<Sidebar {sections} />
+	{#snippet examples()}
+		<DocsExample
+			title="Custom Content"
+			subtitle="Use a small content block when the hint needs more than a single line."
+		>
+			<div class="mx-auto flex w-full max-w-4xl justify-center">
+				<Tooltip class="inline-flex">
+					<Button role="secondary" variant="outline">Rollout detail</Button>
 
-	<main class="docs-main">
-		<section id="overview" class="doc-section hero-card">
-			<div class="hero-card__copy">
-				<p class="section-kicker">Overview</p>
-				<h2>Wrap the trigger, keep the message small.</h2>
-				<p class="lead">
-					`Tooltip` is a wrapper primitive, so the trigger can be a button, badge, inline label, or
-					any other element you render inside it. Use the `text` prop for short hints, or a
-					`content` snippet when the overlay needs a little more structure.
-				</p>
-			</div>
-
-			<div class="hero-card__stack">
-				<div class="hero-actions">
-					<UITooltip text="Copy the workspace invite URL">
-						<UIButton role="secondary" variant="outline">Copy invite link</UIButton>
-					</UITooltip>
-
-					<UITooltip text="This environment is live and accepting traffic">
-						<UIBadge role="success" variant="pill-color" size="md">Production</UIBadge>
-					</UITooltip>
-
-					<UITooltip text="Quiet hours are active from 10 PM to 6 AM">
-						<span class="inline-trigger">Quiet hours</span>
-					</UITooltip>
-				</div>
-			</div>
-		</section>
-
-		<section id="placements" class="doc-section doc-card">
-			<div class="section-heading">
-				<div>
-					<p class="section-kicker">Placements</p>
-					<h2>Choose position based on the trigger’s surrounding density.</h2>
-				</div>
-				<p>
-					The component passes placement through to tippy, so the common directional positions stay
-					available.
-				</p>
-			</div>
-
-			<div class="doc-grid">
-				{#each placements as item}
-					<article class="doc-entry">
-						<div class="doc-entry__meta">
-							<h3>{item.label}</h3>
-							<p>{item.description}</p>
+					{#snippet content()}
+						<div class="space-y-1">
+							<p class="font-medium text-app-text">Staged rollout</p>
+							<p class="text-sm text-app-text-muted">
+								Publish to 10% of customers before the full release.
+							</p>
 						</div>
-						<div class="doc-entry__demo">
-							<UITooltip placement={item.placement} text={`${item.label} tooltip placement`}>
-								<UIButton role="secondary" variant="soft">{item.label}</UIButton>
-							</UITooltip>
-						</div>
-					</article>
-				{/each}
+					{/snippet}
+				</Tooltip>
 			</div>
-		</section>
-
-		<section id="content" class="doc-section doc-card">
-			<div class="section-heading">
-				<div>
-					<p class="section-kicker">Content</p>
-					<h2>Start with text, escalate to a snippet only when needed.</h2>
-				</div>
-				<p>
-					Rich content stays available for denser contextual help. Set `interactive` when the
-					tooltip itself needs hoverable content.
-				</p>
-			</div>
-
-			<div class="state-grid">
-				<article class="state-card">
-					<span class="state-label">Text only</span>
-					<UITooltip text="Muted alerts still appear in the activity feed.">
-						<UIButton role="secondary" variant="outline">Muted notifications</UIButton>
-					</UITooltip>
-				</article>
-
-				<article class="state-card">
-					<span class="state-label">Rich snippet</span>
-					<UITooltip interactive placement="bottom-start">
-						<UIButton role="secondary" variant="outline">Deployment status</UIButton>
-
-						{#snippet content()}
-							<div class="tooltip-card">
-								<div class="tooltip-card__eyebrow">Staging cluster</div>
-								<strong>Healthy</strong>
-								<p>Last deploy finished 3 minutes ago with zero failed checks.</p>
-							</div>
-						{/snippet}
-					</UITooltip>
-				</article>
-
-				<article class="state-card">
-					<span class="state-label">Block trigger</span>
-					<UITooltip as="div" placement="top" text="This wrapper can also host a block trigger.">
-						<div class="panel-trigger">
-							<div>
-								<strong>Workspace audit log</strong>
-								<p>Hover the card, not just the text.</p>
-							</div>
-						</div>
-					</UITooltip>
-				</article>
-			</div>
-		</section>
-	</main>
-</div>
-
-<style>
-	:global(body) {
-		background: var(--sprix-app-surface);
-		color: var(--sprix-app-text);
-	}
-
-	.docs-shell {
-		width: min(100%, 86rem);
-		margin: 0 auto;
-		padding: 1.5rem clamp(1rem, 3vw, 2rem) 3rem;
-		display: grid;
-		grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
-		gap: clamp(2rem, 4vw, 3.5rem);
-	}
-
-	.docs-main {
-		display: grid;
-		gap: 1.5rem;
-	}
-
-	.doc-section {
-		scroll-margin-top: 7rem;
-	}
-
-	.hero-card,
-	.doc-card {
-		border: 1px solid var(--sprix-app-border);
-		border-radius: 1.5rem;
-		background: linear-gradient(180deg, var(--sprix-app-surface) 0%, var(--sprix-app-bg) 100%);
-	}
-
-	.hero-card {
-		padding: clamp(1.5rem, 3vw, 2.5rem);
-		display: grid;
-		gap: 1.5rem;
-	}
-
-	.hero-card__copy,
-	.section-heading,
-	.state-card {
-		display: grid;
-		gap: 0.75rem;
-	}
-
-	.hero-card__copy h2,
-	.section-heading h2 {
-		margin: 0;
-		font-size: clamp(1.5rem, 3vw, 2rem);
-		line-height: 1.05;
-		letter-spacing: -0.03em;
-		color: var(--sprix-app-text);
-	}
-
-	.lead,
-	.section-heading p,
-	.doc-entry__meta p,
-	.state-card p {
-		margin: 0;
-		color: var(--sprix-app-text-muted);
-		line-height: 1.65;
-	}
-
-	.section-kicker,
-	.state-label {
-		margin: 0;
-		font-size: 0.75rem;
-		font-weight: 700;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: var(--sprix-app-text-subtle);
-	}
-
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.inline-trigger {
-		display: inline-flex;
-		align-items: center;
-		border-radius: 999px;
-		border: 1px dashed var(--sprix-app-border-strong);
-		padding: 0.55rem 0.85rem;
-		font-size: 0.875rem;
-		font-weight: 600;
-		color: var(--sprix-app-text-muted);
-	}
-
-	.doc-card {
-		padding: clamp(1.25rem, 3vw, 2rem);
-		display: grid;
-		gap: 1.5rem;
-	}
-
-	.doc-grid,
-	.state-grid {
-		display: grid;
-		gap: 1rem;
-		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-	}
-
-	.doc-entry,
-	.state-card {
-		border: 1px solid var(--sprix-app-border);
-		border-radius: 1.25rem;
-		background: var(--sprix-app-surface);
-		padding: 1rem;
-	}
-
-	.doc-entry {
-		display: grid;
-		gap: 1rem;
-	}
-
-	.doc-entry__meta {
-		display: grid;
-		gap: 0.5rem;
-	}
-
-	.doc-entry__meta h3 {
-		margin: 0;
-		font-size: 1rem;
-		color: var(--sprix-app-text);
-	}
-
-	.doc-entry__demo {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		min-height: 4.5rem;
-	}
-
-	.tooltip-card {
-		display: grid;
-		gap: 0.35rem;
-	}
-
-	.tooltip-card__eyebrow {
-		font-size: 0.7rem;
-		font-weight: 700;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: var(--sprix-app-text-subtle);
-	}
-
-	.panel-trigger {
-		display: grid;
-		gap: 0.35rem;
-		border: 1px solid var(--sprix-app-border-strong);
-		border-radius: 1rem;
-		background: var(--sprix-app-surface);
-		padding: 1rem 1.1rem;
-		box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
-	}
-
-	.panel-trigger strong {
-		font-size: 0.95rem;
-		color: var(--sprix-app-text);
-	}
-
-	.panel-trigger p {
-		margin: 0;
-		font-size: 0.875rem;
-		color: var(--sprix-app-text-subtle);
-	}
-
-	@media (max-width: 960px) {
-		.docs-shell {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>
+		</DocsExample>
+	{/snippet}
+</ComponentDocsPage>

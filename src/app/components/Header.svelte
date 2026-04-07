@@ -2,6 +2,7 @@
 	import { Button, NavMenu, NavMenuItem, NavMenuRight, NavMenuTrigger } from '$lib/components';
 	import DarkMode from './DarkMode.svelte';
 
+	let { fixedOnScroll } = $props();
 	const navItems = [
 		{ href: '/components', label: 'Components' },
 		{ href: '/showcase', label: 'Showcase' },
@@ -9,7 +10,7 @@
 	] as const;
 </script>
 
-<NavMenu fixedOnScroll class="min-h-16">
+<NavMenu {fixedOnScroll} class="min-h-16">
 	{#snippet logo()}
 		<a href="/" aria-label="Sprix home" class="flex items-center gap-2">
 			<img src="/logo.png" alt="Sprix logo" class="h-8 w-auto" />

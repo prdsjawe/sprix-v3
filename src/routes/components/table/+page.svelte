@@ -1,298 +1,89 @@
 <script lang="ts">
-	import { Header, Sidebar } from '../../../app/components';
-	import {
-		Table as UITable,
-		TBody as UITBody,
-		TColumn as UITColumn,
-		TFooter as UITFooter,
-		THeader as UITHeader,
-		TRow as UITRow
-	} from '$lib/components';
+	import ComponentDocsPage from '../_components/ComponentDocsPage.svelte';
+	import DocsExample from '../_components/DocsExample.svelte';
+	import { Badge, Table, TBody, TColumn, THeader, TRow } from '$lib/components';
 
-	const sections = [
-		{ id: 'overview', label: 'Overview', meta: 'Intent and posture' },
-		{ id: 'anatomy', label: 'Anatomy', meta: 'Composable pieces' },
-		{ id: 'examples', label: 'Examples', meta: 'Common usage' }
-	] as const;
+	const rows = [
+		{ campaign: 'Homepage banner', owner: 'Emma Li', status: 'Ready' },
+		{ campaign: 'Lifecycle email', owner: 'Lara Ong', status: 'Reviewing' },
+		{ campaign: 'Help center update', owner: 'Mina Park', status: 'Drafting' }
+	];
 
-	const anatomy = [
-		{
-			name: 'Table',
-			description: 'Semantic root table element with a quiet default treatment.'
-		},
-		{
-			name: 'THeader, TBody, TFooter',
-			description: 'Section primitives for header rows, body rows, and summary rows.'
-		},
-		{
-			name: 'TRow',
-			description: 'Applies the shared border-bottom row treatment.'
-		},
-		{
-			name: 'TColumn',
-			description: 'Renders `th` in the header by default and `td` everywhere else.'
-		}
-	] as const;
+	const basicSnippet = `<script lang="ts">
+		import { Table, TBody, TColumn, THeader, TRow } from '$lib/components';
+	<\/script>
+
+	<Table ariaLabel="Launch tasks">
+		<THeader>
+			<TRow>
+				<TColumn>Task</TColumn>
+				<TColumn>Owner</TColumn>
+			</TRow>
+		</THeader>
+		<TBody>
+			<TRow>
+				<TColumn>Launch brief</TColumn>
+				<TColumn>Emma Li</TColumn>
+			</TRow>
+		</TBody>
+	</Table>`;
 </script>
 
-<svelte:head>
-	<title>Table Docs</title>
-	<meta
-		name="description"
-		content="Documentation for the Sprix table primitive, including the composable header, body, footer, row, and column pieces."
-	/>
-</svelte:head>
-
-<Header
-	eyebrow="Documentation"
+<ComponentDocsPage
+	slug="table"
 	title="Table"
-	description="Simple table primitive with bottom borders only. The family stays close to native table anatomy while giving each structural part its own reusable component."
-	pathLabel="components/table"
-	pathHref="/components/table"
-/>
+	subtitle="A semantic table primitive for structured row and column data."
+	description="Sprix table component examples."
+	{basicSnippet}
+>
+	{#snippet live()}
+		<div
+			class="mx-auto w-full max-w-5xl overflow-hidden rounded-3xl border border-app-border bg-app-surface"
+		>
+			<Table ariaLabel="Launch campaign status">
+				<THeader>
+					<TRow>
+						<TColumn>Campaign</TColumn>
+						<TColumn>Owner</TColumn>
+						<TColumn>Status</TColumn>
+					</TRow>
+				</THeader>
+				<TBody>
+					{#each rows as row}
+						<TRow>
+							<TColumn>{row.campaign}</TColumn>
+							<TColumn>{row.owner}</TColumn>
+							<TColumn>
+								<Badge role={row.status === 'Ready' ? 'success' : 'secondary'} variant="pill-color">
+									{row.status}
+								</Badge>
+							</TColumn>
+						</TRow>
+					{/each}
+				</TBody>
+			</Table>
+		</div>
+	{/snippet}
 
-<div class="docs-shell">
-	<Sidebar {sections} />
-
-	<main class="docs-main">
-		<section id="overview" class="doc-section hero-card">
-			<div class="hero-card__copy">
-				<p class="section-kicker">Overview</p>
-				<h2>Keep the markup semantic and let the row borders do the visual work.</h2>
-				<p class="lead">
-					The table family stays deliberately small: `Table`, `THeader`, `TBody`, `TFooter`, `TRow`,
-					and `TColumn`. It avoids boxed chrome, vertical rules, and nested wrappers so it can fit
-					product tables, lightweight summaries, and simple admin views.
-				</p>
+	{#snippet examples()}
+		<DocsExample
+			title="Compact Summary"
+			subtitle="Use a minimal table for dense operational lists."
+		>
+			<div
+				class="mx-auto w-full max-w-4xl overflow-hidden rounded-3xl border border-app-border bg-app-surface"
+			>
+				<Table ariaLabel="Compact launch ownership">
+					<TBody>
+						{#each rows as row}
+							<TRow>
+								<TColumn>{row.campaign}</TColumn>
+								<TColumn>{row.owner}</TColumn>
+							</TRow>
+						{/each}
+					</TBody>
+				</Table>
 			</div>
-
-			<div class="hero-card__table">
-				<UITable ariaLabel="Deployment overview">
-					<UITHeader>
-						<UITRow>
-							<UITColumn>Environment</UITColumn>
-							<UITColumn>Status</UITColumn>
-							<UITColumn>Owner</UITColumn>
-						</UITRow>
-					</UITHeader>
-					<UITBody>
-						<UITRow>
-							<UITColumn>Production</UITColumn>
-							<UITColumn>Healthy</UITColumn>
-							<UITColumn>Emma</UITColumn>
-						</UITRow>
-						<UITRow>
-							<UITColumn>Preview</UITColumn>
-							<UITColumn>Queued</UITColumn>
-							<UITColumn>Marco</UITColumn>
-						</UITRow>
-					</UITBody>
-					<UITFooter>
-						<UITRow>
-							<UITColumn colspan={2}>Open incidents</UITColumn>
-							<UITColumn>2</UITColumn>
-						</UITRow>
-					</UITFooter>
-				</UITable>
-			</div>
-		</section>
-
-		<section id="anatomy" class="doc-section doc-card">
-			<div class="section-heading">
-				<div>
-					<p class="section-kicker">Anatomy</p>
-					<h2>One family, six pieces.</h2>
-				</div>
-				<p>Each piece maps directly to a native table element so the API stays easy to read.</p>
-			</div>
-
-			<div class="doc-grid">
-				{#each anatomy as item}
-					<article class="doc-entry">
-						<h3>{item.name}</h3>
-						<p>{item.description}</p>
-					</article>
-				{/each}
-			</div>
-		</section>
-
-		<section id="examples" class="doc-section doc-card">
-			<div class="section-heading">
-				<div>
-					<p class="section-kicker">Examples</p>
-					<h2>Use the same pieces for status tables and summary rows.</h2>
-				</div>
-				<p>The footer stays optional, but it gives simple totals a clear resting place.</p>
-			</div>
-
-			<div class="state-grid">
-				<article class="state-card">
-					<span class="state-label">Team access</span>
-					<UITable ariaLabel="Team access table">
-						<UITHeader>
-							<UITRow>
-								<UITColumn>Member</UITColumn>
-								<UITColumn>Role</UITColumn>
-								<UITColumn>Last active</UITColumn>
-							</UITRow>
-						</UITHeader>
-						<UITBody>
-							<UITRow>
-								<UITColumn>Priya Shah</UITColumn>
-								<UITColumn>Admin</UITColumn>
-								<UITColumn>2 hours ago</UITColumn>
-							</UITRow>
-							<UITRow>
-								<UITColumn>Omar Li</UITColumn>
-								<UITColumn>Editor</UITColumn>
-								<UITColumn>Yesterday</UITColumn>
-							</UITRow>
-							<UITRow>
-								<UITColumn>Leah Cruz</UITColumn>
-								<UITColumn>Viewer</UITColumn>
-								<UITColumn>4 days ago</UITColumn>
-							</UITRow>
-						</UITBody>
-					</UITable>
-				</article>
-
-				<article class="state-card">
-					<span class="state-label">Usage summary</span>
-					<UITable ariaLabel="Usage summary table">
-						<UITHeader>
-							<UITRow>
-								<UITColumn>Metric</UITColumn>
-								<UITColumn>Current</UITColumn>
-							</UITRow>
-						</UITHeader>
-						<UITBody>
-							<UITRow>
-								<UITColumn>Seats used</UITColumn>
-								<UITColumn>42</UITColumn>
-							</UITRow>
-							<UITRow>
-								<UITColumn>Storage</UITColumn>
-								<UITColumn>128 GB</UITColumn>
-							</UITRow>
-						</UITBody>
-						<UITFooter>
-							<UITRow>
-								<UITColumn>Plan</UITColumn>
-								<UITColumn>Scale</UITColumn>
-							</UITRow>
-						</UITFooter>
-					</UITable>
-				</article>
-			</div>
-		</section>
-	</main>
-</div>
-
-<style>
-	:global(body) {
-		background: var(--sprix-app-surface);
-		color: var(--sprix-app-text);
-	}
-
-	.docs-shell {
-		width: min(100%, 86rem);
-		margin: 0 auto;
-		padding: 1.5rem clamp(1rem, 3vw, 2rem) 3rem;
-		display: grid;
-		gap: 2rem;
-	}
-
-	.docs-main {
-		display: grid;
-		gap: 0;
-	}
-
-	.doc-section {
-		scroll-margin-top: 7rem;
-		padding: clamp(1.5rem, 3vw, 2rem) 0;
-		border-top: 1px solid var(--sprix-app-border);
-	}
-
-	.docs-main > :last-child {
-		border-bottom: 1px solid var(--sprix-app-border);
-	}
-
-	.hero-card,
-	.doc-card {
-		display: grid;
-		gap: 1.25rem;
-	}
-
-	.hero-card__copy,
-	.hero-card__table,
-	.section-heading,
-	.doc-entry,
-	.state-card {
-		display: grid;
-		gap: 0.85rem;
-	}
-
-	.hero-card__table,
-	.state-card {
-		padding-top: 1rem;
-		border-top: 1px solid var(--sprix-app-border);
-	}
-
-	.section-kicker,
-	.state-label {
-		margin: 0;
-		font-size: 0.75rem;
-		font-weight: 700;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: var(--sprix-app-text-muted);
-	}
-
-	.hero-card__copy h2,
-	.section-heading h2,
-	.doc-entry h3 {
-		margin: 0;
-		font-size: clamp(1.2rem, 2vw, 1.8rem);
-		line-height: 1.1;
-		letter-spacing: -0.03em;
-	}
-
-	.doc-entry h3 {
-		font-size: 1rem;
-		letter-spacing: -0.02em;
-	}
-
-	.lead,
-	.section-heading p,
-	.doc-entry p {
-		margin: 0;
-		font-size: 0.975rem;
-		line-height: 1.7;
-		color: var(--sprix-app-text-muted);
-	}
-
-	.doc-grid,
-	.state-grid {
-		display: grid;
-		gap: 1rem;
-	}
-
-	.doc-entry,
-	.state-card {
-		padding: 1rem;
-		border: 1px solid var(--sprix-app-border);
-		background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
-	}
-
-	@media (min-width: 48rem) {
-		.docs-shell {
-			grid-template-columns: minmax(14rem, 16rem) minmax(0, 1fr);
-			align-items: start;
-		}
-
-		.doc-grid,
-		.state-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
-</style>
+		</DocsExample>
+	{/snippet}
+</ComponentDocsPage>

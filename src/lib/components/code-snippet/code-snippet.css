@@ -20,11 +20,11 @@
 	}
 
 	.cds-file {
-		@apply truncate text-xs font-semibold tracking-[0.16em] text-zinc-600 uppercase dark:text-zinc-400;
+		@apply truncate font-semibold tracking-[0.16em] text-zinc-600 uppercase dark:text-zinc-400;
 	}
 
 	.cds-language {
-		@apply inline-flex items-center rounded-full border border-zinc-200 bg-zinc-100 px-2 py-1 text-[0.6875rem] font-semibold tracking-[0.16em] text-zinc-500 uppercase dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400;
+		@apply inline-flex items-center rounded-full border border-zinc-200 bg-zinc-100 px-2 py-1 font-semibold tracking-[0.16em] text-zinc-500 uppercase dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400;
 	}
 
 	.cds-body {
@@ -32,11 +32,11 @@
 	}
 
 	.cds-pre {
-		@apply m-0 p-0;
+		@apply m-0 py-4;
 	}
 
 	.cds-code {
-		@apply grid min-w-full font-mono text-[0.8125rem] leading-6;
+		@apply grid min-w-full font-mono;
 	}
 
 	.cds:not(.cds-no-lines) .cds-code {
@@ -72,7 +72,7 @@
 	}
 
 	.cds-line-number {
-		@apply block bg-transparent px-3 py-0 text-right text-xs font-medium text-zinc-400 select-none dark:text-zinc-500;
+		@apply block bg-transparent px-3 py-0 text-right font-medium text-zinc-400 select-none dark:text-zinc-500;
 		min-inline-size: calc((var(--cds-line-digits, 2) * 0.7ch) + 1.75rem);
 	}
 
@@ -85,66 +85,96 @@
 		color: inherit;
 	}
 
+	.cds.cds-xs {
+		.cds-file {
+			@apply text-[0.625rem];
+		}
+
+		.cds-language,
+		.cds-line-number {
+			@apply text-[0.625rem];
+		}
+
+		.cds-code {
+			@apply text-[0.6875rem] leading-5;
+		}
+	}
+
+	.cds.cds-sm {
+		.cds-file,
+		.cds-language,
+		.cds-line-number {
+			@apply text-[0.6875rem];
+		}
+
+		.cds-code {
+			@apply text-[0.75rem] leading-5;
+		}
+	}
+
+	.cds.cds-md {
+		.cds-file,
+		.cds-line-number {
+			@apply text-xs;
+		}
+
+		.cds-language {
+			@apply text-[0.6875rem];
+		}
+
+		.cds-code {
+			@apply text-[0.8125rem] leading-6;
+		}
+	}
+
+	.cds.cds-lg {
+		.cds-file,
+		.cds-line-number {
+			@apply text-[0.8125rem];
+		}
+
+		.cds-language {
+			@apply text-[0.75rem];
+		}
+
+		.cds-code {
+			@apply text-[0.9375rem] leading-7;
+		}
+	}
+
 	.cds-token-comment {
-		color: #5c6370;
+		@apply text-zinc-500 dark:text-zinc-400;
 	}
 
 	.cds-token-keyword {
-		color: #8f3bb8;
+		@apply text-violet-600 dark:text-violet-400;
+	}
+
+	.cds-token-script {
+		@apply text-violet-600 dark:text-violet-400;
 	}
 
 	.cds-token-string {
-		color: #2f7d32;
+		@apply text-lime-700 dark:text-lime-400;
 	}
 
 	.cds-token-number {
-		color: #b15c00;
+		@apply text-orange-700 dark:text-orange-400;
 	}
 
 	.cds-token-function {
-		color: #155eaf;
+		@apply text-violet-600 dark:text-violet-400;
 	}
 
 	.cds-token-tag {
-		color: #b4232c;
+		@apply text-red-600 dark:text-red-400;
+	}
+
+	.cds-token-component {
+		@apply text-amber-700 dark:text-yellow-500;
 	}
 
 	.cds-token-attribute {
-		color: #9a6700;
-	}
-
-	html.dark .cds-token-comment,
-	html[data-theme='dark'] .cds-token-comment {
-		color: #7f848e;
-	}
-
-	html.dark .cds-token-keyword,
-	html[data-theme='dark'] .cds-token-keyword {
-		color: #c678dd;
-	}
-
-	html.dark .cds-token-string,
-	html[data-theme='dark'] .cds-token-string {
-		color: #98c379;
-	}
-
-	html.dark .cds-token-number,
-	html[data-theme='dark'] .cds-token-number {
-		color: #d19a66;
-	}
-
-	html.dark .cds-token-function,
-	html[data-theme='dark'] .cds-token-function {
-		color: #61afef;
-	}
-
-	html.dark .cds-token-tag,
-	html[data-theme='dark'] .cds-token-tag {
-		color: #e06c75;
-	}
-
-	html.dark .cds-token-attribute,
-	html[data-theme='dark'] .cds-token-attribute {
-		color: #e5c07b;
+		@apply text-orange-600 dark:text-orange-400;
 	}
 }

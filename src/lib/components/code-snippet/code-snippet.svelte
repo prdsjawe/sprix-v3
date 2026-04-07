@@ -1,15 +1,18 @@
 <script lang="ts">
 	import './code-snippet.css';
 	import classnames from '$utils/classnames';
+	import { CSC } from './code-snippet.record';
 
 	type TokenType =
 		| 'plain'
 		| 'comment'
 		| 'keyword'
+		| 'script'
 		| 'string'
 		| 'number'
 		| 'function'
 		| 'tag'
+		| 'component'
 		| 'attribute';
 
 	type CodeToken = {
@@ -17,9 +20,12 @@
 		text: string;
 	};
 
+	type HighlightContext = 'markup' | 'script' | 'style';
+
 	type HighlightResult = {
 		tokens: CodeToken[];
 		inBlockComment: boolean;
+		context: HighlightContext;
 	};
 
 	const KEYWORDS = new Set([
@@ -66,10 +72,193 @@
 	]);
 
 	const MARKUP_LANGUAGES = new Set(['html', 'svelte', 'xml', 'astro']);
+	const FILE_EXTENSION_LANGUAGE_MAP: Record<string, string> = {
+		astro: 'astro',
+		html: 'html',
+		svelte: 'svelte',
+		svg: 'xml',
+		xml: 'xml'
+	};
 
 	const isIdentifierStart = (value: string) => /[A-Za-z_$]/.test(value);
 	const isIdentifierChar = (value: string) => /[A-Za-z0-9_$:-]/.test(value);
+	const isCapitalizedIdentifier = (value: string) => /^[A-Z]/.test(value);
 	const normalizeLanguage = (value: string) => value.trim().toLowerCase();
+	const inferLanguageFromFilename = (value: string) => {
+		let extension = value.trim().split('.').pop()?.toLowerCase() ?? '';
+
+		return FILE_EXTENSION_LANGUAGE_MAP[extension] ?? '';
+	};
+	const inferLanguageFromCode = (value: string) => {
+		let snippet = value.trimStart();
+
+		if (!snippet) {
+			return '';
+		}
+
+		if (
+			/[<{]#/.test(snippet) ||
+			snippet.includes('{@') ||
+			snippet.includes('<svelte:') ||
+			snippet.includes('<script') ||
+			snippet.includes('<style')
+		) {
+			return 'svelte';
+		}
+
+		if (/^<\/?[A-Za-z]/.test(snippet) || snippet.includes('/>')) {
+			return 'html';
+		}
+
+		return '';
+	};
+	const findMatchingBrace = (value: string, start: number) => {
+		let depth = 0;
+		let index = start;
+
+		while (index < value.length) {
+			let current = value[index];
+
+			if (current === '"' || current === "'" || current === '`') {
+				index = findClosingQuote(value, index, current) + 1;
+				continue;
+			}
+
+			if (current === '{') {
+				depth += 1;
+			} else if (current === '}') {
+				depth -= 1;
+
+				if (depth === 0) {
+					return index;
+				}
+			}
+
+			index += 1;
+		}
+
+		return value.length;
+	};
+	const highlightScriptSegment = (
+		value: string,
+		inBlockComment = false
+	): Omit<HighlightResult, 'context'> => {
+		let tokens: CodeToken[] = [];
+		let index = 0;
+
+		while (index < value.length) {
+			if (inBlockComment) {
+				let commentEnd = value.indexOf('*/', index);
+
+				if (commentEnd === -1) {
+					pushToken(tokens, 'comment', value.slice(index));
+					return { tokens, inBlockComment: true };
+				}
+
+				pushToken(tokens, 'comment', value.slice(index, commentEnd + 2));
+				index = commentEnd + 2;
+				inBlockComment = false;
+				continue;
+			}
+
+			if (value.startsWith('//', index)) {
+				pushToken(tokens, 'comment', value.slice(index));
+				break;
+			}
+
+			if (value.startsWith('/*', index)) {
+				let commentEnd = value.indexOf('*/', index + 2);
+
+				if (commentEnd === -1) {
+					pushToken(tokens, 'comment', value.slice(index));
+					return { tokens, inBlockComment: true };
+				}
+
+				pushToken(tokens, 'comment', value.slice(index, commentEnd + 2));
+				index = commentEnd + 2;
+				continue;
+			}
+
+			let current = value[index];
+
+			if (current === '"' || current === "'" || current === '`') {
+				let stringEnd = findClosingQuote(value, index, current);
+
+				pushToken(tokens, 'string', value.slice(index, stringEnd + 1));
+				index = stringEnd + 1;
+				continue;
+			}
+
+			if (/[0-9]/.test(current)) {
+				let numberStart = index;
+
+				while (index < value.length && /[0-9._]/.test(value[index])) {
+					index += 1;
+				}
+
+				pushToken(tokens, 'number', value.slice(numberStart, index));
+				continue;
+			}
+
+			if (isIdentifierStart(current)) {
+				let wordStart = index;
+
+				while (index < value.length && isIdentifierChar(value[index])) {
+					index += 1;
+				}
+
+				let word = value.slice(wordStart, index);
+
+				if (KEYWORDS.has(word)) {
+					pushToken(tokens, 'keyword', word);
+				} else if (isCapitalizedIdentifier(word)) {
+					pushToken(tokens, 'component', word);
+				} else {
+					pushToken(tokens, 'script', word);
+				}
+
+				continue;
+			}
+
+			pushToken(tokens, 'plain', current);
+			index += 1;
+		}
+
+		return { tokens, inBlockComment: false };
+	};
+	const highlightExpression = (value: string, start: number) => {
+		let tokens: CodeToken[] = [];
+		let end = findMatchingBrace(value, start);
+		let expression = end < value.length ? value.slice(start + 1, end) : value.slice(start + 1);
+		let result = highlightScriptSegment(expression);
+
+		pushToken(tokens, 'plain', '{');
+		tokens.push(...result.tokens);
+
+		if (end < value.length) {
+			pushToken(tokens, 'plain', '}');
+		}
+
+		return {
+			tokens,
+			nextIndex: end < value.length ? end + 1 : value.length
+		};
+	};
+	const getInitialContext = (languageName: string): HighlightContext =>
+		MARKUP_LANGUAGES.has(languageName) ? 'markup' : 'script';
+	const getNextMarkupContext = (value: string) => {
+		let trimmed = value.trimStart().toLowerCase();
+
+		if (trimmed.startsWith('<script') && !trimmed.includes('<\/script>')) {
+			return 'script';
+		}
+
+		if (trimmed.startsWith('<style') && !trimmed.includes('</style>')) {
+			return 'style';
+		}
+
+		return 'markup';
+	};
 	const pushToken = (tokens: CodeToken[], type: TokenType, text: string) => {
 		if (!text) {
 			return;
@@ -132,7 +321,9 @@
 			index += 1;
 		}
 
-		pushToken(tokens, 'tag', value.slice(tagStart, index));
+		let tagName = value.slice(tagStart, index);
+
+		pushToken(tokens, isCapitalizedIdentifier(tagName) ? 'component' : 'tag', tagName);
 
 		while (index < value.length) {
 			let current = value[index];
@@ -167,19 +358,10 @@
 			}
 
 			if (current === '{') {
-				let expressionStart = index;
+				let expression = highlightExpression(value, index);
 
-				index += 1;
-
-				while (index < value.length && value[index] !== '}') {
-					index += 1;
-				}
-
-				if (index < value.length) {
-					index += 1;
-				}
-
-				pushToken(tokens, 'plain', value.slice(expressionStart, index));
+				tokens.push(...expression.tokens);
+				index = expression.nextIndex;
 				continue;
 			}
 
@@ -203,8 +385,61 @@
 	const highlightLine = (
 		value: string,
 		languageName: string,
-		inBlockComment = false
+		inBlockComment = false,
+		context: HighlightContext = getInitialContext(languageName)
 	): HighlightResult => {
+		if (context === 'script') {
+			let closingTagIndex = value.indexOf('<\/script>');
+
+			if (closingTagIndex === -1) {
+				let result = highlightScriptSegment(value, inBlockComment);
+
+				return {
+					tokens: result.tokens,
+					inBlockComment: result.inBlockComment,
+					context: 'script'
+				};
+			}
+
+			let tokens = [
+				...highlightScriptSegment(value.slice(0, closingTagIndex), inBlockComment).tokens,
+				...highlightTag(value, closingTagIndex).tokens
+			];
+
+			return {
+				tokens,
+				inBlockComment: false,
+				context: 'markup'
+			};
+		}
+
+		if (context === 'style') {
+			let closingTagIndex = value.indexOf('</style>');
+
+			if (closingTagIndex === -1) {
+				let tokens: CodeToken[] = [];
+
+				pushToken(tokens, 'plain', value || ' ');
+
+				return {
+					tokens,
+					inBlockComment: false,
+					context: 'style'
+				};
+			}
+
+			let tokens: CodeToken[] = [];
+
+			pushToken(tokens, 'plain', value.slice(0, closingTagIndex));
+			tokens.push(...highlightTag(value, closingTagIndex).tokens);
+
+			return {
+				tokens,
+				inBlockComment: false,
+				context: 'markup'
+			};
+		}
+
 		let tokens: CodeToken[] = [];
 		let index = 0;
 
@@ -214,7 +449,7 @@
 
 				if (commentEnd === -1) {
 					pushToken(tokens, 'comment', value.slice(index));
-					return { tokens, inBlockComment: true };
+					return { tokens, inBlockComment: true, context: 'markup' };
 				}
 
 				pushToken(tokens, 'comment', value.slice(index, commentEnd + 2));
@@ -236,7 +471,7 @@
 
 				if (commentEnd === -1) {
 					pushToken(tokens, 'comment', value.slice(index));
-					return { tokens, inBlockComment: false };
+					return { tokens, inBlockComment: false, context: 'markup' };
 				}
 
 				pushToken(tokens, 'comment', value.slice(index, commentEnd + 3));
@@ -254,7 +489,7 @@
 
 				if (commentEnd === -1) {
 					pushToken(tokens, 'comment', value.slice(index));
-					return { tokens, inBlockComment: true };
+					return { tokens, inBlockComment: true, context: 'markup' };
 				}
 
 				pushToken(tokens, 'comment', value.slice(index, commentEnd + 2));
@@ -283,6 +518,14 @@
 				}
 
 				pushToken(tokens, 'keyword', value.slice(directiveStart, index));
+				continue;
+			}
+
+			if (current === '{') {
+				let expression = highlightExpression(value, index);
+
+				tokens.push(...expression.tokens);
+				index = expression.nextIndex;
 				continue;
 			}
 
@@ -322,7 +565,7 @@
 			index += 1;
 		}
 
-		return { tokens, inBlockComment: false };
+		return { tokens, inBlockComment: false, context: getNextMarkupContext(value) };
 	};
 
 	let {
@@ -330,6 +573,7 @@
 		code = '',
 		filename = '',
 		language = '',
+		size = 'md',
 		showLineNumbers = true,
 		wrap = false,
 		ariaLabel = '',
@@ -337,6 +581,15 @@
 	}: Partial<CodeSnippet.Props> = $props();
 
 	let hasHeader = $derived(Boolean(filename || language));
+	let resolvedLanguage = $derived.by(() => {
+		let explicitLanguage = normalizeLanguage(language);
+
+		if (explicitLanguage) {
+			return explicitLanguage;
+		}
+
+		return inferLanguageFromFilename(filename) || inferLanguageFromCode(code);
+	});
 	let lines = $derived.by(() => {
 		let normalized = code.replace(/\r\n/g, '\n');
 
@@ -354,16 +607,17 @@
 	});
 	let lineDigits = $derived(String(lines.length).length);
 	let snippetClass = $derived(
-		classnames('cds', !showLineNumbers && 'cds-no-lines', wrap && 'cds-wrap', className)
+		classnames('cds', CSC[size], !showLineNumbers && 'cds-no-lines', wrap && 'cds-wrap', className)
 	);
 	let highlightedLines = $derived.by(() => {
-		let currentLanguage = normalizeLanguage(language);
 		let inBlockComment = false;
+		let context = getInitialContext(resolvedLanguage);
 
 		return lines.map((line) => {
-			let result = highlightLine(line, currentLanguage, inBlockComment);
+			let result = highlightLine(line, resolvedLanguage, inBlockComment, context);
 
 			inBlockComment = result.inBlockComment;
+			context = result.context;
 
 			return result.tokens.length ? result.tokens : [{ type: 'plain', text: ' ' }];
 		});

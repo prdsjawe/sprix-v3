@@ -11,6 +11,8 @@
 		value = $bindable(''),
 		openItem = $bindable(''),
 		entryValue = $bindable(''),
+		railOnly = false,
+		scrollable = false,
 		collapsed = $bindable(false),
 		showCollapseToggle = true,
 		class: className = '',
@@ -38,7 +40,14 @@
 	let multipanelItem = $derived(surfaceItem?.surface === 'multipanel' ? surfaceItem : null);
 	let panelOpen = $derived(Boolean(multipanelItem));
 	let sidebarClass = $derived(
-		classnames('sdb', collapsed && 'sdb-collapsed', panelOpen && 'sdb-panel-open', className)
+		classnames(
+			'sdb',
+			railOnly && 'sdb-rail-only',
+			scrollable && 'sdb-scrollable',
+			collapsed && 'sdb-collapsed',
+			panelOpen && 'sdb-panel-open',
+			className
+		)
 	);
 
 	const getTriggerButtons = () =>
@@ -76,6 +85,11 @@
 
 		return classnames('noopener', 'noreferrer', item.rel);
 	};
+
+	const hasLeadingIcon = (item: Sidebar.Item) => Boolean(item.icon);
+
+	const getCollapsedFallbackLabel = (item: Sidebar.Item) =>
+		item.label.trim().charAt(0).toUpperCase();
 
 	const selectItem = (item: Sidebar.Item) => {
 		if (item.disabled) return;
@@ -266,9 +280,15 @@
 </script>
 
 {#snippet itemContent(item: Sidebar.Item)}
-	<span class="sdb-item__icon" aria-hidden="true">
-		<Icon name={item.icon || 'bars-3'} class="" />
-	</span>
+	{#if hasLeadingIcon(item)}
+		<span class="sdb-item__icon" aria-hidden="true">
+			<Icon name={item.icon!} class="" />
+		</span>
+	{:else if collapsed && showCollapseToggle}
+		<span class="sdb-item__fallback" aria-hidden="true">
+			{getCollapsedFallbackLabel(item)}
+		</span>
+	{/if}
 
 	{#if !collapsed}
 		<span class="sdb-item__body">
@@ -369,53 +389,55 @@
 		{/if}
 	</div>
 
-	<div class="sdb-body">
-		<div class="sdb-panel-wrap" data-open={panelOpen} ontransitionend={handlePanelTransitionEnd}>
-			{#if panelItem}
-				{@const currentPanelItem = panelItem}
-				<aside
-					id={`${id || 'sidebar'}-panel-${currentPanelItem.id}`}
-					class="sdb-panel"
-					aria-label={`${currentPanelItem.label} panel`}
-					aria-hidden={!panelOpen}
-				>
-					<div class="sdb-entry-list">
-						{#each currentPanelItem.entries ?? [] as entry (entry.id)}
-							<button
-								type="button"
-								class="sdb-entry"
-								data-selected={entryValue === entry.id}
-								disabled={entry.disabled}
-								onclick={() => handleEntryClick(entry, currentPanelItem)}
-							>
-								<span class="sdb-entry__icon" aria-hidden="true">
-									<Icon name={entry.icon || 'square-2-stack'} class="" />
-								</span>
-
-								<span class="sdb-entry__body">
-									<span class="sdb-entry__title-row">
-										<span class="sdb-entry__label">{entry.label}</span>
-
-										{#if entry.badge}
-											<span class="sdb-entry__badge">{entry.badge}</span>
-										{:else if entry.meta}
-											<span class="sdb-entry__meta">{entry.meta}</span>
-										{/if}
+	{#if !railOnly}
+		<div class="sdb-body">
+			<div class="sdb-panel-wrap" data-open={panelOpen} ontransitionend={handlePanelTransitionEnd}>
+				{#if panelItem}
+					{@const currentPanelItem = panelItem}
+					<aside
+						id={`${id || 'sidebar'}-panel-${currentPanelItem.id}`}
+						class="sdb-panel"
+						aria-label={`${currentPanelItem.label} panel`}
+						aria-hidden={!panelOpen}
+					>
+						<div class="sdb-entry-list">
+							{#each currentPanelItem.entries ?? [] as entry (entry.id)}
+								<button
+									type="button"
+									class="sdb-entry"
+									data-selected={entryValue === entry.id}
+									disabled={entry.disabled}
+									onclick={() => handleEntryClick(entry, currentPanelItem)}
+								>
+									<span class="sdb-entry__icon" aria-hidden="true">
+										<Icon name={entry.icon || 'square-2-stack'} class="" />
 									</span>
 
-									{#if entry.description}
-										<p class="sdb-entry__description">{entry.description}</p>
-									{/if}
-								</span>
-							</button>
-						{/each}
-					</div>
-				</aside>
-			{/if}
-		</div>
-	</div>
+									<span class="sdb-entry__body">
+										<span class="sdb-entry__title-row">
+											<span class="sdb-entry__label">{entry.label}</span>
 
-	{#if dropdownItem}
+											{#if entry.badge}
+												<span class="sdb-entry__badge">{entry.badge}</span>
+											{:else if entry.meta}
+												<span class="sdb-entry__meta">{entry.meta}</span>
+											{/if}
+										</span>
+
+										{#if entry.description}
+											<p class="sdb-entry__description">{entry.description}</p>
+										{/if}
+									</span>
+								</button>
+							{/each}
+						</div>
+					</aside>
+				{/if}
+			</div>
+		</div>
+	{/if}
+
+	{#if dropdownItem && !railOnly}
 		<div class="sdb-menu-host">
 			<div bind:this={dropdownElement} class="sdb-menu">
 				<div class="sdb-entry-list">

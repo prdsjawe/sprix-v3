@@ -87,7 +87,7 @@
 		</div>
 
 		{#snippet footer()}
-			<div class="flex flex-wrap justify-end gap-3 mt-4">
+			<div class="mt-4 flex flex-wrap justify-end gap-3">
 				<Button role="secondary" variant="outline">Cancel</Button>
 				<Button>Submit payment</Button>
 			</div>

@@ -72,7 +72,9 @@
 
 				<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
 					<div class="rounded-3xl border border-white/14 bg-white/10 px-5 py-5 backdrop-blur-sm">
-						<p class="text-xs font-medium tracking-widest text-blue-100/80 uppercase dark:text-blue-100/70">
+						<p
+							class="text-xs font-medium tracking-widest text-blue-100/80 uppercase dark:text-blue-100/70"
+						>
 							Library
 						</p>
 						<p class="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">40+</p>
@@ -81,8 +83,12 @@
 						</p>
 					</div>
 
-					<div class="rounded-3xl border border-white/14 bg-slate-950/18 px-5 py-5 backdrop-blur-sm">
-						<p class="text-xs font-medium tracking-widest text-blue-100/80 uppercase dark:text-blue-100/70">
+					<div
+						class="rounded-3xl border border-white/14 bg-slate-950/18 px-5 py-5 backdrop-blur-sm"
+					>
+						<p
+							class="text-xs font-medium tracking-widest text-blue-100/80 uppercase dark:text-blue-100/70"
+						>
 							Contact
 						</p>
 						<p class="mt-3 text-xl font-semibold tracking-tight text-white sm:text-2xl">

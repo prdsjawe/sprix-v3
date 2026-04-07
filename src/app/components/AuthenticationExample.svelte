@@ -85,7 +85,7 @@
 				</div>
 
 				{#snippet footer()}
-					<div class="grid gap-3 mt-4">
+					<div class="mt-4 grid gap-3">
 						<Button>Sign in</Button>
 						<Button role="secondary" variant="outline">Continue with GitHub</Button>
 						<p class="text-center text-sm text-app-text-muted">
