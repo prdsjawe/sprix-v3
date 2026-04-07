@@ -32,11 +32,11 @@
 	}
 
 	.cds-pre {
-		@apply m-0 py-4;
+		@apply m-0;
 	}
 
 	.cds-code {
-		@apply grid min-w-full font-mono;
+		@apply grid min-w-full py-4 font-mono;
 	}
 
 	.cds:not(.cds-no-lines) .cds-code {

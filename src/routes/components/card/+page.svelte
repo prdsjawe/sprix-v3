@@ -41,7 +41,7 @@
 				</div>
 
 				{#snippet footer()}
-					<div class="flex justify-end gap-2">
+					<div class="flex justify-end gap-2 mt-4">
 						<Button role="secondary" variant="outline">Review</Button>
 						<Button>Publish</Button>
 					</div>

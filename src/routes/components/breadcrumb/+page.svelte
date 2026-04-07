@@ -37,14 +37,14 @@
 	{basicSnippet}
 >
 	{#snippet live()}
-		<div class="mx-auto w-full max-w-4xl">
+		<div class="mx-auto flex w-full max-w-4xl justify-center">
 			<Breadcrumb items={breadcrumbPathItems} />
 		</div>
 	{/snippet}
 
 	{#snippet examples()}
 		<DocsExample title="Icons" subtitle="Use icons sparingly for the first step in a path.">
-			<div class="mx-auto w-full max-w-4xl">
+			<div class="mx-auto flex w-full max-w-4xl justify-center">
 				<Breadcrumb items={iconBreadcrumbItems} />
 			</div>
 		</DocsExample>

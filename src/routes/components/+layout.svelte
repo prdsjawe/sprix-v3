@@ -35,13 +35,7 @@
 		items={sidebarItems}
 		value={activeValue}
 		class="max-h-72 shrink-0 rounded-none border-0 border-b border-app-border bg-app-surface shadow-none lg:h-full lg:max-h-none lg:w-80 lg:border-r lg:border-b-0"
-	>
-		{#snippet header()}
-			<div class="grid gap-1">
-				<p class="text-sm font-medium text-zinc-950 dark:text-zinc-50">Components</p>
-			</div>
-		{/snippet}
-	</SprixSidebar>
+	></SprixSidebar>
 
 	<div class="min-h-0 flex-1 overflow-y-auto">
 		<main class="min-h-full px-4 py-4 sm:px-6 lg:px-8 lg:py-8">

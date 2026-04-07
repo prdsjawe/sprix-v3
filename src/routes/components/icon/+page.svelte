@@ -7,7 +7,7 @@
 		import { Icon } from '$lib/components';
 	<\/script>
 
-	<Icon name="sparkles" class="size-5 text-app-text" />`;
+	<Icon name="sparkles" class="size-5 fill-transparent stroke-app-text" />`;
 </script>
 
 <ComponentDocsPage
@@ -18,30 +18,46 @@
 	{basicSnippet}
 >
 	{#snippet live()}
-		<div class="mx-auto grid w-full max-w-3xl grid-cols-4 gap-4 text-app-text sm:grid-cols-8">
+		<div class="mx-auto grid w-full max-w-3xl grid-cols-4 gap-4 sm:grid-cols-8">
 			<div class="flex flex-col items-center gap-2">
-				<Icon name="sparkles" class="size-6" /><span class="text-xs">sparkles</span>
+				<Icon name="sparkles" class="size-6 fill-transparent stroke-app-text" /><span
+					class="text-xs">sparkles</span
+				>
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon name="chart-bar" class="size-6" /><span class="text-xs">chart-bar</span>
+				<Icon name="chart-bar" class="size-6 fill-transparent stroke-app-text" /><span
+					class="text-xs">chart-bar</span
+				>
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon name="users" class="size-6" /><span class="text-xs">users</span>
+				<Icon name="users" class="size-6 fill-transparent stroke-app-text" /><span class="text-xs"
+					>users</span
+				>
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon name="bell" class="size-6" /><span class="text-xs">bell</span>
+				<Icon name="bell" class="size-6 fill-transparent stroke-app-text" /><span class="text-xs"
+					>bell</span
+				>
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon name="home" class="size-6" /><span class="text-xs">home</span>
+				<Icon name="home" class="size-6 fill-transparent stroke-app-text" /><span class="text-xs"
+					>home</span
+				>
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon name="arrow-right" class="size-6" /><span class="text-xs">arrow-right</span>
+				<Icon name="arrow-right" class="size-6 fill-transparent stroke-app-text" /><span
+					class="text-xs">arrow-right</span
+				>
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon name="document-text" class="size-6" /><span class="text-xs">document-text</span>
+				<Icon name="document-text" class="size-6 fill-transparent stroke-app-text" /><span
+					class="text-xs">document-text</span
+				>
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon name="rocket-launch" class="size-6" /><span class="text-xs">rocket-launch</span>
+				<Icon name="rocket-launch" class="size-6 fill-transparent stroke-app-text" /><span
+					class="text-xs">rocket-launch</span
+				>
 			</div>
 		</div>
 	{/snippet}
@@ -51,11 +67,11 @@
 			title="Scale with Utilities"
 			subtitle="Use standard utility classes to size and color the icon with surrounding text."
 		>
-			<div class="mx-auto flex w-full max-w-3xl items-end justify-center gap-6 text-app-text">
-				<Icon name="sparkles" class="size-4 text-app-text-muted" />
-				<Icon name="sparkles" class="size-6 text-app-text" />
-				<Icon name="sparkles" class="size-8 text-app-text" />
-				<Icon name="sparkles" class="size-10 text-app-text" />
+			<div class="mx-auto flex w-full max-w-3xl items-end justify-center gap-6">
+				<Icon name="sparkles" class="size-4 fill-transparent stroke-app-text-muted" />
+				<Icon name="sparkles" class="size-6 fill-transparent stroke-app-text" />
+				<Icon name="sparkles" class="size-8 fill-transparent stroke-app-text" />
+				<Icon name="sparkles" class="size-10 fill-transparent stroke-app-text" />
 			</div>
 		</DocsExample>
 	{/snippet}
